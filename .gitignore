@@ -1,0 +1,16 @@
+# Files not to check in
+twitterauth.py
+reply_ids.txt
+__pycache__
+__pycache__/twitter_stuff.cpython-36.pyc
+__pycache__/misc.cpython-36.pyc
+__pycache__/locations.cpython-36.pyc
+__pycache__/generators.cpython-36.pyc
+__pycache__/bodyparts.cpython-36.pyc
+reply_ids.txt
+image_tester.py
+reply_ids.txt
+notes and ideas.txt
+notes and ideas.txt
+reply_ids.txt
+history_q.txt
