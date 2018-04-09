@@ -3,14 +3,6 @@
  
 import sys, argparse, datetime, threading, traceback
 
-import bodyparts
-import locations
-import names
-import people
-import verbs
-import misc
-import scenes
-
 from io import BytesIO
 from random import *
 from util import *
@@ -36,21 +28,22 @@ def ReplyResponder(e, api, iReplyTimer):
 	print("Exiting ReplyResponder()")
 	
 def InitBot(iTweetTimer, iReplyTimer, bTweet = True, iTweets = 1, iGeneratorNo = MAX_GENERATOR_NO):
-	print("=*=*=*= FLAMING LUST BOT IS RUNNING (@bot_lust) =*=*=*=\n\n")
+	print("=*=*=*= EROTICA_EBOOKS BOT IS RUNNING (@erotica_ebooks) =*=*=*=\n\n")
 	
 	sTweet = ""
 	bTest = False 
 	
-	util.TweetHistoryQ = HistoryQWithLog(util.HISTORYQ_FILENAME)
+	TweetHistoryQ = HistoryQWithLog(HISTORYQ_FILENAME)
 	
 	try:
 		
-		api = InitTweepy()
-
 		e = threading.Event()
-		ResponderThread = threading.Thread(target=ReplyResponder, args=(e,api,iReplyTimer))
-		ResponderThread.parent_thread = threading.current_thread()
-		ResponderThread.start()
+		if bTweet:
+			api = InitTweepy()
+
+			ResponderThread = threading.Thread(target=ReplyResponder, args=(e,api,iReplyTimer))
+			ResponderThread.parent_thread = threading.current_thread()
+			ResponderThread.start()
 		
 		if iGeneratorNo == -1:
 			iGeneratorNo = MAX_GENERATOR_NO
@@ -83,6 +76,10 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = True, iTweets = 1, iGeneratorNo =
 					#print(misc.TweetReplyBuilder().GetReply())
 					
 				currentDT = datetime.datetime.now()
+				
+				ImgFile = BytesIO() 
+				CreateImg(sTweet).save(ImgFile, format = 'PNG')
+				
 				if bTweet:
 					print("* Tweeted at " + currentDT.strftime("%H:%M:%S"))
 						
@@ -94,9 +91,6 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = True, iTweets = 1, iGeneratorNo =
 						if Gen.Type == GeneratorType.Promo:
 							status = UpdateStatus(api, sTweet)
 						else:
-							ImgFile = BytesIO() 
-							CreateImg(sTweet).save(ImgFile, format = 'PNG')
-							
 							status = UpdateStatusWithImage(api, sText, ImgFile)		
 					else:
 						#pass
@@ -119,6 +113,10 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = True, iTweets = 1, iGeneratorNo =
 					else:
 						print("* Next tweet in " + str(iTweetTimer) + " seconds (" + (currentDT + datetime.timedelta(seconds=iTweetTimer)).strftime("%H:%M:%S") + ")...")
 						time.sleep(iTweetTimer)
+						
+				else:
+					with open(GenerateFileName(), 'wb') as file:
+						file.write(ImgFile.getvalue())
 	except KeyboardInterrupt:
 		print("Ending program ...")
 		
@@ -126,7 +124,7 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = True, iTweets = 1, iGeneratorNo =
 		
 		sys.exit(1)	
 	finally:
-		util.TweetHistoryQ.LogHistoryQ()
+		TweetHistoryQ.LogHistoryQ()
 		print("***Goodbye***")
 		
 	e.set()

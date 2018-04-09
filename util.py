@@ -58,9 +58,9 @@ def AddArticles(sNounPhrase):
 	if len(sNounPhrase) > 0:
 		if not sNounPhrase[len(sNounPhrase) - 1] == 's':
 			if sNounPhrase[0].lower() in ['a','e','i','o','u']:
-				sUpdatedPhrase = 'an ' + sNounPhrase
+				sUpdatedPhrase = 'An ' + sNounPhrase
 			else:
-				sUpdatedPhrase = 'a ' + sNounPhrase
+				sUpdatedPhrase = 'A ' + sNounPhrase
 		else:
 			sUpdatedPhrase = sNounPhrase
 			
@@ -182,12 +182,15 @@ class WordList:
 		self.DefaultWord = ""
 		self.WordHistoryQ = HistoryQ(3)
 	
-	def GetWord(self, sNot = ""):
+	def GetWord(self, NotList = None):
 		sWord = ""
+		
+		if NotList is None:
+			NotList = []
 		
 		if not self.List == None and len(self.List) > 0:
 			sWord = self.List[randint(0, len(self.List) - 1)]
-			while not self.WordHistoryQ.PushToHistoryQ(sWord) and (sNot != "" and sNot in sWord):
+			while not self.WordHistoryQ.PushToHistoryQ(sWord) or sWord in NotList:
 				sWord = self.List[randint(0, len(self.List) - 1)]
 				
 		return sWord
