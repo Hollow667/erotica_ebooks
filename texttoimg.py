@@ -137,7 +137,7 @@ def FormatText(sText, size, color):
 			width, height = font.getsize(Lines[x])
 			width = width - (width * .05)
 
-			print("Base Width: [" + str(base_width) + "]  Offset Width: [" + str(offset_width) + "]  Line Width: [" + str(width) + "]  (Offset Width - Width)/2: [" + str((offset_width - width)/2) + "]")
+			#print("Base Width: [" + str(base_width) + "]  Offset Width: [" + str(offset_width) + "]  Line Width: [" + str(width) + "]  (Offset Width - Width)/2: [" + str((offset_width - width)/2) + "]")
 			draw.text(((offset_width - width)/2, (offset_height - iTotLineHeight)/2 + y_text), Lines[x], font=font, fill=color)
 		y_text += height
 	
