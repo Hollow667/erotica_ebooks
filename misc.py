@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 # Misc module
 
 import people
@@ -152,18 +154,22 @@ class BookGirlsBasic(WordList):
 	WordHistoryQ = HistoryQ(3)
 	
 	def __init__(self):
-		super().__init__(['Bride',
+		super().__init__(['Blonde',
+			'Bride',
 			'Bride',
 			'Bridesmaid',
+			'Brunette',
 			'Co-ed',
 			'Girlfriend',
 			'Housewife',
 			'Intern',
 			'Lady',
+			'Latina',
 			'Lesbian',
 			'Maid',
 			'Maiden',
 			'Momma',
+			'Redhead',
 			'Sisters',
 			'Step-Daughter',
 			'Submissive',
@@ -185,7 +191,6 @@ class BookGirls(WordList):
 			'Bad Girl',
 			'Bikini Model',
 			'Bimbo',
-			'Blonde',
 			'Brat',
 			'BBW',
 			'Call-Girl',
@@ -218,7 +223,6 @@ class BookGirls(WordList):
 			'Porn Star',
 			'Princess',
 			'Princess',
-			'Redhead',
 			'Secretary',
 			'Secretary',
 			'Sex Slave',
@@ -342,6 +346,7 @@ class BookMastersBasic(WordList):
 	
 	def __init__(self):
 		super().__init__(['Alpha',
+			'Artist',
 			'Athlete',
 			'Boyfriend',
 			'Dad',
@@ -349,6 +354,7 @@ class BookMastersBasic(WordList):
 			'Family Man',
 			'Father-in-Law',
 			'Gentleman',
+			'Hipster',
 			'Husband',
 			'Preacher',
 			'President',
@@ -444,6 +450,7 @@ class BookMasters(WordList):
 			'Quarterback',
 			'Rock Star',
 			'Shah',
+			'Secret Agent',
 			'Sex Addict',
 			'Sex Warlock',
 			'Sheikh',
@@ -451,6 +458,7 @@ class BookMasters(WordList):
 			'Single Dad',
 			'Sorcerer',
 			'Spy',
+			'Stallion',
 			'Sultan',
 			'Surfer',
 			'Surgeon',
@@ -509,6 +517,7 @@ class BookMasterAdjs(WordList):
 			'Famous',
 			'French',
 			'Gang-Bang',
+			'Geeky',
 			'Hairy',
 			'Handsome',
 			'Handsome',
@@ -516,6 +525,7 @@ class BookMasterAdjs(WordList):
 			'Horny',
 			'Irish',
 			'Italian',
+			'Kinky',
 			'Leather',
 			'Mustachioed',
 			'Naked',
@@ -622,11 +632,14 @@ class BookVerbsBy(WordList):
 			'Hotwifed',
 			'Humiliated',
 			'Hunted For Food',
+			'Hypnotized',
 			'Impregnated',
 			'Kept',
 			'Knocked Up',
 			'Mastered',
+			'Mind-Controlled',
 			'Owned',
+			'Paddled',
 			'Pleasured',
 			'Pleasured in Public',
 			'Punished',
@@ -649,7 +662,8 @@ class BookVerbsBy(WordList):
 			'Tempted',
 			'Trained',
 			'Secretly Watched',
-			'Violated',])
+			'Violated',
+			'Whipped'])
 			
 class BookVerbsTo(WordList):
 	WordHistoryQ = HistoryQ(3)

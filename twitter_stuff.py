@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 # Twitter-related functions (Tweepy-based)
 
 # FYI I have learned something about twitter and bot automation that I want to share. I was having a lot of trouble with this bot's replies to people disappearing into the ether. They were being sent. If I logged in as the bot I could see them. But the recipient was not notified and sometimes the replies didnt show up even when I searched for them.
