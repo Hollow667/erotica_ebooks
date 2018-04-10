@@ -178,6 +178,18 @@ class WordList:
 			
 		self.DefaultWord = ""
 		self.WordHistoryQ = HistoryQ(3)
+		
+	def FoundIn(self, sWord, ListStrings):
+		bFound = False 
+		
+		if not ListStrings is None and len(ListStrings) > 0:
+			for str in ListStrings:
+				if str.lower() in sWord.lower():
+		#print("Found '" + str + "' in '" + sWord + "'!")
+					bFound = True
+					break
+				
+		return bFound 
 	
 	def GetWord(self, NotList = None):
 		sWord = ""
@@ -187,7 +199,7 @@ class WordList:
 		
 		if not self.List == None and len(self.List) > 0:
 			sWord = self.List[randint(0, len(self.List) - 1)]
-			while not self.WordHistoryQ.PushToHistoryQ(sWord) or sWord in NotList:
+			while not self.WordHistoryQ.PushToHistoryQ(sWord) or self.FoundIn(sWord, NotList):
 				sWord = self.List[randint(0, len(self.List) - 1)]
 				
 		return sWord
