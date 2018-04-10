@@ -96,15 +96,15 @@ def GenerateFileName():
 	sFileName = ""
 	sFileType = "png"
 	
+	#append current time in seconds, remove '.' that seperates miliseconds
+	sFileName += str(time.time()).replace(".", "")
+	
 	#first part of filename is 5-12 alphanumeric chars
 	sAlphaNum = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 	
 	for i in range(5, randint(7,13)):
 		sFileName += sAlphaNum[randint(0, len(sAlphaNum) - 1)]
 		
-	#append current time in seconds, remove '.' that seperates miliseconds
-	sFileName += str(time.time()).replace(".", "")
-	
 	sFileName += "." + sFileType
 	
 	return sFileName

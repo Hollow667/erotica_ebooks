@@ -52,128 +52,175 @@ class Generator():
 	Type = GeneratorType.Normal
 	# most generators are Normal. Setting a generator to Test makes sure it can't be selected randomly. Setting a generator to Promo means it won't be selected for reply tweets
 	
-	def GetMaster(self, NotList = None):
-		sMaster = ""
-		
-		iRand = randint(1,12)
-		
-		if iRand == 1:
-		# non-basic master, no adjs
-			sMaster = self.Masters.GetWord()
-		elif iRand == 2:
-		# non-basic master, 1 reg adj
-			sNoun = self.Masters.GetWord()
-			sAdj = self.MasterAdjs.GetWord(NotList = [sNoun])
-			sMaster = sAdj + " " + sNoun
-		elif iRand == 3:
-		#non-basic master, 1 comp adj
-			sNoun = self.Masters.GetWord()
-			sAdj = self.MasterCompAdjs.GetWord(NotList = [sNoun])
-			sMaster = sAdj + " " + sNoun
-		elif iRand == 4:
-		#non-basic master, 1 reg adj & 1 comp adj
-			sNoun = self.Masters.GetWord()
-			sAdj1 = self.MasterAdjs.GetWord(NotList = [sNoun])
-			sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sNoun, sAdj1])
-			sMaster = sAdj1 + " " + sAdj2 + " " + sNoun
-		elif iRand == 5:
-		#non-basic master, 2 comp adjs 
-			sNoun = self.Masters.GetWord()
-			sAdj1 = self.MasterAdjs.GetWord(NotList = [sNoun])
-			sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sNoun, sAdj1])
-			sMaster = sAdj1 + " " + sAdj2 + " " + sNoun
-		elif iRand == 6:
-		#basic master, 1 reg adj
-			sNoun = self.MastersBasic.GetWord()
-			sAdj = self.MasterAdjs.GetWord(NotList = [sNoun])
-			sMaster = sAdj + " " + sNoun
-		elif iRand == 7:
-		#basic master, 1 comp adj
-			sNoun = self.MastersBasic.GetWord()
-			sAdj = self.MasterCompAdjs.GetWord(NotList = [sNoun])
-			sMaster = sAdj + " " + sNoun
-		elif iRand == 7:
-		#basic master, 1 reg adj & 1 comp adj 
-			sNoun = self.MastersBasic.GetWord()
-			sAdj1 = self.MasterAdjs.GetWord(NotList = [sNoun])
-			sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sNoun, sAdj1])
-			sMaster = sAdj1 + " " + sAdj2 + " " + sNoun
-		elif iRand == 8:
-		#basic master, 2 comp adjs 
-			sNoun = self.MastersBasic.GetWord()
-			sAdj1 = self.MasterCompAdjs.GetWord(NotList = [sNoun])
-			sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sNoun, sAdj1])
-			sMaster = sAdj1 + " " + sAdj2 + " " + sNoun
-		elif iRand == 9:
-		#gang, no adjs
-			sMaster = self.MasterGangs.GetWord()
-		elif iRand == 10:
-		#gang, 1 reg adj 
-			sNoun = self.MasterGangs.GetWord()
-			sAdj = self.MasterAdjs.GetWord(NotList = [sNoun])
-			sMaster = sAdj + " " + sNoun
-		elif iRand == 11:
-		#gang, 1 comp adj
-			sNoun = self.MasterGangs.GetWord()
-			sAdj = self.MasterCompAdjs.GetWord(NotList = [sNoun])
-			sMaster = sAdj + " " + sNoun
-		elif iRand == 12:
-		#gang, 1 reg adj & 1 comp adj 
-			sNoun = self.MasterGangs.GetWord()
-			sAdj1 = self.MasterAdjs.GetWord(NotList = [sNoun])
-			sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sNoun, sAdj1])
-			sMaster = sAdj1 + " " + sAdj2 + " " + sNoun
+	def SetPriority(self, sText, List, iPriority):
+		for x in range(iPriority):
+			List.append(sText)
 	
-		return sMaster
+	def GetMaster(self, NotList = None, bNonBasic = True, bBasic = True, bGangs = True, bComplex = True):
+		if NotList is None:
+			NotList = []
+			
+		Masters = []
 		
-	def GetGirl(self, NotList = None):
+		sBMaster = self.MastersBasic.GetWord(NotList = NotList)
+		sNBMaster = self.Masters.GetWord(NotList = NotList)
+		sGang = self.MasterGangs.GetWord(NotList = NotList)
+
+		if bNonBasic:		
+			NotList.append(sNBMaster)
+			# non-basic master, no adjs
+			self.SetPriority(sNBMaster, Masters, 4)
+			# ========================================
+
+			# non-basic master, 1 reg adj
+			sAdj = self.MasterAdjs.GetWord(NotList = NotList)
+			self.SetPriority(sAdj + " " + sNBMaster, Masters, 3)
+			# ========================================
+			
+			#non-basic master, 1 comp adj
+			sAdj = self.MasterCompAdjs.GetWord(NotList = NotList)
+			self.SetPriority(sAdj + " " + sNBMaster, Masters, 2)
+			# ========================================
+
+			#non-basic master, 1 reg adj & 1 comp adj
+			sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
+			sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sAdj1] + NotList)
+			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sNBMaster, Masters, 2)
+			# ========================================
+
+			if bComplex:
+				#non-basic master, 2 comp adjs 
+				sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
+				sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sAdj1] + NotList)
+				self.SetPriority(sAdj1 + " " + sAdj2 + " " + sNBMaster, Masters, 1)
+				# ========================================
+			
+			NotList.pop()
+
+		if bBasic:
+			NotList.append(sBMaster)
+			
+			#basic master, 1 reg adj
+			sAdj = self.MasterAdjs.GetWord(NotList = NotList)
+			self.SetPriority(sAdj + " " + sBMaster, Masters, 4)
+			# ========================================
+
+			#basic master, 1 comp adj
+			sAdj = self.MasterCompAdjs.GetWord(NotList = NotList)
+			self.SetPriority(sAdj + " " + sBMaster, Masters, 3)
+			# ========================================
+
+			#basic master, 1 reg adj & 1 comp adj 
+			sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
+			sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sAdj1] + NotList)
+			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sBMaster, Masters, 2)
+			# ========================================
+
+			#basic master, 2 comp adjs 
+			sAdj1 = self.MasterCompAdjs.GetWord(NotList = NotList)
+			sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sAdj1] + NotList)
+			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sBMaster, Masters, 1)
+			# ========================================
+			
+			NotList.pop()
+
+		if bGangs:
+			NotList.append(sGang)
+		
+			#gang, no adjs
+			self.SetPriority(sGang, Masters, 3)
+			# ========================================
+
+			#gang, 1 reg adj 
+			sAdj = self.MasterAdjs.GetWord(NotList = NotList)
+			self.SetPriority(sAdj + " " + sGang, Masters, 2)
+			# ========================================
+
+			#gang, 1 comp adj
+			sAdj = self.MasterCompAdjs.GetWord(NotList = NotList)
+			self.SetPriority(sAdj + " " + sGang, Masters, 2)
+			# ========================================
+
+			#gang, 1 reg adj & 1 comp adj 
+			sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
+			sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sAdj1] + NotList)
+			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sGang, Masters, 1)
+			# ========================================
+			
+			NotList.pop()
+	
+		return Masters[randint(0, len(Masters) - 1)]
+		
+	def GetGirl(self, NotList = None, bNonBasic = True, bBasic = True, bComplex = True):
 		sGirl = ""
 		
-		iRand = randint(1,8)
+		if NotList is None:
+			NotList = []
 		
-		if iRand == 1:
-		# non-basic girl, no adjs
-			sGirl = self.Girls.GetWord()
-		elif iRand == 2:
-		# non-basic girl, 1 reg adj
-			sNoun = self.Girls.GetWord()
-			sGirl = self.GirlAdjs.GetWord(NotList = [sNoun]) + " " + sNoun
-		elif iRand == 3:
-		# non-basic girl, 1 reg and 1 comp adj 
-			sNoun = self.Girls.GetWord()
-			sAdj1 = self.GirlAdjs.GetWord(NotList = [sNoun])
-			sAdj2 = self.GirlCompAdjs.GetWord(NotList = [sNoun, sAdj1])
-			sGirl = sAdj1 + " " + sAdj2 + " " + sNoun
-		elif iRand == 4:
-		# non-basic girl, 2 comp adjs
-			sNoun = self.Girls.GetWord()
-			sAdj1 = self.GirlCompAdjs.GetWord(NotList = [sNoun])
-			sAdj2 = self.GirlCompAdjs.GetWord(NotList = [sNoun, sAdj1])
-			sGirl = sAdj1 + " " + sAdj2 + " " + sNoun
-		elif iRand == 5:
-		# basic girl, 1 reg adj 
-			sNoun = self.GirlsBasic.GetWord()
-			sAdj = self.GirlAdjs.GetWord(NotList = [sNoun])
-			sGirl = sAdj + " " + sNoun
-		elif iRand == 6:
-		# basic girl, 1 comp adj 
-			sNoun = self.GirlsBasic.GetWord()
-			sAdj = self.GirlCompAdjs.GetWord(NotList = [sNoun])
-			sGirl = sAdj + " " + sNoun
-		elif iRand == 7:
-		# basic girl, 1 reg adj and 1 comp adj 
-			sNoun = self.GirlsBasic.GetWord()
-			sAdj1 = self.GirlAdjs.GetWord(NotList = [sNoun])
-			sAdj2 = self.GirlCompAdjs.GetWord(NotList = [sNoun, sAdj1])
-			sGirl = sAdj1 + " " + sAdj2 + " " + sNoun
-		elif iRand == 8:
-		# basic girl, 2 comp adjs
-			sNoun = self.GirlsBasic.GetWord()
-			sAdj1 = self.GirlCompAdjs.GetWord(NotList = [sNoun])
-			sAdj2 = self.GirlCompAdjs.GetWord(NotList = [sNoun, sAdj1])
-			sGirl = sAdj1 + " " + sAdj2 + " " + sNoun
+		Girls = []
+		
+		sBGirl = self.GirlsBasic.GetWord()
+		sNBGirl = self.Girls.GetWord()
+
+		if bNonBasic:
+			NotList.append(sNBGirl)
 			
-		return sGirl
+			# non-basic girl, no adjs
+			self.SetPriority(sNBGirl, Girls, 4)
+			# ========================================
+			
+			# non-basic girl, 1 reg adj
+			self.SetPriority(self.GirlAdjs.GetWord(NotList = NotList) + " " + sNBGirl, Girls, 3)
+			# ========================================
+
+			# non-basic girl, 1 comp adj 
+			sAdj = self.GirlCompAdjs.GetWord(NotList = NotList)
+			self.SetPriority(sAdj + " " + sNBGirl, Girls, 3)
+			# ========================================
+			
+			# non-basic girl, 1 reg and 1 comp adj 
+			sAdj1 = self.GirlAdjs.GetWord(NotList = NotList)
+			sAdj2 = self.GirlCompAdjs.GetWord(NotList = [sAdj1] + NotList)
+			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sNBGirl, Girls, 2)
+			# ========================================
+
+			if bComplex:
+				# non-basic girl, 2 comp adjs
+				sAdj1 = self.GirlCompAdjs.GetWord(NotList = NotList)
+				sAdj2 = self.GirlCompAdjs.GetWord(NotList = [sAdj1] + NotList)
+				self.SetPriority(sAdj1 + " " + sAdj2 + " " + sNBGirl, Girls, 1)
+				# ========================================
+			
+			NotList.pop()
+
+		if bBasic:
+			NotList.append(sBGirl)
+			
+			# basic girl, 1 reg adj 
+			sAdj = self.GirlAdjs.GetWord(NotList = NotList)
+			self.SetPriority(sAdj + " " + sBGirl, Girls, 4)
+			# ========================================
+
+			# basic girl, 1 comp adj 
+			sAdj = self.GirlCompAdjs.GetWord(NotList = NotList)
+			self.SetPriority(sAdj + " " + sBGirl, Girls, 3)
+			# ========================================
+
+			# basic girl, 1 reg adj and 1 comp adj 
+			sAdj1 = self.GirlAdjs.GetWord(NotList = NotList)
+			sAdj2 = self.GirlCompAdjs.GetWord(NotList = [sAdj1] + NotList)
+			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sBGirl, Girls, 3)
+			# ========================================
+
+			# basic girl, 2 comp adjs
+			sAdj1 = self.GirlCompAdjs.GetWord(NotList = NotList)
+			sAdj2 = self.GirlCompAdjs.GetWord(NotList = [sAdj1] + NotList)
+			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sBGirl, Girls, 1)
+			# ========================================
+			
+			NotList.pop()
+			
+		return Girls[randint(0, len(Girls) - 1)]
 		
 	def _getFMs_(self):
 		FMs = ""
@@ -292,7 +339,7 @@ class Generator3(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 			
-		sTweet = self.VerbsTo.GetWord() + " to the " + self.GetMaster()
+		sTweet = self.VerbsTo.GetWord() + " to the " + self.GetMaster(NotList = ["BDSM"])
 		if CoinFlip():
 			if CoinFlip():
 				sTweet += ":\nA " + self._getFMs_() + " Romance"
@@ -323,7 +370,7 @@ class Generator5(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 			
-		sTweet = "The " + self.GetMaster() + "'s " + self.GetGirl()
+		sTweet = "The " + self.GetMaster(NotList = ["BDSM"]) + "'s " + self.GetGirl(NotList = ["BDSM"])
 		if CoinFlip():
 			if CoinFlip():
 				sTweet += ":\nA BDSM Romance"
@@ -375,8 +422,16 @@ class Generator8(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		sTweet = "The " + self.GetGirl() + "'s " + self.GetMaster()
-		
+		#sTweet = "The " + self.GetGirl() + "'s " + self.GetMaster()
+		sTweet = "My " + WordList(["Boyfriend", "Hot Date", "Fiancé"]).GetWord() + " is a " + self.GetMaster(NotList = ["Boyfriend", "Hot Date", "Fiancé"], bGangs = False)
+		if CoinFlip():
+			if CoinFlip():
+				sTweet += ":\n" + AddArticles(self.GetGirl()) + " Romance"
+			else:
+				sTweet += ":\n" + AddArticles(self.GetGirl()) + " Adventure"
+		else:
+			sTweet += "!"
+			
 		return sTweet
 		
 class Generator9(Generator):
@@ -388,7 +443,7 @@ class Generator9(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 			
-		sTweet = "The " + self.GetGirl() + " & the " + self.GetMaster()
+		sTweet = "The " + self.GetGirl(NotList = ["BDSM"]) + " & the " + self.GetMaster(NotList = ["BDSM"])
 		if CoinFlip():
 			if CoinFlip():
 				sTweet += ":\nA BDSM Romance"
@@ -421,7 +476,7 @@ class Generator11(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		sTweet = "The " + self.GetMaster() + "'s " + self.GetGirl()
+		sTweet = "The " + self.GetMaster() + "'s " + self.GetGirl(bComplex = False)
 
 		return sTweet
 		
@@ -434,7 +489,7 @@ class Generator12(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		sTweet = self.GetGirl() + " to the " + self.GetMaster()
+		sTweet = self.GetGirl(bComplex = False) + " to the " + self.GetMaster()
 		
 		return sTweet
 		
@@ -449,10 +504,7 @@ class Generator13(Generator):
 		
 		sTweet = self.GetGirl() + " for the " + self.GetMaster()
 		if CoinFlip():
-			if CoinFlip():
-				sTweet += ":\nAn " + self._getFMs_() + " Adventure"
-			else:
-				sTweet += ":\nA BDSM Romance"
+			sTweet += ":\n" + WordList(["An " + self._getFMs_() + " Adventure","A BDSM Romance","A Forbidden Romance"]).GetWord()
 		
 		return sTweet
 	
@@ -478,7 +530,7 @@ class Generator15(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		sTweet = "The " + self.GetGirl() + "'s First Porno"
+		sTweet = "The " + self.GetGirl(NotList = ["Porn Star"], bComplex = False) + "'s First Porno"
 		if CoinFlip():
 			sTweet += ":\nAn " + self._getFMs_() + " Adventure"
 
@@ -494,12 +546,9 @@ class Generator16(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 
-		sTweet = "The " + self.GetGirl() + "'s First Time"
+		sTweet = "The " + self.GetGirl(bComplex = False, NotList = ["Slut", "Whore", "Escort", "Call-Girl", "Dominatrix", "Promiscuous", "Pregnant", "Mom", "Sex"]) + "'s First Time"
 		if CoinFlip():
-			if CoinFlip():
-				sTweet += ":\nA " + self._getFMs_() + " Romance"
-			else:
-				sTweet += ":\nA BDSM Romance"
+			sTweet += ":\n" + WordList(["A " + self._getFMs_() + " Romance", "A BDSM Romance", "A Secret Romance"]).GetWord()
 
 		return sTweet
 		
@@ -656,15 +705,18 @@ class Generator25(Generator):
 		
 		return sTweet
 		
-# class Generator54(Generator):
-	# ID = 51
-	# Priority = 1
+class Generator26(Generator):
+	ID = 26
+	Priority = 1
 	
-	# def GenerateTweet(self):
-		# super().GenerateTweet()
-		# sTweet = ""
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sTweet = ""
+		
+		sTweet = "The " + self.GetGirl(NotList = ["Nude", "Naked", "Nudist", "Latex", "Leather"]) + " Wore " + WordList(["Leather", "Latex", "Red", "Black", "Fishnets", "Spiked Heels", "A Strap-On"]).GetWord() + ":\n"
+		sTweet += WordList(["A FemDom Adventure", "A Dominatrix Adventure", "A BDSM Romance", "A Cuckold Experience"]).GetWord()
 
-		# return sTweet
+		return sTweet
 
 # class Generator55(Generator):
 	# ID = 55
