@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3.6
 # -*- coding: utf-8 -*-
  
 import sys, argparse, datetime, threading, traceback
@@ -36,14 +36,12 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = True, iTweets = 1, iGeneratorNo =
 	TweetHistoryQ = HistoryQWithLog(HISTORYQ_FILENAME)
 	
 	try:
-		
-		e = threading.Event()
-		if bTweet:
-			api = InitTweepy()
+		api = InitTweepy()
 
-			ResponderThread = threading.Thread(target=ReplyResponder, args=(e,api,iReplyTimer))
-			ResponderThread.parent_thread = threading.current_thread()
-			ResponderThread.start()
+		e = threading.Event()
+		ResponderThread = threading.Thread(target=ReplyResponder, args=(e,api,iReplyTimer))
+		ResponderThread.parent_thread = threading.current_thread()
+		ResponderThread.start()
 		
 		if iGeneratorNo == -1:
 			iGeneratorNo = MAX_GENERATOR_NO
@@ -59,7 +57,7 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = True, iTweets = 1, iGeneratorNo =
 			#Tweets = generators.GetChoppedTweets(bTest, iGeneratorNo)
 			Gen = GetTweet(bTest, iGeneratorNo, bAllowPromo = True)
 			#print("Generator ID: " + str(Gen.ID))
-			while bTweet and not util.TweetHistoryQ.PushToHistoryQ(Gen.ID):
+			while bTweet and not TweetHistoryQ.PushToHistoryQ(Gen.ID):
 				#print("Generator ID " + str(Gen.ID) + " already in Q")
 				Gen = GetTweet(bTest, iGeneratorNo, bAllowPromo = True)
 				#print("New generator ID: " + str(Gen.ID))
@@ -135,7 +133,7 @@ def SetGetArgs():
 	Parser.add_argument('-numtweets', type=int, default=1, help='number of tweets to generate before quitting (default is 1)')
 	Parser.add_argument('-test', type=int, default=-1, help='type of tweet to generate for testing purposes')
 	Parser.add_argument('-tweettimer', type=int, default=1800, help='num of seconds to wait before next tweet')
-	Parser.add_argument('-replytimer', type=int, default=90, help='num of seconds to wait before running reply routine')
+	Parser.add_argument('-replytimer', type=int, default=300, help='num of seconds to wait before running reply routine')
 	
 	return Parser.parse_args()
 			

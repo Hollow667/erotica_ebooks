@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3.6
 # -*- coding: utf-8 -*-
 # Generators module
 
@@ -89,6 +89,12 @@ class Generator():
 			sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sAdj1] + NotList)
 			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sNBMaster, Masters, 2)
 			# ========================================
+			
+			#non-basic master, 2 reg adjs
+			sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
+			sAdj2 = self.MasterAdjs.GetWord(NotList = [sAdj1] + NotList)
+			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sNBMaster, Masters, 2)
+			# ========================================
 
 			if bComplex:
 				#non-basic master, 2 comp adjs 
@@ -115,6 +121,12 @@ class Generator():
 			#basic master, 1 reg adj & 1 comp adj 
 			sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
 			sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sAdj1] + NotList)
+			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sBMaster, Masters, 2)
+			# ========================================
+			
+			#basic master, 2 reg adjs
+			sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
+			sAdj2 = self.MasterAdjs.GetWord(NotList = [sAdj1] + NotList)
 			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sBMaster, Masters, 2)
 			# ========================================
 
@@ -147,6 +159,12 @@ class Generator():
 			#gang, 1 reg adj & 1 comp adj 
 			sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
 			sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sAdj1] + NotList)
+			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sGang, Masters, 1)
+			# ========================================
+			
+			#gang, 2 reg adjs 
+			sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
+			sAdj2 = self.MasterAdjs.GetWord(NotList = [sAdj1] + NotList)
 			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sGang, Masters, 1)
 			# ========================================
 			
@@ -522,7 +540,10 @@ class Generator14(Generator):
 		if CoinFlip():
 			sTweet = "The " + self.GetGirl() + "'s Gang Bang:\nA " + self._getFMs_() + " Romance"
 		else:
-			sTweet = "Gang-Banged by the " + self.GetMaster(bBasic = False, bNonBasic = False)
+			if CoinFlip():
+				sTweet = "Gang-Banged by the " + self.GetMaster(bBasic = False, bNonBasic = False)
+			else:
+				sTweet = "Shared by the " + self.GetMaster(bBasic = False, bNonBasic = False)
 			if CoinFlip():
 				sTweet += ":\nAn " + self._getFMs_() + " Adventure"
 		
@@ -816,41 +837,45 @@ def GetImgTweetText(gen):
 	Hashtag = Hashtags()
 	SexyAdj = SexyAdjs()
 	
-	sText = "Coming soon on " + BookSeller.GetWord() 
-	for _ in range(2):
-		TweetText.append(sText)
-	#=============================
-
-	sText = "Available soon on " + BookSeller.GetWord() 
+	sBookSeller = BookSeller.GetWord()
+	
+	sText = "The " + SexyAdj.GetWord() + " " + WordList(["read", "book", "ebook"]).GetWord() + " that was " + WordList(["BANNED on", "TOO HOT for", "TOO FILTHY for", "too much for"]).GetWord() + " Amazon! Now available on " + BookSeller.GetWord(NotList = ["Amazon", "Kindle Unlimited"]) 
 	for _ in range(2):
 		TweetText.append(sText)
 	#=============================
 	
-	sText = "Look for this " + SexyAdj.GetWord() + " ebook on " + BookSeller.GetWord()  
+	sText = WordList(["Coming soon on", "Available soon on", "Look for this soon on", "Get it now on", "Download it today on"]).GetWord() + " " + sBookSeller 
+	if CoinFlip():
+		sText += " and " + BookSeller.GetWord(NotList = [sBookSeller])
 	for _ in range(2):
 		TweetText.append(sText)
 	#=============================
 	
-	sText = "Watch for this " + SexyAdj.GetWord() + " read on " + BookSeller.GetWord() 
+	sText = WordList(["Watch for this", "Look for this", "Keep an eye out for this"]).GetWord() + " " + SexyAdj.GetWord() + " ebook on " + sBookSeller
+	if CoinFlip():
+		sText += " and " + BookSeller.GetWord(NotList = [sBookSeller])
+		
 	for _ in range(2):
 		TweetText.append(sText)
 	#=============================
 	
-	sText = "Available soon to discerning readers on " + BookSeller.GetWord() 
+	sText = WordList(["Available soon", "Coming soon", "On its way soon"]).GetWord() + " to " + WordList(["discerning", "discrete", "discriminating"]).GetWord() + " readers on " + sBookSeller 
+	if CoinFlip():
+		sText += " and " + BookSeller.GetWord(NotList = [sBookSeller])
 	for _ in range(2):
 		TweetText.append(sText)
 	#=============================
 	
-	sText = "My Patreon supporters get access to all my " + SexyAdj.GetWord() + " reads!"
+	sText = "My " + WordList(["Patreon supporters", "supporters on Patreon"]).GetWord() + " get " + WordList(["instant access", "free access", "access"]).GetWord() + " to all my " + SexyAdj.GetWord() + " " + WordList(["reads", "books", "stories"]).GetWord() + "!"
 	for _ in range(2):
 		TweetText.append(sText)
 	#=============================
 	
 	sText = "Reply to this tweet and " 
 	if CoinFlip():
-		sText += "I'll tweet a randomly-generated erotica ebook title @ you!"
+		sText += "I'll tweet a " + WordList(["randomly", "computer", "bot", "algorithmically"]).GetWord () + "-generated " + WordList(["erotica", "smutty", "naughty", "erotic", "adult"]).GetWord() + " ebook title @ you!"
 	else:
-		sText += "get a custom erotic ebook title of your very own in response!"
+		sText += "get a custom " + WordList(["erotica", "smutty", "naughty", "erotic", "adult"]).GetWord() + " ebook title of your very own in reply! " + GetEmoji()
 	sText += " " + GetEmoji()
 	for _ in range(2):
 		TweetText.append(sText)

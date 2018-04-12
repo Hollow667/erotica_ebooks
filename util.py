@@ -9,7 +9,7 @@ from enum import *
 
 MAX_TWITTER_CHARS = 280
 MAX_GENERATOR_NO = 44
-TWIT_USERNAME = 'bot_lust'
+TWIT_USERNAME = 'erotica_ebooks'
 
 Q_SIZE = 10
 HISTORYQ_FILENAME = 'history_q.txt'

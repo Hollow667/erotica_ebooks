@@ -9,14 +9,14 @@ from util import *
 
 PATH = "resources/"
 FONT = "Florsn35.ttf"
-MAX_IMG_NUM = 18
+MAX_IMG_NUM = 20
 
 BGImgQ = HistoryQ(iQSize = 5)
 
 def SaveImg(img, filename = ""):
 	try:
 		if filename == "":
-			img.save('test' + str(time.time()) + '.png')
+			img.save('test' + str(time.time()) + '.jpg')
 		else:
 			img.save(filename)
 	except IOError as e:
@@ -169,7 +169,7 @@ def GetBGImg(iPicNo = 0):
 			iPicNo = randint(1, MAX_IMG_NUM)
 
 	try:
-		BGImg = Image.open(PATH + "bg_" + str(iPicNo) + ".png").convert('RGBA')
+		BGImg = Image.open(PATH + "bg_" + str(iPicNo) + ".jpg").convert('RGBA')
 	except IOError as e:
 		print("***ERROR***\nFile save failed in SaveImg()\n" + e.reason)
 	
@@ -192,7 +192,7 @@ def CreateImg(sText):
 	 
 	# save the edited image
 	 
-	return ImgOut
+	return ImgOut.convert('RGB')
 
 
 

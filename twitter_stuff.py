@@ -100,46 +100,21 @@ def RespondToReplies(api):
 			if not reply.user.id_str == my_userid:
 				if len(HistoricReplies) == 0 or not reply.id_str in HistoricReplies:
 					print("Reply found (ID# " + reply.id_str + "): " + reply.text)
-					iFlag = 1
-					if HASHTAG_BOOKTITLE in reply.text.lower():
-						iFlag = 1
-					elif HASHTAG_LOVESCENE in reply.text.lower():
-						iFlag = 2
-					else:
-						if CoinFlip():
-							iFlag  = 2
 					
-					if iFlag == 1: 
-						sPrefix = "@" + reply.user.screen_name + " thanks for replying to me! Here is your #book title."
-						Gen = GetTweet(False, bAllowPromo = False, Type = GeneratorType.BookTitle)
-						sTweet = Gen.GenerateTweet()
+					sPrefix = "@" + reply.user.screen_name + " thanks for replying to me! Here is your " + misc.SexyAdjs().GetWord() + " ebook title! " + GetEmoji()
+					Gen = GetTweet(False, bAllowPromo = False)
+					sTweet = Gen.GenerateTweet()
 
-						status = None
-						print("===Here is your " + str(len(sTweet)) + " char tweet reply to #book===")
-						print("[" + sTweet + "]")
-						print("Tweet text: [" + sPrefix + "]")
+					status = None
+					print("===Here is your " + str(len(sTweet)) + " char tweet reply===")
+					print("[" + sTweet + "]")
+					print("Tweet text: [" + sPrefix + "]")
+					
+					if sTweet != "" and sPrefix != "":
+						ImgFile = BytesIO() 
+						CreateImg(sTweet).save(ImgFile, format = 'PNG')
 						
-						if sTweet != "" and sPrefix != "":
-							ImgFile = BytesIO() 
-							CreateImg(sTweet).save(ImgFile, format = 'PNG')
-							
-							status = UpdateStatusWithImage(api, sPrefix, ImgFile, reply.id_str)	
-					else:
-						sPrefix = "@" + reply.user.screen_name + " thanks for replying to me! Here is your #lovescene."
-
-						Gen = GetTweet(False, bAllowPromo = False)
-						sTweet = Gen.GenerateTweet()
-
-						status = None
-						print("===Here is your " + str(len(sTweet)) + " char tweet reply to #lovescene===")
-						print("[" + sTweet + "]")
-						print("Tweet text: [" + sPrefix + "]")
-						
-						if sTweet != "" and sPrefix != "":
-							ImgFile = BytesIO() 
-							CreateImg(sTweet).save(ImgFile, format = 'PNG')
-							
-							status = UpdateStatusWithImage(api, sPrefix, ImgFile, reply.id_str)	
+						status = UpdateStatusWithImage(api, sPrefix, ImgFile, reply.id_str)	
 					
 					with open(REPLIES_FILE_NAME, 'a') as WriteReplyFile:
 						WriteReplyFile.write(str(reply.id_str) + "\n")
