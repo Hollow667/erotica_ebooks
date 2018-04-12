@@ -347,7 +347,7 @@ class Generator2(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		sTweet = self.HerName + " Gets " + self.VerbsBy.GetWord() + " by the " + self.GetMaster()
+		sTweet = self.HerName + " Gets " + self.VerbsBy.GetWord(NotList = ["Sexually Harrassed At My Workplace"]) + " by the " + self.GetMaster()
 		
 		return sTweet
 
@@ -612,7 +612,7 @@ class Generator18(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		sTweet += "\"" + WordList(["S@*#!", "Oh No!", "Uh Oh!", "Whoops!", "WTF?!?", "Oh F*@%!"]).GetWord() + " My " + self.GetGirl(NotList = ["Porn Star", "Sex", "Lesbian", "Bad Girl", "Call-Girl", "Stripper", "Escort", "Whore", "Slut", "Promiscuous", "Hotwife", "Dominatrix", "BDSM", "Anal"]) + " Is " + WordList(["A Porn Star", "A Lesbian", "A Call-Girl", "A Stripper", "A Whore", "A Dominatrix", "An Anal Whore", "An Anal Porn Star", "An Erotic Model"]).GetWord() + "!\""
+		sTweet += "\"" + WordList(["S@*#!", "Oh No!", "Uh Oh!", "Whoops!", "WTF?!?", "Oh F*@%!"]).GetWord() + " My " + self.GetGirl(NotList = ["Porn Star", "Sex", "Lesbian", "Bad Girl", "Call-Girl", "Stripper", "Escort", "Whore", "Slut", "Promiscuous", "Hotwife", "Dominatrix", "BDSM", "Anal", "MILF"]) + " Is " + WordList(["A Porn Star", "A Lesbian", "A Call-Girl", "A Stripper", "A Whore", "A Dominatrix", "An Anal Whore", "An Anal Porn Star", "An Erotic Model"]).GetWord() + "!\""
 		
 		return sTweet
 		

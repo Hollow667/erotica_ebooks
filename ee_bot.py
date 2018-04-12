@@ -27,7 +27,7 @@ def ReplyResponder(e, api, iReplyTimer):
 				break
 	print("Exiting ReplyResponder()")
 	
-def InitBot(iTweetTimer, iReplyTimer, bTweet = True, iTweets = 1, bLoop = False, iGeneratorNo = MAX_GENERATOR_NO):
+def InitBot(iTweetTimer, iReplyTimer, bTweet = False, iTweets = 1, bLoop = False, iGeneratorNo = -1):
 	print("=*=*=*= EROTICA_EBOOKS BOT IS RUNNING (@erotica_ebooks) =*=*=*=\n\n")
 	
 	sTweet = ""

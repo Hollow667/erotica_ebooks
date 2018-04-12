@@ -530,7 +530,7 @@ class BookMasterAdjs(WordList):
 			'Cuckolded',
 			'Dominant',
 			'Ebony',
-			'Eligible',
+			'Highly Eligible',
 			'Famous',
 			'French',
 			'Gang-Bang',
