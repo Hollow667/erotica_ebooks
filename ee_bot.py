@@ -27,7 +27,7 @@ def ReplyResponder(e, api, iReplyTimer):
 				break
 	print("Exiting ReplyResponder()")
 	
-def InitBot(iTweetTimer, iReplyTimer, bTweet = True, iTweets = 1, iGeneratorNo = MAX_GENERATOR_NO):
+def InitBot(iTweetTimer, iReplyTimer, bTweet = True, iTweets = 1, bLoop = False, iGeneratorNo = MAX_GENERATOR_NO):
 	print("=*=*=*= EROTICA_EBOOKS BOT IS RUNNING (@erotica_ebooks) =*=*=*=\n\n")
 	
 	sTweet = ""
@@ -47,8 +47,8 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = True, iTweets = 1, iGeneratorNo =
 			iGeneratorNo = MAX_GENERATOR_NO
 		else:
 			bTest = True
-		
-		for i in range(0,iTweets):
+		i = 0
+		while i in range(0,iTweets) or bLoop:
 			#Tweets = [1]
 			Gen = None 
 			sTweet = ""
@@ -115,6 +115,7 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = True, iTweets = 1, iGeneratorNo =
 				else:
 					with open(GenerateFileName(), 'wb') as file:
 						file.write(ImgFile.getvalue())
+			i += 1
 	except KeyboardInterrupt:
 		print("Ending program ...")
 		
@@ -131,6 +132,7 @@ def SetGetArgs():
 	Parser = argparse.ArgumentParser(prog='lust_bot',description='Run Flaming Lust Bot for Twitter.')
 	Parser.add_argument('-tweet', action='store_true', help='send generated tweets to Twitter? (default is False)')
 	Parser.add_argument('-numtweets', type=int, default=1, help='number of tweets to generate before quitting (default is 1)')
+	Parser.add_argument('-loop', action='store_true', help='loop infinitely until manually cancelled')
 	Parser.add_argument('-test', type=int, default=-1, help='type of tweet to generate for testing purposes')
 	Parser.add_argument('-tweettimer', type=int, default=1800, help='num of seconds to wait before next tweet')
 	Parser.add_argument('-replytimer', type=int, default=300, help='num of seconds to wait before running reply routine')
@@ -140,5 +142,5 @@ def SetGetArgs():
 Args = SetGetArgs()	
 print(Args)
 
-InitBot(Args.tweettimer, Args.replytimer, bTweet = Args.tweet, iTweets = Args.numtweets, iGeneratorNo = Args.test)
+InitBot(Args.tweettimer, Args.replytimer, bTweet = Args.tweet, iTweets = Args.numtweets, bLoop = Args.loop, iGeneratorNo = Args.test)
 

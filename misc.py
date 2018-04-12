@@ -629,6 +629,7 @@ class BookVerbsBy(WordList):
 	def __init__(self):
 		super().__init__(['Anally Deflowered',
 			'Annally Deflowered in Public',
+			'Bared',
 			'Beaten',
 			'Blackmailed',
 			'Bound',
@@ -696,8 +697,9 @@ class BookVerbsTo(WordList):
 	WordHistoryQ = HistoryQ(3)
 	
 	def __init__(self):
-		super().__init__(['Bred',
+		super().__init__(['Bared',
 				'Bound',
+				'Bred',
 				'Chained',
 				'Engaged',
 				'Enslaved',
