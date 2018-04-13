@@ -40,4 +40,4 @@ from twitter_stuff import *
 
 from ee_bot import *
 
-InitBot(2400, 300, bTweet = True, bLoop = True)
+InitBot(1500, 300, bTweet = True, bLoop = True)
