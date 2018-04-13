@@ -828,6 +828,76 @@ class Generator28(Generator):
 
 		# return sTweet
 		
+def LastNameBuilder(NotList = None):
+	sLName = ""
+	
+	Names = []
+	
+	if NotList == None:
+		NotList = []
+	
+	sName1 = LastNames().GetWord(NotList = NotList)
+	sName2 = LastNames().GetWord(NotList = [sName1] + NotList)
+	
+	for _ in range(4):
+		Names.append(sName1)
+	
+	Names.append(sName1 + "-" + sName2)
+	
+	sLName = Names[randint(0, len(Names) - 1)]
+	
+	return sLName
+		
+def AuthorBuilder():
+	sAName = ""
+	
+	Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	
+	FirstNames = []
+	MaleNames = NamesMale()
+	FemNames = NamesFemale()
+	
+	sName = ""
+	for _ in range(2):
+		sName += Alphabet[randint(0, len(Alphabet) - 1)] + "."
+	FirstNames.append(sName)
+	
+	for _ in range(3):
+		FirstNames.append(MaleNames.FirstName())
+		
+	sName1 = ""
+	sName2 = ""
+	for _ in range(2):
+		sName1 = MaleNames.FirstName()
+		sName2 = MaleNames.FirstName()
+		while sName2 in sName1:
+			sName2 = MaleNames.FirstName()
+		FirstNames.append(sName1 + " " + sName2)
+		
+	for _ in range(3):
+		FirstNames.append(MaleNames.FirstName() + " " + Alphabet[randint(0, len(Alphabet) - 1)] + ".")
+		
+	for _ in range(4):
+		FirstNames.append(FemNames.FirstName())
+		
+	sName1 = ""
+	sName2 = ""
+	for _ in range(2):
+		sName1 = FemNames.FirstName()
+		sName2 = FemNames.FirstName()
+		while sName2 in sName1:
+			sName2 = FemNames.FirstName()
+		FirstNames.append(sName1 + " " + sName2)
+		
+	for _ in range(2):
+		FirstNames.append(FemNames.FirstName() + " " + Alphabet[randint(0, len(Alphabet) - 1)] + ".")
+	
+	sAName = FirstNames[randint(0, len(FirstNames) - 1)]
+	
+	sAName += " " + LastNameBuilder(NotList = [sAName])
+	
+	return sAName
+		
 def GetImgTweetText(gen):
 	#the bot's images are the random parts but we need to be careful that this isn't constantly generating static duplicate text. twitter won't like that.
 	sText = ""
@@ -840,6 +910,8 @@ def GetImgTweetText(gen):
 	sBookSeller = BookSeller.GetWord()
 	
 	sText = "The " + SexyAdj.GetWord() + " " + WordList(["read", "book", "ebook"]).GetWord() + " that was " + WordList(["BANNED on", "TOO HOT for", "TOO FILTHY for", "too much for"]).GetWord() + " Amazon! Now available on " + BookSeller.GetWord(NotList = ["Amazon", "Kindle Unlimited"]) 
+	if CoinFlip():
+		sText += " (from " + AuthorBuilder() + ")"
 	for _ in range(2):
 		TweetText.append(sText)
 	#=============================
@@ -847,6 +919,8 @@ def GetImgTweetText(gen):
 	sText = WordList(["Coming soon on", "Available soon on", "Look for this soon on", "Get it now on", "Download it today on"]).GetWord() + " " + sBookSeller 
 	if CoinFlip():
 		sText += " and " + BookSeller.GetWord(NotList = [sBookSeller])
+	if CoinFlip():
+		sText += ". By " + AuthorBuilder()
 	for _ in range(2):
 		TweetText.append(sText)
 	#=============================
@@ -854,7 +928,8 @@ def GetImgTweetText(gen):
 	sText = WordList(["Watch for this", "Look for this", "Keep an eye out for this"]).GetWord() + " " + SexyAdj.GetWord() + " ebook on " + sBookSeller
 	if CoinFlip():
 		sText += " and " + BookSeller.GetWord(NotList = [sBookSeller])
-		
+	if CoinFlip():
+		sText += ". By " + AuthorBuilder()
 	for _ in range(2):
 		TweetText.append(sText)
 	#=============================
@@ -862,11 +937,14 @@ def GetImgTweetText(gen):
 	sText = WordList(["Available soon", "Coming soon", "On its way soon"]).GetWord() + " to " + WordList(["discerning", "discrete", "discriminating"]).GetWord() + " readers on " + sBookSeller 
 	if CoinFlip():
 		sText += " and " + BookSeller.GetWord(NotList = [sBookSeller])
+	if CoinFlip():
+		sText += ". By " + AuthorBuilder()
 	for _ in range(2):
 		TweetText.append(sText)
 	#=============================
 	
-	sText = "My " + WordList(["Patreon supporters", "supporters on Patreon"]).GetWord() + " get " + WordList(["instant access", "free access", "access"]).GetWord() + " to all my " + SexyAdj.GetWord() + " " + WordList(["reads", "books", "stories"]).GetWord() + "!"
+	sText = AuthorBuilder() + "'s "
+	sText += WordList(["Patreon supporters", "supporters on Patreon"]).GetWord() + " get " + WordList(["instant access", "free access", "access"]).GetWord() + " to all their " + SexyAdj.GetWord() + " " + WordList(["reads", "books", "stories"]).GetWord() + "!"
 	for _ in range(2):
 		TweetText.append(sText)
 	#=============================

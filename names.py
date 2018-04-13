@@ -3,10 +3,12 @@
 # Names module
 
 from random import *
+from util import *
 
 class Names:
-	FirstNamesList = []
-	LastNamesList = []
+	def __init__(self):
+		self.FirstNamesList = []
+		self.LastNamesList = []
 	
 	def FirstName(self):
 		sFirstName = ""
@@ -20,6 +22,8 @@ class Names:
 
 class NamesMale(Names):
 	def __init__(self):
+		super().__init__()
+		
 		self.FirstNamesList = ['Adam',
 			'Alex',
 			'Alistair',
@@ -164,6 +168,8 @@ class NamesMale(Names):
 		
 class NamesFemale(Names):
 	def __init__(self):
+		super().__init__()
+		
 		self.FirstNamesList = ['Alana',
 			'Alexis',
 			'Amber',
@@ -218,6 +224,7 @@ class NamesFemale(Names):
 			'Gisele',
 			'Honey',
 			'Indigo',
+			'Inya',
 			'Isabelle',
 			'Jacinda',
 			'Jaqueline',
@@ -281,3 +288,134 @@ class NamesFemale(Names):
 			'Violet',
 			'Virginia',
 			'Vivienne']
+			
+class LastNames(WordList):
+	def __init__(self):
+		super().__init__()
+		
+		self.List = ["Amalova",
+			"Ambrose",
+			"Avalon",
+			"Banks",
+			"Bardot",
+			"Beaver",
+			"Belle",
+			"Blue",
+			"Blush",
+			"Bradshaw",
+			"Bee",
+			"Bellemore",
+			"Bitt",
+			"Black",
+			"Bravo",
+			"Butts",
+			"Calderwood",
+			"Canon",
+			"Charlemaigne",
+			"Cherry",
+			"Church",
+			"Cox",
+			"Crown",
+			"Cullen",
+			"Cummings",
+			"Dalicia",
+			"Dallas",
+			"Dawn",
+			"Deacon",
+			"De Boest",
+			"Devlyn",
+			"Devonshire",
+			"Dick",
+			"Douglass",
+			"Faust",
+			"Finch",
+			"Fox",
+			"Frost",
+			"Furrows",
+			"George",
+			"Goodhead",
+			"Gray",
+			"Greene",
+			"Hancock",
+			"Harder",
+			"Hardin",
+			"Harlowe",
+			"Harper",
+			"Hawke",
+			"Hill",
+			"Hunter",
+			"Jakov",
+			"James",
+			"Johnson",
+			"Jones",
+			"Juniper",
+			"Kayne",
+			"King",
+			"Knight",
+			"Knott",
+			"Knuttz",
+			"Kuntz",
+			"Lace",
+			"Lambert",
+			"Lange",
+			"La Vigne",
+			"Le Rock",
+			"Light",
+			"Long",
+			"Lust",
+			"Mann",
+			"Marcato",
+			"Meadows",
+			"Michaels",
+			"Milfinger",
+			"Minx",
+			"Moore",
+			"Morgan",
+			"Mountford",
+			"Muff",
+			"Muffin",
+			"Noir",
+			"Norton",
+			"Onyx",
+			"Osias",
+			"Peaches",
+			"Peters",
+			"Philmore",
+			"Prince",
+			"Quinn",
+			"Rainne",
+			"Ransom",
+			"Raven",
+			"Ravenswood",
+			"Red",
+			"Rose",
+			"Rhodes",
+			"Rodd",
+			"Scott",
+			"Schaft",
+			"Skye",
+			"Sloan",
+			"Snow",
+			"Sparks",
+			"St. Claire",
+			"Steele",
+			"Sterling",
+			"Stiffington",
+			"Stiles",
+			"Storm",
+			"Strange",
+			"Stroker",
+			"Swallows",
+			"Swann",
+			"Swift",
+			"Tinto",
+			"Topper",
+			"Vale",
+			"Valentine",
+			"Venter",
+			"White",
+			"Wilde",
+			"Winters",
+			"Wolf",
+			"Wood",
+			"Zahara"]

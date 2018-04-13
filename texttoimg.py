@@ -9,7 +9,7 @@ from util import *
 
 PATH = "resources/"
 FONT = "Florsn35.ttf"
-MAX_IMG_NUM = 20
+MAX_IMG_NUM = 24
 
 BGImgQ = HistoryQ(iQSize = 5)
 
@@ -20,7 +20,7 @@ def SaveImg(img, filename = ""):
 		else:
 			img.save(filename)
 	except IOError as e:
-		print("***ERROR***\nFile save failed in SaveImg()\n" + e.reason)
+		print("***ERROR***\nFile save failed in SaveImg()\n" + e.strerror)
 		
 		
 def WrapText(sText, font, offset_width):
@@ -79,25 +79,27 @@ def FormatText(sText, size, color):
 	offset_width = round(base_width - (base_width * xOffset * 2), 0)
 	offset_height = round(base_height - (base_height * yOffset * 2), 0)
 	
-	iFontSize = 30
+	iFontSize = 3
 	
 	#print("FormatText() sText length: " + str(len(sText)))
 	iTextLen = len(sText)
-	if iTextLen <= 140:
-		iFontSize = 80
-	elif iTextLen <= 185:	#(+  45)
+	if iTextLen <= 45:
 		iFontSize = 75
-	elif iTextLen <= 255:	#(+  70)
-		iFontSize = 65
-	elif iTextLen <= 335:	#(+  80)
+	elif iTextLen <= 60:
+		iFontSize = 68
+	elif iTextLen <= 75:	#(+  45)
+		iFontSize = 60
+	elif iTextLen <= 90:	#(+  70)
 		iFontSize = 55
-	elif iTextLen <= 520:	#(+ 185)
+	elif iTextLen <= 110:	#(+  80)
+		iFontSize = 50
+	elif iTextLen <= 150:	#(+ 185)
 		iFontSize = 45
-	elif iTextLen <= 685:
-		iFontSize = 39
+	elif iTextLen <= 250:
+		iFontSize = 40
+	elif iTextLen <= 400:
+		iFontSize = 33
 	elif iTextLen <= 1000:
-		iFontSize = 31
-	elif iTextLen <= 1400:
 		iFontSize = 29
 	else: 
 		iFontSize = 25
@@ -171,7 +173,7 @@ def GetBGImg(iPicNo = 0):
 	try:
 		BGImg = Image.open(PATH + "bg_" + str(iPicNo) + ".jpg").convert('RGBA')
 	except IOError as e:
-		print("***ERROR***\nFile save failed in SaveImg()\n" + e.reason)
+		print("***ERROR***\nFile save failed in SaveImg()\n" + e.strerror)
 	
 	return BGImg
 
