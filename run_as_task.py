@@ -28,13 +28,9 @@ if not is_lock_free():
 
 # then, either include the rest of your script below,
 # or import it, if it's in a separate file:
-import bodyparts
-import locations
 import names
 import people
-import verbs
 import misc
-import scenes
 
 from io import BytesIO
 from random import *
