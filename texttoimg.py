@@ -107,7 +107,7 @@ def FormatText(sText, size, color):
 		
 	#print("FormatText() Starting font size is " + str(iFontSize))
 	
-	font = ImageFont.truetype(PATH + FONT, size = iFontSize, index = 0, layout_engine = ImageFont.LAYOUT_RAQM)
+	font = ImageFont.truetype(PATH + FONT, size = iFontSize, index = 0)
 	
 	iTotLineHeight = 0
 	
@@ -120,7 +120,7 @@ def FormatText(sText, size, color):
 		print("FormatText() offset_height exceeded for font size " + str(iFontSize) + ", shrinking font by 3 and trying again")
 		iFontSize += (-3)
 		
-		font = ImageFont.truetype(PATH + FONT, size = iFontSize, layout_engine = ImageFont.LAYOUT_RAQM)
+		font = ImageFont.truetype(PATH + FONT, size = iFontSize)
 		
 		Lines = WrapText(sText, font, offset_width)
 		
