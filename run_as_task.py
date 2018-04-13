@@ -38,6 +38,6 @@ from util import *
 from generators import *
 from twitter_stuff import *
 
-from lust_bot import *
+from ee_bot import *
 
 InitBot(2400, 300, bTweet = True, bLoop = True)
