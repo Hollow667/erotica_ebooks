@@ -5,6 +5,261 @@
 from random import *
 from util import *
 
+import misc
+
+FemCBitHistoryQ = HistoryQ(10)
+
+class CharBit():
+	def __init__(self):
+		self.val = ""
+		self.part = ""
+
+class Character():
+	def __init__(self):
+		self.Gender = Gender.Neuter
+		
+class AgeFemale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		if CoinFlip():
+			self.val = misc.AgeFemaleNoun().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+			self.part = "noun"
+		else:
+			self.val = misc.AgeFemaleAdj().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+			self.part = "adj"
+		return self.val
+		
+class AttitudeFemale(CharBit):
+	def __init__(self, Type = GirlType.Neutral):
+		super().__init__()
+		
+		self.Type = Type
+		
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		if self.Type == GirlType.Good:
+			self.val = misc.AttitudeGoodFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		elif self.Type == GirlType.Bad:
+			self.val = misc.AttitudeBadFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		else:
+			self.val = misc.AttitudeFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		
+		self.part = "adj"
+		return self.val
+		
+class ClothingFemale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.ClothingFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		
+		self.part = "adj"
+		return self.val
+		
+class GenModFemale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.GenModFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		
+		self.part = "adj"
+		return self.val
+		
+class MaritalStatusFemale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.MaritalStatusFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		
+		self.part = "adj"
+		return self.val
+		
+class NationFemale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.NationFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		
+		self.part = "adj"
+		return self.val
+		
+class PhysCharFemale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.PhysCharFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		self.part = "adj"
+		return self.val
+		
+class PregState(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.PregState().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		self.part = "adj"
+		return self.val
+		
+class ProfFemale(CharBit):
+	def __init__(self, Type = GirlType.Neutral):
+		super().__init__()
+		
+		self.Type = Type
+		
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		if self.Type == GirlType.Good:
+			self.val = misc.ProfGoodFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		elif self.Type == GirlType.Bad:
+			self.val = misc.ProfBadFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		else:
+			self.val = misc.ProfFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+			
+		self.part = "noun"
+		return self.val
+		
+class RelateFemale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.RelateFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		
+		self.part = "noun"
+		return self.val
+
+class SexualityFemale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.SexualityFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		self.part = "adj"
+		return self.val
+		
+class SkinHairColorFemale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.SkinHairColorFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		self.part = "adj"
+		return self.val
+		
+class SpeciesFemale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.SpeciesFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		self.part = "adj"
+		return self.val
+		
+class TitleFemale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.TitlesFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		self.part = "noun"
+		return self.val
+		
+class TropeFemale(CharBit):
+	def __init__(self, Type = GirlType.Neutral):
+		super().__init__()
+		
+		self.Type = Type
+		
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		if self.Type == GirlType.Good:
+			self.val = misc.TropesGoodFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		elif self.Type == GirlType.Bad:
+			self.val = misc.TropesBadFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		else:
+			self.val = misc.TropesFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)	
+			
+		self.part = "noun"
+		
+		return self.val
+		
+class FemaleChar(Character):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, Type = GirlType.Neutral, NotList = None):
+		super().__init__()
+		
+		if NotList is None:
+			NotList = []
+		
+		self.Gender = Gender.Female 
+		
+		self.GirlType = Type
+		
+		CharBitList = []
+		
+		CharBitList.append(AttitudeFemale(Type = Type))
+		CharBitList.append(AttitudeFemale(Type = Type))
+		CharBitList.append(PhysCharFemale())
+		CharBitList.append(PhysCharFemale())
+		CharBitList.append(SkinHairColorFemale())
+		if Type != GirlType.Good:
+			CharBitList.append(GenModFemale())
+		CharBitList.append(ClothingFemale())
+		CharBitList.append(PregState())
+		CharBitList.append(MaritalStatusFemale())
+		CharBitList.append(NationFemale())
+		CharBitList.append(AgeFemale())
+		CharBitList.append(SexualityFemale())
+		CharBitList.append(ProfFemale(Type = Type))
+		CharBitList.append(ProfFemale(Type = Type))
+		CharBitList.append(ProfFemale(Type = Type))
+		CharBitList.append(SpeciesFemale())
+		CharBitList.append(TropeFemale(Type = Type))
+		CharBitList.append(TropeFemale(Type = Type))
+		CharBitList.append(TropeFemale(Type = Type))
+		CharBitList.append(RelateFemale())
+		CharBitList.append(TitleFemale())
+			
+		BitGetList = []
+		bFoundNoun = False 
+		iNumCBits = 1
+		
+		irand1 = randint(iNumMinCBits, iNumMaxCBits)
+		irand2 = randint(iNumMinCBits, iNumMaxCBits)
+		
+		if irand1 > irand2:
+			iNumCBits = irand1
+		else:
+			iNumCBits = irand2 
+			
+		for x in sorted(sample(range(0, len(CharBitList)), iNumCBits)):
+			sBit = CharBitList[x].Get(NotList = NotList)
+			if CharBitList[x].part == "noun":
+				bFoundNoun = True 
+			NotList.append(sBit)
+			BitGetList.append(sBit)
+			
+		if not bFoundNoun:
+			BitGetList.append(WordList(["Girl","Woman"]).GetWord(NotList = NotList))
+		
+		self.Desc = ""
+		for x in range(0, len(BitGetList)):
+			if x > 0:
+				self.Desc += " "
+			self.Desc += BitGetList[x]
+
 class Person(WordList):
 	def GetPerson(self):
 		sPerson = ""
@@ -15,7 +270,7 @@ class Person(WordList):
 		
 class MaleSO(Person):
 	def __init__(self):
-		super().__init__(['boyfriend',
+		super().__init__(['boyfriend','boyfriend',
 			'fiancé',
 			'hubby',
 			'husband'])
@@ -23,7 +278,7 @@ class MaleSO(Person):
 class FemaleSO(Person):
 	def __init__(self):
 		super().__init__(['bride',
-			'girlfriend',
+			'girlfriend','girlfriend',
 			'fiancé',
 			'wife'])
 		

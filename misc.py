@@ -150,195 +150,288 @@ class BookSellers(WordList):
 			'Smashwords',
 			'WattPad'])
 			
+# mature, young, teenager, MILF, etc
+class AgeFemaleNoun(WordList):
+	def __init__(self):
+		super().__init__(['College Girl',
+			'Maiden',
+			'Mature Woman',
+			'MILF',
+			'Older Woman',
+			'Schoolgirl',
+			'Teen',
+			'Teenager',
+			'Virgin'])
+			
+# mature, young, teenager, MILF, etc
+class AgeFemaleAdj(WordList):
+	def __init__(self):
+		super().__init__(['Co-ed',
+			'Maiden',
+			'Mature',
+			'MILF',
+			'Nubile',
+			'Older',
+			'Schoolgirl',
+			'Teen',
+			'Teenage',
+			'Virgin',
+			'Young'])
+		
+# bashful, innocent, etc 
+class AttitudeGoodFemale(WordList):
+	def __init__(self):
+		super().__init__(['Anal Virgin',
+			'Bashful',
+			'Chaste',
+			'Conservative',
+			'Innocent',
+			'Innocent',
+			'Sassy',
+			'Sexy',
+			'Shy',
+			'Virginal'])
+		
+# kinky, slutty, etc 
+class AttitudeBadFemale(WordList):
+	def __init__(self):
+		super().__init__(['Desperate',
+			'Kinky','Kinky',
+			'Naughty','Naughty',
+			'Nympho','Nympho',
+			'Promiscuous',
+			'Slutty','Slutty','Slutty',
+			'Wanton','Wanton',
+			'Willing','Willing'])
+			
+class AttitudeFemale(WordList):
+	def __init__(self):
+		super().__init__(AttitudeGoodFemale().List + AttitudeBadFemale().List)		
+		
+class ClothingFemale(WordList):
+	def __init__(self):
+		super().__init__(['High-Heeled',
+			'Latex-Clad',
+			'Leather-Clad'])
+
+class GenModFemale(WordList):
+	def __init__(self):
+		super().__init__(['Anal','Anal',
+		'BDSM','BDSM','BDSM',
+		'Erotic',
+		'Horny',
+		'Nudist','Nudist','Nudist',
+		'Sex',
+		'Taboo','Taboo'])
+		
+# single, single mom, married, engaged
+class MaritalStatusFemale(WordList):
+	def __init__(self):
+		super().__init__(['Recently-Divorced',
+			'Concubine',
+			'Harem','Harem',
+			'Married','Married','Married',
+			'Single','Single','Single','Single'])
+
+# french, italian, etc
+class NationFemale(WordList):
+	def __init__(self):
+		super().__init__(['Amish','Amish','Amish',
+			'Asian','Asian',
+			'Christian','Christian','Christian',
+			'Country',
+			'Czech',
+			'French',
+			'German',
+			'Island Girl',
+			'Latina',
+			'Russian',
+			'Small-Town',
+			'Swedish'])
+		
+# big-titty, etc
+class PhysCharFemale(WordList):
+	def __init__(self):
+		super().__init__(['Attractive',
+			'Beautiful',
+			'Big Titty',
+			'Busty',
+			'Buxom',
+			'Curvy',
+			'Gorgeous',
+			'Hot',
+			'Leggy',
+			'Naked',
+			'Nubile',
+			'Nude',
+			'Petite',
+			'Skinny',
+			'Voluptuous',
+			'Young'])
+			
+class PregState(WordList):
+	def __init__(self):
+		super().__init__(['Fertile','Fertile','Fertile',
+			'Lactating',
+			'Pregnant',
+			'Nursing'])
+
+# nurse, flight-attendant, etc
+class ProfGoodFemale(WordList):
+	def __init__(self):
+		super().__init__(['Airline Stewardess',
+			'Babysitter',
+			'Ballerina',
+			'Bikini Model',
+			'Bridesmaid',
+			'Cheerleader',
+			'Co-ed',
+			'College Girl',
+			'Dancer',
+			'Fashion Model',
+			'Gymnast',
+			'House Maid',
+			'Housewife',
+			'Flight Attendant',
+			'Governess',
+			'Handmaiden',
+			'French Maid',
+			'Librarian',
+			'Life Drawing Model',
+			'Lingerie Model',
+			'Masseuse',	
+			'Maid',
+			'Milk Maid',
+			'Nanny',
+			'Nurse',
+			'Pastor\'s Wife',
+			'Secretary','Secretary',
+			'Servant',
+			'Schoolgirl',
+			'Starlet',
+			'Supermodel',
+			'Teacher',
+			'Waitress',
+			'Wet Nurse'])
+			
+# porn star, call girl, escort, etc
+class ProfBadFemale(WordList):
+	def __init__(self):
+		super().__init__(['Amateur Porn Star',
+			'Anal Whore',
+			'Call-Girl',
+			'Dominatrix',
+			'Escort',
+			'Fetish Model',
+			'Porn Star',
+			'Slave',
+			'Stripper',
+			'Whore',
+			'Witch'])
+			
+class ProfFemale(WordList):
+	def __init__(self):
+		super().__init__(ProfGoodFemale().List + ProfBadFemale().List)
+
+# step-daughter, mom
+class RelateFemale(WordList):
+	def __init__(self):
+		super().__init__(['Concubine',
+			'Cousin',
+			'Daughter','Daughter',
+			'Daughter\'s Best Friend',
+			'Girlfriend','Girlfriend','Girlfriend',
+			'Mistress',
+			'Mommy',
+			'Mommy',
+			'Sister',
+			'Step-Daughter','Step-Daughter',
+			'Step-Mom','Step-Mom','Step-Mom',
+			'Step-Sister','Step-Sister',
+			'Wife','Wife'])
+
+class SexualityFemale(WordList):
+	def __init__(self):
+		super().__init__(['Bi-Curious',
+			'Lesbian'])
+	
+# black, ebony
+class SkinHairColorFemale(WordList):
+	def __init__(self):
+		super().__init__(['Black','Black','Black',
+			'Ebony','Ebony',
+			'Pale',
+			'Blonde',
+			'Brunette',
+			'Dark-Haired',
+			'Redhead'])
+
+# futa			
+class SpeciesFemale(WordList):
+	def __init__(self):
+		super().__init__(['Green-Skinned Alien',
+			'Fairy',
+			'Futa','Futa',
+			'Mermaid','Mermaid',
+			'Vampire'])
+	
+# princess	
+class TitlesFemale(WordList):
+	def __init__(self):
+		super().__init__(['Baroness',
+			'Duchess',
+			'Princess','Princess','Princess','Princess',
+			'Queen','Queen'])
+		
+# Amish maiden, BBW, Farmer's Daughter
+class TropesGoodFemale(WordList):
+	def __init__(self):
+		super().__init__(['Amish Maiden','Amish Maiden',
+			'BBW','BBW',
+			'Blonde',
+			'Bride',
+			'Brunette',
+			'Farmer\'s Daughter',
+			'Prom Queen','Prom Queen',
+			'Redhead',
+			'Single Mom',
+			'Small-Town Girl',
+			'Soccer Mom',
+			'Virgin','Virgin','Virgin',
+			'Wallflower'])
+		
+# bad girl, bimbo, brat
+class TropesBadFemale(WordList):
+	def __init__(self):
+		super().__init__(['Bad Girl',
+			'Bad Girl',
+			'Bimbo','Bimbo',
+			'Brat',
+			'Goth Girl',
+			'Harem Girl',
+			'Hotwife','Hotwife',
+			'MILF','MILF','MILF',
+			'Nymphomaniac','Nymphomaniac',
+			'Submissive',
+			'Witch'])
+			
+class TropesFemale(WordList):
+	def __init__(self):
+		super().__init__(TropesGoodFemale().List + TropesBadFemale().List)	
+			
 class BookGirlsBasic(WordList):
 	WordHistoryQ = HistoryQ(3)
 	
 	def __init__(self):
-		super().__init__(['Blonde',
-			'Bride',
-			'Bride',
-			'Bridesmaid',
-			'Brunette',
-			'Co-ed',
-			'Girlfriend',
-			'Housewife',
-			'Lady',
-			'Latina',
-			'Lesbian',
-			'Maid',
-			'Maiden',
-			'Momma',
-			'Redhead',
-			'Sisters',
-			'Step-Daughter',
-			'Submissive',
-			'Teacher',
-			'Wallflower',
-			'Waitress',
-			'Wife',
-			'Woman'])
+		super().__init__(['Sisters'])
 			
 class BookGirls(WordList):
 	WordHistoryQ = HistoryQ(3)
 	
 	def __init__(self):
-		super().__init__(['Airline Stewardess',
-			'Amateur Porn Star',
-			'Amish Maiden',
-			'Anal Virgin',
-			'Babysitter',
-			'Bad Girl',
-			'Bikini Model',
-			'Bimbo',
-			'Brat',
-			'BBW',
-			'Call-Girl',
-			'College Girl',
-			'Concubine',
-			'Dancer',
-			'Dominatrix',
-			'Escort',
-			'Fashion Model',
-			'Farmer\'s Daughter',
-			'Flight Attendant',
-			'Futa',
-			'Governess',
-			'Handmaiden',
-			'Harem Girl',
-			'Hotwife',
-			'House Maid',
-			'Flight Attendant',
-			'French Maid',
-			'Librarian',
-			'Lingerie Model',
-			'Masseuse',
-			'Mature Woman',
-			'MILF',
-			'Milk Maid',
-			'Nanny',
-			'Nurse',
-			'Older Woman',
-			'Pastor\'s Wife',
-			'Porn Star',
-			'Princess',
-			'Princess',
-			'Secretary',
-			'Secretary',
-			'Sex Slave',
-			'Sex Surrogate',
-			'Sex Witch',
-			'Schoolgirl',
-			'Single Mom',
-			'Small-Town Girl',
-			'Slut',
-			'Starlet',
-			'Submissive',
-			'Supermodel',
+		super().__init__([
 			'Twin Sisters',
-			'Virgin',
-			'Wet Nurse',
-			'Whore'])
-			
-class BookGirlAdjs(WordList):
-	WordHistoryQ = HistoryQ(3)
-	
-	def __init__(self):
-		super().__init__(['Amish',
-		'Anal',
-		'Asian',
-		'Asian',
-		'Attractive',
-		'Bashful',
-		'BBW',
-		'Beautiful',
-		'Bi-Curious',
-		'Black',
-		'Black',
-		'Blonde',
-		'Buxom',
-		'Chaste',
-		'Christian',
-		'Christian',
-		'Conservative',
-		'Country',
-		'Curvy',
-		'Desperate',
-		'Divorced',
-		'Ebony',
-		'Erotic',
-		'Fairy',
-		'Fertile',
-		'Gorgeous',
-		'Harem',
-		'High-Heeled',
-		'Hot',
-		'Hot',
-		'Innocent',
-		'Innocent',
-		'Kept',
-		'Kinky',
-		'Lactating',
-		'Latex-Clad',
-		'Leather-Clad',
-		'Leggy',
-		'Lesbian',
-		'Married',
-		'Naked',
-		'Naked',
-		'Naughty',
-		'Nubile',
-		'Nude',
-		'Nudist',
-		'Nursing',
-		'Petite',
-		'Pregnant',
-		'Promiscuous',
-		'Sassy',
-		'Servant',
-		'Sex',
-		'Sexy',
-		'Sexy',
-		'Shy',
-		'Single',
-		'Skinny',
-		'Slutty',
-		'Small-Town',
-		'Submissive',
-		'Taboo',
-		'Teen',
-		'Teenage',
-		'Virgin',
-		'Virgin',
-		'Virgin',
-		'Virginal',
-		'Voluptuous',
-		'Willing',
-		'Young'])
-		
-class BookGirlCompAdjs(WordList):
-	WordHistoryQ = HistoryQ(3)
-	
-	def __init__(self):
-		super().__init__(['Bad Girl',
-		'Ballerina',
-		'BBW',
-		'Big Titty',
-		'Bimbo',
-		'Call-Girl',
-		'Co-ed',
-		'Concubine',
-		'Dancer',
-		'Dominatrix',
-		'Futa',
-		'Hotwife',
-		'Lesbian',
-		'MILF',
-		'Redhead',
-		'Servant',
-		'Single Mom',
-		'Submissive',
-		'Supermodel',
-		'Teen'])
+			])
 		
 class BookMastersBasic(WordList):
 	WordHistoryQ = HistoryQ(3)
@@ -359,7 +452,6 @@ class BookMastersBasic(WordList):
 			'Preacher',
 			'President',
 			'Prince',
-			'Roommate',
 			'Step-Dad',
 			'Widower'])
 
@@ -527,14 +619,12 @@ class BookMasterAdjs(WordList):
 			'Brooding',
 			'Charming',
 			'Cocky',
-			'Cuckolded',
 			'Dominant',
 			'Ebony',
 			'Highly Eligible',
 			'Famous',
 			'French',
 			'Gang-Bang',
-			'Geeky',
 			'Ghost',
 			'Hairy',
 			'Handsome',

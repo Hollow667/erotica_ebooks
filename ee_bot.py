@@ -58,9 +58,9 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = False, iTweets = 1, bLoop = False
 			Gen = GetTweet(bTest, iGeneratorNo, bAllowPromo = True)
 			#print("Generator ID: " + str(Gen.ID))
 			while bTweet and not TweetHistoryQ.PushToHistoryQ(Gen.ID):
-				#print("Generator ID " + str(Gen.ID) + " already in Q")
+				print("Generator ID " + str(Gen.ID) + " already in Q")
 				Gen = GetTweet(bTest, iGeneratorNo, bAllowPromo = True)
-				#print("New generator ID: " + str(Gen.ID))
+				print("New generator ID: " + str(Gen.ID))
 			
 			sTweet = Gen.GenerateTweet()
 			if len(sTweet) > 0:
@@ -112,9 +112,9 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = False, iTweets = 1, bLoop = False
 						print("* Next tweet in " + str(iTweetTimer) + " seconds (" + (currentDT + datetime.timedelta(seconds=iTweetTimer)).strftime("%H:%M:%S") + ")...")
 						time.sleep(iTweetTimer)
 						
-				else:
-					with open(GenerateFileName(), 'wb') as file:
-						file.write(ImgFile.getvalue())
+				# else:
+					# with open(GenerateFileName(), 'wb') as file:
+						# file.write(ImgFile.getvalue())
 			i += 1
 	except KeyboardInterrupt:
 		print("Ending program ...")

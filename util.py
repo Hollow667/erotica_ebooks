@@ -53,6 +53,11 @@ class GeneratorType(Enum):
 	Promo = 2
 	Test = 3
 	BookTitle = 4
+	
+class GirlType(Enum):
+	Good = 1
+	Bad = 2
+	Neutral = 3
 
 def AddArticles(sNounPhrase):
 	sUpdatedPhrase = ""
@@ -179,30 +184,39 @@ class WordList:
 			self.List = NewList
 			
 		self.DefaultWord = ""
-		self.WordHistoryQ = HistoryQ(3)
 		
 	def FoundIn(self, sWord, ListStrings):
 		bFound = False 
 		
 		if not ListStrings is None and len(ListStrings) > 0:
 			for str in ListStrings:
-				if str.lower() in sWord.lower():
-		#print("Found '" + str + "' in '" + sWord + "'!")
+				if str.lower() in sWord.lower() or sWord.lower() in str.lower():
 					bFound = True
 					break
 				
 		return bFound 
 	
-	def GetWord(self, NotList = None):
+	def GetWord(self, NotList = None, SomeHistoryQ = None):
 		sWord = ""
 		
 		if NotList is None:
 			NotList = []
-		
+			
 		if not self.List == None and len(self.List) > 0:
 			sWord = self.List[randint(0, len(self.List) - 1)]
-			while not self.WordHistoryQ.PushToHistoryQ(sWord) or self.FoundIn(sWord, NotList):
-				sWord = self.List[randint(0, len(self.List) - 1)]
+			
+			if SomeHistoryQ is None:
+				if len(NotList) < len(self.List):
+					while self.FoundIn(sWord, NotList):
+						sWord = self.List[randint(0, len(self.List) - 1)]
+				else:
+					sWord = self.List[randint(0, len(self.List) - 1)]
+			else:
+				if len(NotList) < len(self.List) and len(SomeHistoryQ.HistoryQ) < len(self.List):
+					while not SomeHistoryQ.PushToHistoryQ(sWord) or self.FoundIn(sWord, NotList):
+						sWord = self.List[randint(0, len(self.List) - 1)]
+				else:
+					sWord = self.List[randint(0, len(self.List) - 1)]
 				
 		return sWord
 		
