@@ -112,9 +112,9 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = False, iTweets = 1, bLoop = False
 						print("* Next tweet in " + str(iTweetTimer) + " seconds (" + (currentDT + datetime.timedelta(seconds=iTweetTimer)).strftime("%H:%M:%S") + ")...")
 						time.sleep(iTweetTimer)
 						
-				# else:
-					# with open(GenerateFileName(), 'wb') as file:
-						# file.write(ImgFile.getvalue())
+				else:
+					with open(GenerateFileName(), 'wb') as file:
+						file.write(ImgFile.getvalue())
 			i += 1
 	except KeyboardInterrupt:
 		print("Ending program ...")

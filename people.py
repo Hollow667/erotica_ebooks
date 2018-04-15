@@ -7,7 +7,8 @@ from util import *
 
 import misc
 
-FemCBitHistoryQ = HistoryQ(10)
+FemCBitHistoryQ = HistoryQ(8)
+MaleCBitHistoryQ = HistoryQ(8)
 
 class CharBit():
 	def __init__(self):
@@ -259,6 +260,285 @@ class FemaleChar(Character):
 			if x > 0:
 				self.Desc += " "
 			self.Desc += BitGetList[x]
+			
+class AgeMale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.AgeMaleAdj().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
+		self.part = "adj"
+		
+		return self.val
+		
+class AttitudeMale(CharBit):
+	def __init__(self):
+		super().__init__()
+		
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.AttitudeMale().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
+		
+		self.part = "adj"
+		return self.val
+		
+class GenModMale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.GenModMale().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
+		
+		self.part = "adj"
+		return self.val
+		
+class MaritalStatusMale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.MaritalStatusMale().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
+		
+		self.part = "adj"
+		return self.val
+		
+class NationMale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.NationMale().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
+		
+		self.part = "adj"
+		return self.val
+		
+class PhysCharMale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.PhysCharMale().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
+		self.part = "adj"
+		return self.val
+
+		
+class ProfMale(CharBit):
+	def __init__(self):
+		super().__init__()
+		
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.ProfMale().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
+
+		self.part = "noun"
+		return self.val
+		
+class RelateMale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.RelateMale().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
+		
+		self.part = "noun"
+		return self.val
+		
+class SkinHairColorMale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.SkinHairColorMale().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
+		self.part = "adj"
+		return self.val
+		
+class SpeciesMale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.SpeciesMale().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
+		self.part = "noun"
+		return self.val
+		
+class TitleMale(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.TitlesMale().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
+		self.part = "noun"
+		return self.val
+		
+class TropeMale(CharBit):
+	def __init__(self):
+		super().__init__()
+		
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.TropesMale().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
+			
+		self.part = "noun"
+		
+		return self.val
+		
+class GangMale(CharBit):
+	def __init__(self):
+		super().__init__()
+		
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.GangsMale().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
+			
+		self.part = "noun"
+		
+		return self.val
+		
+class MaleChar():
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAllowGang = True, bAddArticle = False):
+		if NotList is None:
+			NotList = []
+		
+		self.Char = None 
+		
+		iRand = randint(1, 5)
+		if iRand == 5 and bAllowGang == True:
+			self.Char = MaleGangChar(iNumMinCBits = iNumMinCBits, iNumMaxCBits = iNumMaxCBits, NotList = NotList, bAddArticle = bAddArticle)
+		else:
+			self.Char = MaleRegChar(iNumMinCBits = iNumMinCBits, iNumMaxCBits = iNumMaxCBits, NotList = NotList, bAddArticle = bAddArticle)
+			
+		self.Desc = self.Char.Desc
+		
+class MaleRegChar(Character):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False):
+		super().__init__()
+		sDesc = ""
+		
+		if NotList is None:
+			NotList = []
+		
+		self.Gender = Gender.Male 
+		
+		CharBitList = []
+		
+		CharBitList.append(AttitudeMale())
+		CharBitList.append(AttitudeMale())
+		CharBitList.append(PhysCharMale())
+		CharBitList.append(PhysCharMale())
+		CharBitList.append(SkinHairColorMale())
+		CharBitList.append(GenModMale())
+		CharBitList.append(AgeMale())
+		CharBitList.append(MaritalStatusMale())
+		CharBitList.append(NationMale())
+		CharBitList.append(ProfMale())
+		CharBitList.append(ProfMale())
+		CharBitList.append(SpeciesMale())
+		CharBitList.append(TropeMale())
+		CharBitList.append(TropeMale())
+		CharBitList.append(RelateMale())
+		CharBitList.append(TitleMale())
+			
+		BitGetList = []
+		bFoundNoun = False 
+		iNumCBits = 1
+		
+		irand1 = randint(iNumMinCBits, iNumMaxCBits)
+		irand2 = randint(iNumMinCBits, iNumMaxCBits)
+		
+		iNumCBits = round((irand1 + irand2) / 2) 
+
+		for x in sorted(sample(range(0, len(CharBitList)), iNumCBits)):
+			sBit = CharBitList[x].Get(NotList = NotList)
+			if CharBitList[x].part == "noun":
+				bFoundNoun = True 
+			NotList.append(sBit)
+			BitGetList.append(sBit)
+			
+		if not bFoundNoun:
+			BitGetList.append("Man")
+		
+		sDesc = ""
+		for x in range(0, len(BitGetList)):
+			if x > 0:
+				sDesc += " "
+			sDesc += BitGetList[x]
+			
+		if bAddArticle:
+			Relations = ["dad","brother","husband","boyfriend", "father", "fiancé", "boss", "lover"]
+			bFoundIn = False
+			for x in range(0, len(Relations)):
+				if Relations[x] in sDesc.lower():
+					bFoundIn = True
+					break 
+					
+			if bFoundIn:
+				sDesc = "My " + sDesc
+			else:
+				sDesc = "The " + sDesc
+			
+		self.Desc = sDesc
+			
+class MaleGangChar(Character):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False):
+		super().__init__()
+		
+		sDesc = ""
+		
+		if NotList is None:
+			NotList = []
+		
+		self.Gender = Gender.Male 
+		
+		CharBitList = []
+		
+		CharBitList.append(AttitudeMale())
+		CharBitList.append(AttitudeMale())
+		CharBitList.append(SkinHairColorMale())
+		CharBitList.append(GenModMale())
+		CharBitList.append(AgeMale())
+		CharBitList.append(NationMale())
+		CharBitList.append(ProfMale())
+		CharBitList.append(ProfMale())
+		CharBitList.append(TropeMale())
+		CharBitList.append(TropeMale())
+		CharBitList.append(SpeciesMale())
+			
+		BitGetList = []
+		bFoundNoun = False 
+		iNumCBits = 1
+		
+		irand1 = randint(iNumMinCBits, iNumMaxCBits)
+		irand2 = randint(iNumMinCBits, iNumMaxCBits)
+		
+		iNumCBits = round((irand1 + irand2) / 2) 
+			
+		for x in sorted(sample(range(0, len(CharBitList)), iNumCBits - 1)):
+			sBit = CharBitList[x].Get(NotList = NotList)
+
+			NotList.append(sBit)
+			BitGetList.append(sBit)
+		
+		for x in range(0, len(BitGetList)):
+			if x > 0:
+				sDesc += " "
+			sDesc += BitGetList[x]
+		
+		if sDesc != "":
+			sDesc += " "
+		sDesc += GangMale().Get(NotList = NotList)
+		
+		if bAddArticle:
+			sDesc = "The " + sDesc
+		
+		self.Desc = sDesc
 
 class Person(WordList):
 	def GetPerson(self):

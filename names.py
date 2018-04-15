@@ -37,6 +37,7 @@ class NamesMale(Names):
 			'Brad',
 			'Bradford',
 			'Bradley',
+			'Brody',
 			'Burt',
 			'Cal',
 			'Chad',

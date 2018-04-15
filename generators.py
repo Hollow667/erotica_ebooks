@@ -57,192 +57,6 @@ class Generator():
 	def SetPriority(self, sText, List, iPriority):
 		for x in range(iPriority):
 			List.append(sText)
-	
-	def GetMaster(self, NotList = None, bNonBasic = True, bBasic = True, bGangs = True, bComplex = True):
-		if NotList is None:
-			NotList = []
-			
-		Masters = []
-		
-		sBMaster = self.MastersBasic.GetWord(NotList = NotList)
-		sNBMaster = self.Masters.GetWord(NotList = NotList)
-		sGang = self.MasterGangs.GetWord(NotList = NotList)
-
-		if bNonBasic:		
-			NotList.append(sNBMaster)
-			# non-basic master, no adjs
-			self.SetPriority(sNBMaster, Masters, 4)
-			# ========================================
-
-			# non-basic master, 1 reg adj
-			sAdj = self.MasterAdjs.GetWord(NotList = NotList)
-			self.SetPriority(sAdj + " " + sNBMaster, Masters, 3)
-			# ========================================
-			
-			#non-basic master, 1 comp adj
-			sAdj = self.MasterCompAdjs.GetWord(NotList = NotList)
-			self.SetPriority(sAdj + " " + sNBMaster, Masters, 2)
-			# ========================================
-
-			#non-basic master, 1 reg adj & 1 comp adj
-			sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
-			sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sAdj1] + NotList)
-			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sNBMaster, Masters, 2)
-			# ========================================
-			
-			#non-basic master, 2 reg adjs
-			sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
-			sAdj2 = self.MasterAdjs.GetWord(NotList = [sAdj1] + NotList)
-			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sNBMaster, Masters, 2)
-			# ========================================
-
-			if bComplex:
-				#non-basic master, 2 comp adjs 
-				sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
-				sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sAdj1] + NotList)
-				self.SetPriority(sAdj1 + " " + sAdj2 + " " + sNBMaster, Masters, 1)
-				# ========================================
-			
-			NotList.pop()
-
-		if bBasic:
-			NotList.append(sBMaster)
-			
-			#basic master, 1 reg adj
-			sAdj = self.MasterAdjs.GetWord(NotList = NotList)
-			self.SetPriority(sAdj + " " + sBMaster, Masters, 4)
-			# ========================================
-
-			#basic master, 1 comp adj
-			sAdj = self.MasterCompAdjs.GetWord(NotList = NotList)
-			self.SetPriority(sAdj + " " + sBMaster, Masters, 3)
-			# ========================================
-
-			#basic master, 1 reg adj & 1 comp adj 
-			sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
-			sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sAdj1] + NotList)
-			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sBMaster, Masters, 2)
-			# ========================================
-			
-			#basic master, 2 reg adjs
-			sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
-			sAdj2 = self.MasterAdjs.GetWord(NotList = [sAdj1] + NotList)
-			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sBMaster, Masters, 2)
-			# ========================================
-
-			if bComplex:
-				#basic master, 2 comp adjs 
-				sAdj1 = self.MasterCompAdjs.GetWord(NotList = NotList)
-				sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sAdj1] + NotList)
-				self.SetPriority(sAdj1 + " " + sAdj2 + " " + sBMaster, Masters, 1)
-				# ========================================
-			
-			NotList.pop()
-
-		if bGangs:
-			NotList.append(sGang)
-		
-			#gang, no adjs
-			self.SetPriority(sGang, Masters, 3)
-			# ========================================
-
-			#gang, 1 reg adj 
-			sAdj = self.MasterAdjs.GetWord(NotList = NotList)
-			self.SetPriority(sAdj + " " + sGang, Masters, 2)
-			# ========================================
-
-			#gang, 1 comp adj
-			sAdj = self.MasterCompAdjs.GetWord(NotList = NotList)
-			self.SetPriority(sAdj + " " + sGang, Masters, 2)
-			# ========================================
-
-			#gang, 1 reg adj & 1 comp adj 
-			sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
-			sAdj2 = self.MasterCompAdjs.GetWord(NotList = [sAdj1] + NotList)
-			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sGang, Masters, 1)
-			# ========================================
-			
-			#gang, 2 reg adjs 
-			sAdj1 = self.MasterAdjs.GetWord(NotList = NotList)
-			sAdj2 = self.MasterAdjs.GetWord(NotList = [sAdj1] + NotList)
-			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sGang, Masters, 1)
-			# ========================================
-			
-			NotList.pop()
-	
-		return Masters[randint(0, len(Masters) - 1)]
-		
-	def GetGirl(self, NotList = None, bNonBasic = True, bBasic = True, bComplex = True):
-		sGirl = ""
-		
-		if NotList is None:
-			NotList = []
-		
-		Girls = []
-		
-		sBGirl = self.GirlsBasic.GetWord(NotList = NotList)
-		sNBGirl = self.Girls.GetWord(NotList = NotList)
-
-		if bNonBasic:
-			NotList.append(sNBGirl)
-			
-			# non-basic girl, no adjs
-			self.SetPriority(sNBGirl, Girls, 4)
-			# ========================================
-			
-			# non-basic girl, 1 reg adj
-			self.SetPriority(self.GirlAdjs.GetWord(NotList = NotList) + " " + sNBGirl, Girls, 3)
-			# ========================================
-
-			# non-basic girl, 1 comp adj 
-			sAdj = self.GirlCompAdjs.GetWord(NotList = NotList)
-			self.SetPriority(sAdj + " " + sNBGirl, Girls, 3)
-			# ========================================
-			
-			# non-basic girl, 1 reg and 1 comp adj 
-			sAdj1 = self.GirlAdjs.GetWord(NotList = NotList)
-			sAdj2 = self.GirlCompAdjs.GetWord(NotList = [sAdj1] + NotList)
-			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sNBGirl, Girls, 2)
-			# ========================================
-
-			if bComplex:
-				# non-basic girl, 2 comp adjs
-				sAdj1 = self.GirlCompAdjs.GetWord(NotList = NotList)
-				sAdj2 = self.GirlCompAdjs.GetWord(NotList = [sAdj1] + NotList)
-				self.SetPriority(sAdj1 + " " + sAdj2 + " " + sNBGirl, Girls, 1)
-				# ========================================
-			
-			NotList.pop()
-
-		if bBasic:
-			NotList.append(sBGirl)
-			
-			# basic girl, 1 reg adj 
-			sAdj = self.GirlAdjs.GetWord(NotList = NotList)
-			self.SetPriority(sAdj + " " + sBGirl, Girls, 4)
-			# ========================================
-
-			# basic girl, 1 comp adj 
-			sAdj = self.GirlCompAdjs.GetWord(NotList = NotList)
-			self.SetPriority(sAdj + " " + sBGirl, Girls, 3)
-			# ========================================
-
-			# basic girl, 1 reg adj and 1 comp adj 
-			sAdj1 = self.GirlAdjs.GetWord(NotList = NotList)
-			sAdj2 = self.GirlCompAdjs.GetWord(NotList = [sAdj1] + NotList)
-			self.SetPriority(sAdj1 + " " + sAdj2 + " " + sBGirl, Girls, 3)
-			# ========================================
-
-			if bComplex:
-				# basic girl, 2 comp adjs
-				sAdj1 = self.GirlCompAdjs.GetWord(NotList = NotList)
-				sAdj2 = self.GirlCompAdjs.GetWord(NotList = [sAdj1] + NotList)
-				self.SetPriority(sAdj1 + " " + sAdj2 + " " + sBGirl, Girls, 1)
-				# ========================================
-			
-			NotList.pop()
-			
-		return Girls[randint(0, len(Girls) - 1)]
 		
 	def _getFMs_(self):
 		FMs = ""
@@ -267,11 +81,11 @@ class Generator():
 		#self.GirlsBasic = BookGirlsBasic()
 		#self.GirlAdjs = BookGirlAdjs()
 		#self.GirlCompAdjs = BookGirlCompAdjs()
-		self.Masters = BookMasters()
-		self.MastersBasic = BookMastersBasic()
-		self.MasterGangs = BookMasterGangs()
-		self.MasterAdjs = BookMasterAdjs()
-		self.MasterCompAdjs = BookMasterCompAdjs()
+		#self.Masters = BookMasters()
+		#self.MastersBasic = BookMastersBasic()
+		#self.MasterGangs = BookMasterGangs()
+		#self.MasterAdjs = BookMasterAdjs()
+		#self.MasterCompAdjs = BookMasterCompAdjs()
 		self.VerbsBy = BookVerbsBy()
 		self.VerbsTo = BookVerbsTo()
 		self.HerName = NamesFemale().FirstName()
@@ -334,7 +148,9 @@ class Generator1(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		sTweet = self.VerbsBy.GetWord() + " by the " + self.GetMaster()
+		Master = MaleChar(bAddArticle = True)
+	
+		sTweet = self.VerbsBy.GetWord() + " By\n" + Master.Desc
 		
 		return sTweet
 		
@@ -347,7 +163,19 @@ class Generator2(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		sTweet = self.HerName + " Gets " + self.VerbsBy.GetWord(NotList = ["Sexually Harrassed At My Workplace"]) + " by the " + self.GetMaster()
+		Master = MaleChar()
+		
+		Relations = ["dad","brother","husband","boyfriend", "father", "fiancé", "boss", "lover"]
+		bFoundIn = False
+		for x in range(0, len(Relations)):
+			if Relations[x] in Master.Desc.lower():
+				bFoundIn = True
+				break 
+		
+		if bFoundIn:
+			sTweet = self.HerName + " Gets " + self.VerbsBy.GetWord(NotList = ["Sexually Harrassed At My Workplace"]) + " by\nHer " + Master.Desc
+		else:
+			sTweet = self.HerName + " Gets " + self.VerbsBy.GetWord(NotList = ["Sexually Harrassed At My Workplace"]) + " by the\n" + Master.Desc
 		
 		return sTweet
 
@@ -359,8 +187,10 @@ class Generator3(Generator):
 	def GenerateTweet(self):
 		super().GenerateTweet()
 		sTweet = ""
+		
+		Master = MaleChar(bAddArticle = True)
 			
-		sTweet = self.VerbsTo.GetWord() + " to the " + self.GetMaster(NotList = ["BDSM"])
+		sTweet = self.VerbsTo.GetWord() + " To " + Master.Desc
 		if CoinFlip():
 			sTweet += ":\n" + WordList(["A " + self._getFMs_() + " Romance", "A BDSM Romance", "A Taboo Affair", "A Forbidden Romance", "A Secret Affair", "A " + self._getFMs_() + " Encounter", "An Erotic Encounter"]).GetWord()
 		
@@ -371,11 +201,15 @@ class Generator4(Generator):
 	ID = 4
 	Priority = 2
 	
+	Master = MaleChar()
+	
 	def GenerateTweet(self):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		sTweet = self.HerName + " Gets " + self.VerbsTo.GetWord() + " to the " + self.GetMaster()
+		Master = MaleChar()
+		
+		sTweet = self.HerName + " Gets " + self.VerbsTo.GetWord() + " to the\n" + Master.Desc
 		
 		return sTweet
 		
@@ -388,9 +222,10 @@ class Generator5(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		Girl = FemaleChar(NotList = ['BDSM'])
+		Girl = FemaleChar(iNumMaxCBits = 2, NotList = ['BDSM'])
+		Master = MaleChar(iNumMaxCBits = 3, NotList = ['BDSM'], bAllowGang = False)
 			
-		sTweet = "The " + self.GetMaster(bComplex = False, bNonBasic = False, bGangs = False, NotList = ["BDSM"]) + "'s " + Girl.Desc
+		sTweet = "The " + Master.Desc + "'s\n" + Girl.Desc
 		if CoinFlip():
 			if CoinFlip():
 				sTweet += ":\nA BDSM Romance"
@@ -410,10 +245,12 @@ class Generator6(Generator):
 		
 		NotList = ["Pledged", "Public", "Charmed", "Cuckolded", "Hunted", "Harrassed", "Sold", "Gifted", "Pledged"]
 		
+		Master = MaleChar(bAllowGang = False, NotList = NotList, bAddArticle = True)
+		
 		if CoinFlip():
-			sTweet = self.VerbsTo.GetWord(NotList = NotList) + " in the Bed of the " + self.GetMaster(bGangs = False)
+			sTweet = self.VerbsTo.GetWord(NotList = NotList) + " In The Bed Of\n" + Master.Desc 
 		else:
-			sTweet = self.VerbsBy.GetWord(NotList = NotList) + " in the Bed of the " + self.GetMaster(bGangs = False)
+			sTweet = self.VerbsBy.GetWord(NotList = NotList) + " In The Bed Of\n" + Master.Desc 
 		
 		return sTweet
 		
@@ -427,8 +264,10 @@ class Generator7(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		Girl = FemaleChar()
-		sTweet = "The " + Girl.Desc + ", The " + self.GetMaster(bComplex = False, bGangs = False) + ", & The " + self.GetMaster() + ":\n"
+		Master1 = MaleChar(iNumMaxCBits = 2, bAllowGang = False)
+		Master2 = MaleChar()
+		Girl = FemaleChar(iNumMaxCBits = 2)
+		sTweet = "The " + Girl.Desc + ",\nThe " + Master1.Desc + ",\n& The " + Master2.Desc + ":\n"
 		if CoinFlip():
 			sTweet += "A Hot Ménage"
 		else:
@@ -445,8 +284,9 @@ class Generator8(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		Girl = FemaleChar()
-		sTweet = "My " + WordList(["Boyfriend", "Hot Date", "Fiancé"]).GetWord() + " is a " + self.GetMaster(NotList = ["Boyfriend", "Hot Date", "Fiancé"], bGangs = False)
+		Girl = FemaleChar(iNumMaxCBits = 2)
+		Master = MaleChar(bAllowGang = False, NotList = ["Boyfriend", "Hot Date", "Fiancé", "Husband", "Single"])
+		sTweet = "My " + WordList(["Boyfriend", "Hot Date", "Fiancé"]).GetWord() + " is a\n" + Master.Desc
 		if CoinFlip():
 			if CoinFlip():
 				sTweet += ":\n" + AddArticles(Girl.Desc) + " Romance"
@@ -467,8 +307,9 @@ class Generator9(Generator):
 		sTweet = ""
 		
 		Girl = FemaleChar(iNumMaxCBits = 3, NotList = ["BDSM"])
+		Master = MaleChar(iNumMaxCBits = 3, NotList = ["BDSM"])
 		
-		sTweet = "The " + Girl.Desc + " & the " + self.GetMaster(NotList = ["BDSM"])
+		sTweet = "The " + Girl.Desc + "\nand\nThe " + Master.Desc 
 		if CoinFlip():
 			if CoinFlip():
 				sTweet += ":\nA BDSM Romance"
@@ -485,8 +326,10 @@ class Generator10(Generator):
 	def GenerateTweet(self):
 		super().GenerateTweet()
 		sTweet = ""
+		
+		Master = MaleChar(bAddArticle = True)
 
-		sTweet = "Baby for the " + self.GetMaster() 
+		sTweet = "Baby For " + Master.Desc
 		if CoinFlip():
 			sTweet += ":\nA " + self._getFMs_() + " Romance"
 		
@@ -502,8 +345,9 @@ class Generator11(Generator):
 		sTweet = ""
 		
 		Girl = FemaleChar()
+		Master = MaleChar()
 		
-		sTweet = "The " + self.GetMaster() + "'s " + Girl.Desc
+		sTweet = "The " + Master.Desc + "'s\n" + Girl.Desc
 
 		return sTweet
 		
@@ -517,8 +361,9 @@ class Generator12(Generator):
 		sTweet = ""
 		
 		Girl = FemaleChar(iNumMaxCBits = 3)
+		Master = MaleChar()
 		
-		sTweet = Girl.Desc + " to the " + self.GetMaster()
+		sTweet = Girl.Desc + "\nto the\n" + Master.Desc
 		
 		return sTweet
 		
@@ -532,8 +377,9 @@ class Generator13(Generator):
 		sTweet = ""
 		
 		Girl = FemaleChar()
+		Master = MaleChar()
 		
-		sTweet = Girl.Desc + " for the " + self.GetMaster()
+		sTweet = Girl.Desc + "\nfor the\n" + Master.Desc
 		if CoinFlip():
 			sTweet += ":\n" + WordList(["An " + self._getFMs_() + " Adventure","A BDSM Romance","A Forbidden Romance"]).GetWord()
 		
@@ -549,14 +395,15 @@ class Generator14(Generator):
 		sTweet = ""
 		
 		Girl = FemaleChar(Type = GirlType.Good)
+		MasterGang = MaleGangChar()
 
 		if CoinFlip():
-			sTweet = "The " + Girl.Desc + "'s Gang Bang:\nA " + self._getFMs_() + " Romance"
+			sTweet = "The " + Girl.Desc + "'s\nGang Bang:\nA " + self._getFMs_() + " Romance"
 		else:
 			if CoinFlip():
-				sTweet = "Gang-Banged by the " + self.GetMaster(bBasic = False, bNonBasic = False)
+				sTweet = "Gang-Banged By\nThe" + MasterGang.Desc
 			else:
-				sTweet = "Shared by the " + self.GetMaster(bBasic = False, bNonBasic = False)
+				sTweet = "Shared By\nThe" + MasterGang.Desc
 			if CoinFlip():
 				sTweet += ":\nAn " + self._getFMs_() + " Adventure"
 		
@@ -573,7 +420,7 @@ class Generator15(Generator):
 		
 		Girl = FemaleChar(iNumMaxCBits = 3, Type = GirlType.Good)
 		
-		sTweet = "The " + Girl.Desc + "'s First Porno"
+		sTweet = "The " + Girl.Desc + "'s\nFirst Porno"
 		if CoinFlip():
 			sTweet += ":\nAn " + self._getFMs_() + " Adventure"
 
@@ -591,7 +438,7 @@ class Generator16(Generator):
 		
 		Girl = FemaleChar(iNumMaxCBits = 3, Type = GirlType.Good, NotList = ["MILF", "Concubine", "Wife", "Pregnant", "Mom", "Sex", "Divorced"])
 
-		sTweet = "The " + Girl.Desc + "'s First Time"
+		sTweet = "The " + Girl.Desc + "'s\nFirst Time"
 		if CoinFlip():
 			sTweet += ":\n" + WordList(["A " + self._getFMs_() + " Romance", "A BDSM Romance", "A Secret Romance"]).GetWord()
 
@@ -608,14 +455,17 @@ class Generator17(Generator):
 		
 		Subtitles = []
 		
+		Master = MaleChar(iNumMaxCBits = 3)
+		Gang = MaleGangChar()
+		
 		sTweet = self.VerbsBy.GetWord() + ":\n"
 		
 		Girl = FemaleChar(iNumMaxCBits = 3)
-		Subtitles.append("The " + Girl.Desc + " & The " + self.GetMaster(bComplex = False))
-		Subtitles.append("The " + Girl.Desc + " & The " + self.GetMaster(bBasic = False, bNonBasic = False))
-		Subtitles.append(Girl.Desc + " for the " + self.GetMaster())
+		Subtitles.append("The " + Girl.Desc + "\n& The " + Master.Desc)
+		Subtitles.append("The " + Girl.Desc + "\n& The " + Gang.Desc)
+		Subtitles.append(Girl.Desc + "\nfor the\n" + Master.Desc)
 		Girl = FemaleChar()
-		Subtitles.append("The " + self.GetMaster(bComplex = False) + "'s " + Girl.Desc)
+		Subtitles.append("The " + Master.Desc + "'s\n" + Girl.Desc)
 		Subtitles.append(AddArticles(Girl.Desc) + " Romance")
 		
 		sTweet += Subtitles[randint(0, len(Subtitles) - 1)]
@@ -633,7 +483,7 @@ class Generator18(Generator):
 		
 		Girl = FemaleChar(Type = GirlType.Good, NotList = ["Sex", "Lesbian","BDSM", "Anal", "MILF"])
 		sTweet += "\"" + WordList(["S@*#!", "Oh No!", "Uh Oh!", "Whoops!", "WTF?!?", "Oh F*@%!"]).GetWord() + " " 
-		sTweet += "My " + Girl.Desc + " Is " + WordList(["A Porn Star", "A Lesbian", "A Call-Girl", "A Stripper", "A Whore", "A Dominatrix", "An Anal Whore", "An Anal Porn Star", "An Erotic Model", "A Fetish Model"]).GetWord() + "!\""
+		sTweet += "My\n" + Girl.Desc + "\nIs " + WordList(["A Porn Star", "A Lesbian", "A Call-Girl", "A Stripper", "A Whore", "A Dominatrix", "An Anal Whore", "An Anal Porn Star", "An Erotic Model", "A Fetish Model"]).GetWord() + "!\""
 		
 		return sTweet
 		
@@ -647,11 +497,15 @@ class Generator19(Generator):
 		sTweet = ""
 		
 		Girl = FemaleChar(Type = GirlType.Good, NotList = ["Naked", "Nude", "Nudist"])
+		Master = MaleChar()
 		
 		if CoinFlip():
-			sTweet = "Full Frontal Nudity for the " + Girl.Desc
+			sTweet = "Full Frontal Nudity for\nthe " + Girl.Desc
 		else:
-			sTweet = WordList(["Naked in Public", "Stripped Bare", "Stripped Naked", "Stripped in Public", "Commanded to Strip", "Commanded to Strip in Public", "Forced to Go Naked in Public", "Ordered to Strip"]).GetWord() + " " + WordList(["For The", "For My", "By The", "By My"]).GetWord() + " " + self.GetMaster()
+			if CoinFlip():
+				sTweet = WordList(["Naked in Public", "Stripped Bare", "Stripped Naked", "Stripped in Public", "Commanded to Strip", "Commanded to Strip in Public", "Forced to Go Naked in Public", "Ordered to Strip"]).GetWord() + " " + WordList(["For\nThe", "For\nMy"]).GetWord() + " " + Master.Desc
+			else:
+				sTweet = WordList(["Stripped Bare", "Stripped Naked", "Stripped in Public", "Commanded to Strip", "Commanded to Strip in Public", "Forced to Go Naked in Public", "Ordered to Strip"]).GetWord() + " " + WordList(["By\nThe", "By\nMy"]).GetWord() + " " + Master.Desc
 		
 		if CoinFlip():
 			sTweet += ":\n" + WordList(["An " + self._getFMs_() + " Adventure", "A BDSM Adventure", "A Taboo Affair", "A Forbidden Affair", "A Secret Affair", "A Submissive Romance"]).GetWord()
@@ -665,17 +519,21 @@ class Generator20(Generator):
 	
 	def GenerateTweet(self):
 		super().GenerateTweet()
+		
+		Master = MaleChar(bAllowGang = False, bAddArticle = True)
+		Gang = MaleGangChar(bAddArticle = True)
+		
 		sTweet = ""
 
 		sVerbBy = self.VerbsBy.GetWord(NotList = ["Charmed", "Kept", "Trained"])
 		sTweet = "\"I Was " + sVerbBy
 		if not "in public" in sVerbBy.lower():
-			sTweet += " By "
+			sTweet += " By\n"
 			if CoinFlip():
-				sTweet += AddArticles(self.GetMaster(bGangs = False))
+				sTweet += Master.Desc
 			else:
-				sTweet += "The " + self.GetMaster(bBasic = False, bNonBasic = False)
-		sTweet += ", And I Liked It\""
+				sTweet += Gang.Desc
+		sTweet += ",\nAnd I Liked It\""
 
 		return sTweet
 		
@@ -688,9 +546,11 @@ class Generator21(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
+		Master = MaleChar(iNumMaxCBits = 3, bAddArticle = True)
+		
 		Girl = FemaleChar(iNumMaxCBits = 3)
-		sTweet = self.VerbsBy.GetWord()  + " by "
-		sTweet += "the " + self.GetMaster(bComplex = False) + ":\nA " + Girl.Desc + " Story"
+		sTweet = self.VerbsBy.GetWord()  + " By\n"
+		sTweet += Master.Desc + ":\nA " + Girl.Desc + " Story"
 		
 		return sTweet
 		
@@ -707,9 +567,9 @@ class Generator22(Generator):
 		Girl2 = FemaleChar(iNumMaxCBits = 3)
 
 		#sTweet = WordList(["The " + self.GetGirl(bComplex = False) + " and the " + self.GetGirl(bComplex = False), "The " + self.GetGirl() + " and the " + self.GetGirl(bComplex = False), "The " + self.GetGirl(bComplex = False) + " and the " + self.GetGirl()]).GetWord()
-		sTweet = WordList(["The " + FemaleChar(iNumMaxCBits = 3).Desc + " and the " + FemaleChar(iNumMaxCBits = 3).Desc, 
-			"The " + FemaleChar().Desc + " and the " + FemaleChar(iNumMaxCBits = 3).Desc, 
-			"The " + FemaleChar(iNumMaxCBits = 3).Desc + " and the " + FemaleChar().Desc]).GetWord()
+		sTweet = WordList(["The " + FemaleChar(iNumMaxCBits = 3).Desc + "\nand the\n" + FemaleChar(iNumMaxCBits = 3).Desc, 
+			"The " + FemaleChar().Desc + "\nand the\n" + FemaleChar(iNumMaxCBits = 3).Desc, 
+			"The " + FemaleChar(iNumMaxCBits = 3).Desc + "\nand the\n" + FemaleChar().Desc]).GetWord()
 		if CoinFlip():
 			sTweet += ":\n" + WordList(["A Lesbian Love Story","A Secret Lesbian Affair","A Taboo Lesbian Affair","A Forbidden Love Story", "A Lesbian Romance"]).GetWord()
 		
@@ -725,16 +585,19 @@ class Generator23(Generator):
 		sTweet = ""
 		
 		sHisName = names.NamesMale().FirstName()
+		
+		Master1 = MaleChar(iNumMaxCBits = 2)
+		Master2 = MaleChar()
 
 		GayTitles = []
 		
-		GayTitles.append("The " + self.GetMaster(bComplex = False, bGangs = False) + " and the " + self.GetMaster(bComplex = False, bGangs = False))
-		GayTitles.append("The " + self.GetMaster(bGangs = False) + " and the " + self.GetMaster(bComplex = False, bGangs = False)) 
-		GayTitles.append("The " + self.GetMaster(bComplex = False, bGangs = False) + " and the Gay " + self.GetMaster(bGangs = False))
-		GayTitles.append(sHisName + " and the Gay " + self.GetMaster())
-		GayTitles.append("Pounded In The Butt By My " + self.GetMaster())
-		GayTitles.append(sHisName + " Gets " + self.VerbsBy.GetWord(NotList=["Impregnated", "Hotwifed"]) + " By The " + self.GetMaster())
-		GayTitles.append(sHisName + " and the " + WordList(["Well-Hung", "Well-Endowed"]).GetWord() + " " + self.GetMaster(bComplex = False, bGangs = False, NotList = ["Well-Hung", "Well-Endowed"]))
+		GayTitles.append("The " + MaleChar(iNumMaxCBits = 2, bAllowGang = False).Desc + "\nand\nThe " + MaleChar(iNumMaxCBits = 2, bAllowGang = False).Desc)
+		GayTitles.append("The " + MaleChar(bAllowGang = False).Desc + "\nand\nThe " + MaleChar(iNumMaxCBits = 2, bAllowGang = False).Desc) 
+		GayTitles.append("The " + MaleChar(iNumMaxCBits = 2, bAllowGang = False).Desc + "\nand\nThe Gay " + MaleChar(bAllowGang = False).Desc)
+		GayTitles.append(sHisName + " and\nThe Gay " + MaleChar().Desc)
+		GayTitles.append("Pounded In The Butt By\nMy " + MaleChar().Desc)
+		GayTitles.append(sHisName + " Gets " + self.VerbsBy.GetWord(NotList=["Impregnated", "Hotwifed"]) + " By\nThe " + MaleChar().Desc)
+		GayTitles.append(sHisName + " and\nThe " + WordList(["Well-Hung", "Well-Endowed"]).GetWord() + " " + MaleChar(iNumMaxCBits = 2, NotList = ["Well-Hung", "Well-Endowed"], bAllowGang = False).Desc)
 		
 		sTweet = GayTitles[randint(0, len(GayTitles) - 1)]
 		sTweet += ":\n" + WordList(["A Gay Love Story","A Secret Gay Affair","A Taboo Gay Affair","A Forbidden Love Story", "A Gay Romance", "An MM Romance", "An MM Love Story"]).GetWord()
@@ -774,8 +637,9 @@ class Generator25(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
+		Master = MaleChar(iNumMaxCBits = 3)
 		Girl = FemaleChar(iNumMaxCBits = 3)
-		sTweet = "Here Cums The Bride:\nThe " + self.GetMaster(bComplex = False) + " & The " + Girl.Desc
+		sTweet = "Here Cums The Bride:\nThe " + Master.Desc + "\n&\nThe " + Girl.Desc
 		
 		return sTweet
 		
@@ -790,7 +654,7 @@ class Generator26(Generator):
 		
 		Girl = FemaleChar()
 		
-		sTweet = AddArticles(Girl.Desc) + " for Daddy:\n"
+		sTweet = AddArticles(Girl.Desc) + "\nFor Daddy:\n"
 		sTweet += WordList(["A BDSM Romance","An " + self._getFMs_() + " Adventure", "A Taboo Romance", "A Forbidden Affair", "A Forbidden Love", "A Taboo Gang-Bang", "A Naughty Adventure"]).GetWord()
 		
 		return sTweet
@@ -806,7 +670,7 @@ class Generator27(Generator):
 		
 		Girl = FemaleChar(iNumMaxCBits = 3, NotList = ["Leather", "Latex", "High-Heeled", "Nude", "Naked", "Nudist", "Latex", "Leather"])
 		
-		sTweet = "The " + Girl.Desc + " Wore " + WordList(["Leather", "Latex", "Red", "Black", "Fishnets", "Spiked Heels", "A Strap-On"]).GetWord() + ":\n"
+		sTweet = "The " + Girl.Desc + "\nWore " + WordList(["Leather", "Latex", "Red", "Black", "Fishnets", "Spiked Heels", "A Strap-On"]).GetWord() + ":\n"
 		sTweet += WordList(["A FemDom Adventure", "A Dominatrix Adventure", "A BDSM Romance", "A Cuckold Experience"]).GetWord()
 
 		return sTweet
@@ -822,7 +686,7 @@ class Generator28(Generator):
 		
 		Girl = FemaleChar()
 		
-		sTweet = "Cuckolded By My " + Girl.Desc 
+		sTweet = "Cuckolded By My\n" + Girl.Desc 
 		
 		return sTweet
 		
@@ -838,7 +702,7 @@ class Generator29(Generator):
 		Girl = FemaleChar(iNumMaxCBits = 2, NotList = ["Girlfriend", "Mom", "Dad" "Sister"])
 		
 		sTweet = WordList(["Dating", "Sleeping With", "Blackmailing", "Secretly Dating", "Sharing", "Watching", "Filming", "Claiming", "Spanking", "Tying Up", "Dominating", "Exposing", "Undressing", "Hypnotizing", "Impregnating", "Owning", "Punishing", "Spanking", "Paddling", "Training", "Pleasuring"]).GetWord() + " "
-		sTweet += "My " + WordList(["Father's", "Dad's", "Step-Dad's", "Boyfriend's", "Best Friend's", "Neighbor's", "Boss's", "Son's", "Step-Son's"]).GetWord() + " "
+		sTweet += "My " + WordList(["Father's", "Dad's", "Step-Dad's", "Boyfriend's", "Best Friend's", "Neighbor's", "Boss's", "Son's", "Step-Son's"]).GetWord() + "\n"
 		sTweet += Girl.Desc
 
 		return sTweet
