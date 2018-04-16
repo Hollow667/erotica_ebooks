@@ -388,12 +388,9 @@ class TropesGoodFemale(WordList):
 	def __init__(self):
 		super().__init__(['Amish Maiden','Amish Maiden',
 			'BBW','BBW',
-			'Blonde',
 			'Bride',
-			'Brunette',
 			'Farmer\'s Daughter',
 			'Prom Queen','Prom Queen',
-			'Redhead',
 			'Single Mom',
 			'Small-Town Girl',
 			'Soccer Mom',

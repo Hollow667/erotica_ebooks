@@ -164,7 +164,7 @@ class SpeciesFemale(CharBit):
 			NotList = []
 		
 		self.val = misc.SpeciesFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
-		self.part = "adj"
+		self.part = "noun"
 		return self.val
 		
 class TitleFemale(CharBit):
