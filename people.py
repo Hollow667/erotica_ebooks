@@ -7,8 +7,8 @@ from util import *
 
 import misc
 
-FemCBitHistoryQ = HistoryQ(8)
-MaleCBitHistoryQ = HistoryQ(8)
+FemCBitHistoryQ = HistoryQ(10)
+MaleCBitHistoryQ = HistoryQ(10)
 
 class CharBit():
 	def __init__(self):
@@ -197,6 +197,24 @@ class TropeFemale(CharBit):
 		
 		return self.val
 		
+class LesFemaleAdj(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.LesFemaleAdj().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		self.part = "adj"
+		return self.val
+		
+class LesFemaleNoun(CharBit):
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.LesFemaleNoun().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+		self.part = "noun"
+		return self.val
+		
 class FemaleChar(Character):
 	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, Type = GirlType.Neutral, NotList = None):
 		super().__init__()
@@ -240,10 +258,7 @@ class FemaleChar(Character):
 		irand1 = randint(iNumMinCBits, iNumMaxCBits)
 		irand2 = randint(iNumMinCBits, iNumMaxCBits)
 		
-		if irand1 > irand2:
-			iNumCBits = irand1
-		else:
-			iNumCBits = irand2 
+		iNumCBits = round((irand1 + irand2) / 2) 
 			
 		for x in sorted(sample(range(0, len(CharBitList)), iNumCBits)):
 			sBit = CharBitList[x].Get(NotList = NotList)
@@ -254,6 +269,64 @@ class FemaleChar(Character):
 			
 		if not bFoundNoun:
 			BitGetList.append(WordList(["Girl","Woman"]).GetWord(NotList = NotList))
+		
+		self.Desc = ""
+		for x in range(0, len(BitGetList)):
+			if x > 0:
+				self.Desc += " "
+			self.Desc += BitGetList[x]
+			
+class LesbianChar(Character):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, Type = GirlType.Neutral, NotList = None):
+		super().__init__()
+		
+		if NotList is None:
+			NotList = []
+		
+		self.Gender = Gender.Female 
+		
+		self.GirlType = Type
+		
+		CharBitList = []
+		
+		CharBitList.append(AttitudeFemale(Type = Type))
+		CharBitList.append(AttitudeMale())
+		CharBitList.append(PhysCharFemale())
+		CharBitList.append(PhysCharFemale())
+		CharBitList.append(SkinHairColorFemale())
+		CharBitList.append(LesFemaleAdj())
+		CharBitList.append(ClothingFemale())
+		CharBitList.append(PregState())
+		CharBitList.append(MaritalStatusFemale())
+		CharBitList.append(NationFemale())
+		CharBitList.append(AgeFemale())
+		CharBitList.append(ProfFemale(Type = Type))
+		CharBitList.append(ProfMale())
+		CharBitList.append(SpeciesFemale())
+		CharBitList.append(TropeFemale(Type = Type))
+		CharBitList.append(TropeFemale(Type = Type))
+		CharBitList.append(RelateFemale())
+		CharBitList.append(LesFemaleNoun())
+		CharBitList.append(TitleFemale())
+		
+		BitGetList = []
+		bFoundNoun = False 
+		iNumCBits = 1
+		
+		irand1 = randint(iNumMinCBits, iNumMaxCBits)
+		irand2 = randint(iNumMinCBits, iNumMaxCBits)
+		
+		iNumCBits = round((irand1 + irand2) / 2) 
+			
+		for x in sorted(sample(range(0, len(CharBitList)), iNumCBits)):
+			sBit = CharBitList[x].Get(NotList = NotList)
+			if CharBitList[x].part == "noun":
+				bFoundNoun = True 
+			NotList.append(sBit)
+			BitGetList.append(sBit)
+			
+		if not bFoundNoun:
+			BitGetList.append(LesFemaleNoun().Get(NotList = NotList))
 		
 		self.Desc = ""
 		for x in range(0, len(BitGetList)):
@@ -402,6 +475,34 @@ class GangMale(CharBit):
 		
 		return self.val
 		
+class GayMaleAdj(CharBit):
+	def __init__(self):
+		super().__init__()
+		
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.GayMaleAdj().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
+			
+		self.part = "adj"
+		
+		return self.val
+
+class GayMaleNoun(CharBit):
+	def __init__(self):
+		super().__init__()
+		
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.GayMaleNoun().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
+			
+		self.part = "noun"
+		
+		return self.val
+		
 class MaleChar():
 	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAllowGang = True, bAddArticle = False):
 		if NotList is None:
@@ -538,6 +639,74 @@ class MaleGangChar(Character):
 		if bAddArticle:
 			sDesc = "The " + sDesc
 		
+		self.Desc = sDesc
+		
+class GayChar(Character):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False):
+		super().__init__()
+		sDesc = ""
+		
+		if NotList is None:
+			NotList = []
+		
+		self.Gender = Gender.Male 
+		
+		CharBitList = []
+		
+		CharBitList.append(AttitudeMale())
+		CharBitList.append(PhysCharMale())
+		CharBitList.append(SkinHairColorMale())
+		CharBitList.append(GenModMale())
+		CharBitList.append(GayMaleAdj())
+		CharBitList.append(AgeMale())
+		CharBitList.append(MaritalStatusMale())
+		CharBitList.append(NationMale())
+		CharBitList.append(ProfMale())
+		CharBitList.append(ProfMale())
+		CharBitList.append(SpeciesMale())
+		CharBitList.append(TropeMale())
+		CharBitList.append(RelateMale())
+		CharBitList.append(GayMaleNoun())
+		CharBitList.append(TitleMale())
+		
+		BitGetList = []
+		bFoundNoun = False 
+		iNumCBits = 1
+		
+		irand1 = randint(iNumMinCBits, iNumMaxCBits)
+		irand2 = randint(iNumMinCBits, iNumMaxCBits)
+		
+		iNumCBits = round((irand1 + irand2) / 2) 
+
+		for x in sorted(sample(range(0, len(CharBitList)), iNumCBits)):
+			sBit = CharBitList[x].Get(NotList = NotList)
+			if CharBitList[x].part == "noun":
+				bFoundNoun = True 
+			NotList.append(sBit)
+			BitGetList.append(sBit)
+			
+		if not bFoundNoun:
+			BitGetList.append(GayMaleNoun().Get(NotList = NotList))
+		
+		sDesc = ""
+		for x in range(0, len(BitGetList)):
+			if x > 0:
+				sDesc += " "
+			sDesc += BitGetList[x]
+			
+		if bAddArticle:
+			Relations = ["dad","brother","husband","boyfriend", "father", "fiancé", "boss", "lover"]
+			bFoundIn = False
+			for x in range(0, len(Relations)):
+				if Relations[x] in sDesc.lower():
+					bFoundIn = True
+					break 
+					
+			if bFoundIn:
+				sDesc = "My " + sDesc
+			else:
+				sDesc = "The " + sDesc
+			
 		self.Desc = sDesc
 
 class Person(WordList):

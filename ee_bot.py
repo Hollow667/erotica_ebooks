@@ -39,9 +39,10 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = False, iTweets = 1, bLoop = False
 		api = InitTweepy()
 
 		e = threading.Event()
-		ResponderThread = threading.Thread(target=ReplyResponder, args=(e,api,iReplyTimer))
-		ResponderThread.parent_thread = threading.current_thread()
-		ResponderThread.start()
+		if bTweet:
+			ResponderThread = threading.Thread(target=ReplyResponder, args=(e,api,iReplyTimer))
+			ResponderThread.parent_thread = threading.current_thread()
+			ResponderThread.start()
 		
 		if iGeneratorNo == -1:
 			iGeneratorNo = MAX_GENERATOR_NO
@@ -112,9 +113,9 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = False, iTweets = 1, bLoop = False
 						print("* Next tweet in " + str(iTweetTimer) + " seconds (" + (currentDT + datetime.timedelta(seconds=iTweetTimer)).strftime("%H:%M:%S") + ")...")
 						time.sleep(iTweetTimer)
 						
-				else:
-					with open(GenerateFileName(), 'wb') as file:
-						file.write(ImgFile.getvalue())
+				# else:
+					# with open(GenerateFileName(), 'wb') as file:
+						# file.write(ImgFile.getvalue())
 			i += 1
 	except KeyboardInterrupt:
 		print("Ending program ...")

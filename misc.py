@@ -153,30 +153,30 @@ class BookSellers(WordList):
 # mature, young, teenager, MILF, etc
 class AgeFemaleNoun(WordList):
 	def __init__(self):
-		super().__init__(['College Girl',
-			'Maiden',
-			'Mature Woman',
-			'MILF',
-			'Older Woman',
-			'Schoolgirl',
-			'Teen',
-			'Teenager',
-			'Virgin'])
+		super().__init__(['College Girl','College Girl',
+			'Maiden','Maiden',
+			'Mature Woman','Mature Woman',
+			'MILF','MILF',
+			'Older Woman','Older Woman',
+			'Schoolgirl','Schoolgirl',
+			'Teen','Teen',
+			'Teenager','Teenager',
+			'Virgin','Virgin','Virgin'])
 			
 # mature, young, teenager, MILF, etc
 class AgeFemaleAdj(WordList):
 	def __init__(self):
-		super().__init__(['Co-ed',
-			'Maiden',
-			'Mature',
-			'MILF',
-			'Nubile',
-			'Older',
-			'Schoolgirl',
-			'Teen',
-			'Teenage',
-			'Virgin',
-			'Young'])
+		super().__init__(['Co-ed','Co-ed',
+			'Maiden','Maiden',
+			'Mature','Mature',
+			'MILF','MILF',
+			'Nubile','Nubile',
+			'Older','Older',
+			'Schoolgirl','Schoolgirl',
+			'Teen','Teen',
+			'Teenage','Teenage',
+			'Virgin','Virgin',
+			'Young','Young'])
 		
 # bashful, innocent, etc 
 class AttitudeGoodFemale(WordList):
@@ -184,12 +184,11 @@ class AttitudeGoodFemale(WordList):
 		super().__init__(['Anal Virgin',
 			'Bashful',
 			'Chaste',
-			'Conservative',
-			'Innocent',
-			'Innocent',
-			'Sassy',
+			'Conservative','Conservative',
+			'Innocent','Innocent','Innocent',
+			'Sassy','Sassy','Sassy',
 			'Sexy',
-			'Shy',
+			'Shy','Shy',
 			'Virginal'])
 		
 # kinky, slutty, etc 
@@ -210,9 +209,9 @@ class AttitudeFemale(WordList):
 		
 class ClothingFemale(WordList):
 	def __init__(self):
-		super().__init__(['High-Heeled',
-			'Latex-Clad',
-			'Leather-Clad'])
+		super().__init__(['High-Heeled','High-Heeled','High-Heeled',
+			'Latex-Clad','Latex-Clad','Latex-Clad',
+			'Leather-Clad','Leather-Clad','Leather-Clad'])
 
 class GenModFemale(WordList):
 	def __init__(self):
@@ -271,10 +270,10 @@ class PhysCharFemale(WordList):
 			
 class PregState(WordList):
 	def __init__(self):
-		super().__init__(['Fertile','Fertile','Fertile',
-			'Lactating',
-			'Pregnant','Pregnant',
-			'Nursing'])
+		super().__init__(['Fertile','Fertile','Fertile','Fertile',
+			'Lactating','Lactating',
+			'Pregnant','Pregnant','Pregnant',
+			'Nursing','Nursing'])
 
 # nurse, flight-attendant, etc
 class ProfGoodFemale(WordList):
@@ -319,15 +318,15 @@ class ProfBadFemale(WordList):
 	def __init__(self):
 		super().__init__(['Amateur Porn Star',
 			'Anal Whore',
-			'Call-Girl',
+			'Call-Girl','Call-Girl','Call-Girl',
 			'Dominatrix',
 			'Escort',
 			'Fetish Model',
 			'Porn Star',
-			'Slave',
-			'Stripper',
+			'Slave','Slave','Slave',
+			'Stripper','Stripper',
 			'Whore',
-			'Witch'])
+			'Witch','Witch','Witch'])
 			
 class ProfFemale(WordList):
 	def __init__(self):
@@ -342,8 +341,7 @@ class RelateFemale(WordList):
 			'Daughter\'s Best Friend',
 			'Girlfriend','Girlfriend','Girlfriend',
 			'Mistress',
-			'Mommy',
-			'Mommy',
+			'Mommy','Mommy',
 			'Sister',
 			'Step-Daughter','Step-Daughter',
 			'Step-Mom','Step-Mom','Step-Mom',
@@ -352,36 +350,36 @@ class RelateFemale(WordList):
 
 class SexualityFemale(WordList):
 	def __init__(self):
-		super().__init__(['Bi-Curious',
-			'Lesbian'])
+		super().__init__(['Bi-Curious','Bi-Curious','Bi-Curious','Bi-Curious','Bi-Curious',
+			'Lesbian','Lesbian','Lesbian','Lesbian','Lesbian','Lesbian'])
 	
 # black, ebony
 class SkinHairColorFemale(WordList):
 	def __init__(self):
-		super().__init__(['Black','Black','Black',
+		super().__init__(['Black','Black','Black','Black',
 			'Ebony','Ebony',
 			'Pale',
-			'Blonde',
-			'Brunette',
+			'Blonde','Blonde',
+			'Brunette','Brunette',
 			'Dark-Haired',
-			'Redhead'])
+			'Redhead','Redhead'])
 
 # futa			
 class SpeciesFemale(WordList):
 	def __init__(self):
-		super().__init__(['Green-Skinned Alien',
-			'Fairy',
-			'Futa','Futa',
+		super().__init__(['Green-Skinned Alien','Green-Skinned Alien',
+			'Fairy','Fairy',
+			'Futa','Futa','Futa',
 			'Mermaid','Mermaid',
-			'Vampire'])
+			'Vampire','Vampire'])
 	
 # princess	
 class TitlesFemale(WordList):
 	def __init__(self):
-		super().__init__(['Baroness',
-			'Duchess',
-			'Princess','Princess','Princess','Princess',
-			'Queen','Queen'])
+		super().__init__(['Baroness','Baroness',
+			'Duchess','Duchess',
+			'Princess','Princess','Princess','Princess','Princess',
+			'Queen','Queen','Queen'])
 		
 # Amish maiden, BBW, Farmer's Daughter
 class TropesGoodFemale(WordList):
@@ -407,6 +405,7 @@ class TropesBadFemale(WordList):
 			'Goth Girl',
 			'Harem Girl',
 			'Hotwife','Hotwife',
+			'Kitten','Kitten',
 			'MILF','MILF','MILF',
 			'Nymphomaniac','Nymphomaniac',
 			'Submissive',
@@ -415,21 +414,41 @@ class TropesBadFemale(WordList):
 class TropesFemale(WordList):
 	def __init__(self):
 		super().__init__(TropesGoodFemale().List + TropesBadFemale().List)	
-			
-class BookGirlsBasic(WordList):
-	WordHistoryQ = HistoryQ(3)
-	
-	def __init__(self):
-		super().__init__(['Sisters'])
-			
-class BookGirls(WordList):
-	WordHistoryQ = HistoryQ(3)
-	
-	def __init__(self):
-		super().__init__([
-			'Twin Sisters',
-			])
 		
+class LesFemaleAdj(WordList):
+	def __init__(self):
+		super().__init__(['Androgynous','Androgynous',
+			'Butch','Butch','Butch',
+			'Closeted','Closeted',
+			'Femme','Femme','Femme',
+			'Flannel-Wearing',
+			'Freaky',
+			'Gold Star',
+			'High Femme',
+			'Manly',
+			'Masculine',
+			'Out',
+			'Pillow Princess',
+			'S&M',
+			'Switch'])
+			
+class LesFemaleNoun(WordList):
+	def __init__(self):
+		super().__init__(['Bean Flicker',
+			'Bull Dyke','Bull Dyke',
+			'Celesbian',
+			'Diesel Dyke',
+			'Dyke','Dyke','Dyke',
+			'Lesbo','Lesbo',
+			'Lezzie','Lezzie',
+			'Lipstick Lesbian',
+			'Muff Diver','Muff Diver',
+			'Pillow Princess',
+			'Rug Muncher',
+			'Stud',
+			'U-Haul Lesbian'])
+			
+	
 class AgeMaleAdj(WordList):
 	def __init__(self):
 		super().__init__(['College',
@@ -464,13 +483,10 @@ class GenModMale(WordList):
 	def __init__(self):
 		super().__init__(['Barbarian',
 			'BDSM',
-			#'Chain-Gang',	
 			'Gang-Bang',
 			'Heart-Throb',
-			#'Leather',
 			'Masked','Masked','Masked',
 			'Nudist',
-			'Royal',
 			'Secret',
 			'Sex Addict',
 			'Sorcerer',
@@ -483,23 +499,23 @@ class GenModMale(WordList):
 		
 class MaritalStatusMale(WordList):
 	def __init__(self):
-		super().__init__(['Bachelor','Bachelor','Bachelor',
+		super().__init__(['Bachelor','Bachelor','Bachelor','Bachelor',
 			'Divorced',
-			'Married','Married','Married',
-			'Single','Single',
-			'Widowed'])
+			'Married','Married','Married','Married',
+			'Single','Single','Single',
+			'Widowed','Widowed'])
 		
 class NationMale(WordList):
 	def __init__(self):
 		super().__init__(['Australian',
-			'French',
-			'Highlander',
+			'French','French',
+			'Highlander','Highlander',
 			'Irish',
-			'Italian',
+			'Italian','Italian',
 			'Japanese',
 			'Norwegian',
-			'Scottish',
-			'Space',
+			'Scottish','Scottish',
+			'Space','Space','Space',
 			'Spanish'])
 		
 class PhysCharMale(WordList):
@@ -590,12 +606,13 @@ class ProfMale(WordList):
 class RelateMale(WordList):
 	def __init__(self):
 		super().__init__([
-			'Brother',
-			'Boyfriend',
-			'Dad',
+			'Brother','Brother',
+			'Boyfriend','Boyfriend',
+			'Dad','Dad',
+			'Father',
 			'Father-in-Law',
 			'Fiancé',
-			'Husband',
+			'Husband','Husband',
 			'Step-Brother',
 			'Step-Dad',
 			'Widower'])
@@ -604,12 +621,12 @@ class SkinHairColorMale(WordList):
 	def __init__(self):
 		super().__init__(['Black','Black','Black',
 			'Black-Bearded',
-			'Blonde',
+			'Blonde','Blonde',
 			'Bronzed',
 			'Copper-Skinned',
 			'Curly-Haired',
 			'Ebony',
-			'Red-Headed',
+			'Red-Headed','Red-Headed',
 			'Tanned','Tanned'])
 		
 class SpeciesMale(WordList):
@@ -658,6 +675,7 @@ class TropesMale(WordList):
 			'Billionaire',
 			'Bitcoin Billionaire',
 			'Boss',
+			'Criminal',
 			'Daddy',
 			'Daddy Dom',
 			'DILF',
@@ -673,10 +691,6 @@ class TropesMale(WordList):
 			'Kingpin',
 			'Ladies Man',
 			'Ladykiller',
-			# 'Lesbian Cheerleader',
-			# 'Lesbian Dominatrix',
-			# 'Lesbian MILF',
-			# 'Lipstick Lesbian',
 			'Loverboy',
 			'Manor Lord',
 			'Millionaire',
@@ -707,6 +721,7 @@ class GangsMale(WordList):
 			'Billionaires Club',
 			'Boy\'s School',
 			'Brothers',
+			'Chain Gang',
 			'Cops',
 			'Cowboys',
 			'Football Team',
@@ -716,18 +731,66 @@ class GangsMale(WordList):
 			'Hockey Team',
 			'Identical Twin Brothers',
 			'Lesbian Harem',
+			'Men of Kappa Omega Kappa',
 			'Mer-men',
 			'Mongol Horde',
 			'Mountain Men',
 			'Navy Seals',
 			'Pirates',
+			'Police Force',
 			'Rock Band',
-			'Seal Team Six',
+			'Men of Seal Team Six',
 			'S.W.A.T. Team',
 			'Scottsmen',
 			'Viking Hoard',
 			'Vampire Coven',
 			'Werewolf Pack'])
+			
+class GayMaleAdj(WordList):
+	def __init__(self):
+		super().__init__(['Bent',
+			'Camp',
+			'Closeted',
+			'Drag Queen',
+			'Discrete',
+			'Effeminate',
+			'Feminine',
+			'Flamboyant',
+			'Flaming',
+			'Gay','Gay','Gay',
+			'Gay-for-Pay',
+			'Gaysian',
+			'HIV Postive',
+			'Macho',
+			'Out',
+			'S&M',])
+			
+class GayMaleNoun(WordList):
+	def __init__(self):
+		super().__init__(['Anal Astronaut',
+			'Auntie',
+			'Back-Door Bandit',
+			'Bear','Bear','Bear',
+			'Bottom',
+			'Boy Toy',
+			'Butt Pirate',
+			'Cub',
+			'Daddy','Daddy',
+			'Drag Queen','Drag Queen',
+			'Flamer',
+			'Gaysian',
+			'Gym Bunny',
+			'Knob Jockey',
+			'Leather Daddy',
+			'Muscle Mary',
+			'Power Bottom',
+			'Princess',
+			'Queen','Queen','Queen','Queen',
+			'Queer',
+			'Sailor',
+			'Top',
+			'Twink','Twink','Twink',
+			'Wolf'])
 
 			
 class BookVerbsBy(WordList):

@@ -555,7 +555,7 @@ class Generator21(Generator):
 		return sTweet
 		
 class Generator22(Generator):
-	# The Amish Virgin and the Taboo MILF: A Lesbian Love Story 
+	# The Amish Virgin and the Taboo Butch MILF: A Lesbian Love Story 
 	ID = 22
 	Priority = 2
 	
@@ -563,15 +563,16 @@ class Generator22(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		Girl1 = FemaleChar(iNumMaxCBits = 3)
-		Girl2 = FemaleChar(iNumMaxCBits = 3)
+		GirlGood = FemaleChar(iNumMaxCBits = 3, Type = GirlType.Good)
+		GirlLes = LesbianChar()
+		GirlBad = LesbianChar(Type = GirlType.Bad)
 
-		#sTweet = WordList(["The " + self.GetGirl(bComplex = False) + " and the " + self.GetGirl(bComplex = False), "The " + self.GetGirl() + " and the " + self.GetGirl(bComplex = False), "The " + self.GetGirl(bComplex = False) + " and the " + self.GetGirl()]).GetWord()
-		sTweet = WordList(["The " + FemaleChar(iNumMaxCBits = 3).Desc + "\nand the\n" + FemaleChar(iNumMaxCBits = 3).Desc, 
-			"The " + FemaleChar().Desc + "\nand the\n" + FemaleChar(iNumMaxCBits = 3).Desc, 
-			"The " + FemaleChar(iNumMaxCBits = 3).Desc + "\nand the\n" + FemaleChar().Desc]).GetWord()
+		
 		if CoinFlip():
-			sTweet += ":\n" + WordList(["A Lesbian Love Story","A Secret Lesbian Affair","A Taboo Lesbian Affair","A Forbidden Love Story", "A Lesbian Romance"]).GetWord()
+			sTweet = "The " + GirlGood.Desc + "\nand the\n" + GirlLes.Desc
+		else:
+			sTweet = "The " + GirlGood.Desc + "\nand the\n" + GirlBad.Desc
+		sTweet += ":\n" + WordList(["A Lesbian Love Story","A Secret Lesbian Affair","A Taboo Lesbian Affair","A Forbidden Love Story", "A Lesbian Romance", "An FF Story", "An FF Romance"]).GetWord()
 		
 		return sTweet
 		
@@ -585,19 +586,13 @@ class Generator23(Generator):
 		sTweet = ""
 		
 		sHisName = names.NamesMale().FirstName()
-		
-		Master1 = MaleChar(iNumMaxCBits = 2)
-		Master2 = MaleChar()
 
 		GayTitles = []
 		
-		GayTitles.append("The " + MaleChar(iNumMaxCBits = 2, bAllowGang = False).Desc + "\nand\nThe " + MaleChar(iNumMaxCBits = 2, bAllowGang = False).Desc)
-		GayTitles.append("The " + MaleChar(bAllowGang = False).Desc + "\nand\nThe " + MaleChar(iNumMaxCBits = 2, bAllowGang = False).Desc) 
-		GayTitles.append("The " + MaleChar(iNumMaxCBits = 2, bAllowGang = False).Desc + "\nand\nThe Gay " + MaleChar(bAllowGang = False).Desc)
-		GayTitles.append(sHisName + " and\nThe Gay " + MaleChar().Desc)
-		GayTitles.append("Pounded In The Butt By\nMy " + MaleChar().Desc)
-		GayTitles.append(sHisName + " Gets " + self.VerbsBy.GetWord(NotList=["Impregnated", "Hotwifed"]) + " By\nThe " + MaleChar().Desc)
-		GayTitles.append(sHisName + " and\nThe " + WordList(["Well-Hung", "Well-Endowed"]).GetWord() + " " + MaleChar(iNumMaxCBits = 2, NotList = ["Well-Hung", "Well-Endowed"], bAllowGang = False).Desc)
+		GayTitles.append("The " + MaleChar(iNumMaxCBits = 2, bAllowGang = False).Desc + "\nand\nThe " + GayChar(iNumMaxCBits = 2).Desc)
+		GayTitles.append("The " + GayChar(iNumMaxCBits = 2).Desc + "\nand\nThe " + GayChar().Desc) 
+		GayTitles.append("The " + MaleChar(iNumMaxCBits = 2, bAllowGang = False).Desc + "\nand\nThe " + GayChar().Desc)
+		GayTitles.append(sHisName + " and\nThe " + GayChar().Desc)
 		
 		sTweet = GayTitles[randint(0, len(GayTitles) - 1)]
 		sTweet += ":\n" + WordList(["A Gay Love Story","A Secret Gay Affair","A Taboo Gay Affair","A Forbidden Love Story", "A Gay Romance", "An MM Romance", "An MM Love Story"]).GetWord()
@@ -627,19 +622,25 @@ class Generator24(Generator):
 		return sTweet
 		
 class Generator25(Generator):
-	# Here Cums The Bride: The Porn Star Pope & The Bi-Curious Christian Milk Maid 
-	# ---!!! NEEDS WORK !!!---
+	# Greg Gets Pounded In The Butt By The Motorcycle Gang
 	ID = 25
 	Priority = 1
-	Type = GeneratorType.Test
 	
 	def GenerateTweet(self):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		Master = MaleChar(iNumMaxCBits = 3)
-		Girl = FemaleChar(iNumMaxCBits = 3)
-		sTweet = "Here Cums The Bride:\nThe " + Master.Desc + "\n&\nThe " + Girl.Desc
+		sHisName = names.NamesMale().FirstName()
+
+		GayTitles = []
+		
+		GayTitles.append("Pounded In The Butt By\nThe Gay " + MaleGangChar().Desc)
+		GayTitles.append("Pounded In The Butt By\n" + GayChar(bAddArticle = True).Desc)
+		GayTitles.append(sHisName + " Gets " + self.VerbsBy.GetWord(NotList=["Impregnated", "Hotwifed"]) + " By\nThe " + GayChar().Desc)
+		GayTitles.append(sHisName + " and\nThe " + WordList(["Well-Hung", "Well-Endowed"]).GetWord() + " " + GayChar(iNumMaxCBits = 2, NotList = ["Well-Hung", "Well-Endowed"]).Desc)
+		
+		sTweet = GayTitles[randint(0, len(GayTitles) - 1)]
+		sTweet += ":\n" + WordList(["A Gay Love Story","A Secret Gay Affair","A Taboo Gay Affair","A Forbidden Love Story", "A Gay Romance", "An MM Romance", "An MM Love Story"]).GetWord()
 		
 		return sTweet
 		
