@@ -557,7 +557,7 @@ class Generator21(Generator):
 class Generator22(Generator):
 	# The Amish Virgin and the Taboo Butch MILF: A Lesbian Love Story 
 	ID = 22
-	Priority = 2
+	Priority = 4
 	
 	def GenerateTweet(self):
 		super().GenerateTweet()
@@ -579,7 +579,7 @@ class Generator22(Generator):
 class Generator23(Generator):
 	# The Boxer and the Gay Widowed Outlaw Daddy: A Forbidden Love Story 
 	ID = 23
-	Priority = 3
+	Priority = 2
 	
 	def GenerateTweet(self):
 		super().GenerateTweet()
@@ -624,7 +624,7 @@ class Generator24(Generator):
 class Generator25(Generator):
 	# Greg Gets Pounded In The Butt By The Motorcycle Gang
 	ID = 25
-	Priority = 1
+	Priority = 2
 	
 	def GenerateTweet(self):
 		super().GenerateTweet()
@@ -708,15 +708,40 @@ class Generator29(Generator):
 
 		return sTweet
 		
-# class Generator57(Generator):
-	# ID = 57
-	# Priority = 1
+class Generator30(Generator):
+	ID = 30
+	Priority = 2
 	
-	# def GenerateTweet(self):
-		# super().GenerateTweet()
-		# sTweet = ""
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sTweet = ""
+		
+		sHisName1 = NamesMale().FirstName()
+		sHisName2 = NamesMale().FirstName()
+		sHerName1 = NamesFemale().FirstName()
+		sHerName2 = NamesFemale().FirstName()
+		sLastName = LastNames().GetWord()
+		
+		Girl = FemaleChar(iNumMaxCBits = 3)
+		Lesbo = LesbianChar(iNumMaxCBits = 3)
+		Master = MaleChar(iNumMaxCBits = 3, bAllowGang = False)
+		Gay = GayChar(iNumMaxCBits = 3)
+		
+		Menages = []
+		
+		sTweet = SexyAdjs().GetWord().capitalize() + " " + WordList(["Ménage", "Ménage a Trois", "Threesome", "Three-Way"]).GetWord() + ":\n"
+		
+		Menages.append(sHisName1 + " and " + sHerName1 + "\nand\nthe " + Girl.Desc)
+		Menages.append(sHisName1 + " and " + sHerName1 + "\nand\nthe " + Master.Desc)
+		Menages.append(sHerName1 + " and " + sHerName2 + "\nand\nthe " + Lesbo.Desc)
+		Menages.append(sHerName1 + " and " + sHerName2 + "\nand\nthe " + Master.Desc)
+		Menages.append(sHisName1 + " and " + sHisName2 + "\nand\nthe " + Gay.Desc)
+		Menages.append("Mr. & Mrs. " + sLastName + "\nand\nthe " + Girl.Desc)
+		Menages.append("Mr. & Mrs. " + sLastName + "\nand\nthe " + Master.Desc)
+		
+		sTweet += Menages[randint(0, len(Menages) -1)]
 
-		# return sTweet
+		return sTweet
 		
 # class Generator58(Generator):
 	# ID = 58
