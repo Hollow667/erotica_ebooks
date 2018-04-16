@@ -401,9 +401,9 @@ class Generator14(Generator):
 			sTweet = "The " + Girl.Desc + "'s\nGang Bang:\nA " + self._getFMs_() + " Romance"
 		else:
 			if CoinFlip():
-				sTweet = "Gang-Banged By\nThe" + MasterGang.Desc
+				sTweet = "Gang-Banged By\nThe " + MasterGang.Desc
 			else:
-				sTweet = "Shared By\nThe" + MasterGang.Desc
+				sTweet = "Shared By\nThe " + MasterGang.Desc
 			if CoinFlip():
 				sTweet += ":\nAn " + self._getFMs_() + " Adventure"
 		
@@ -481,7 +481,7 @@ class Generator18(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		Girl = FemaleChar(Type = GirlType.Good, NotList = ["Sex", "Lesbian","BDSM", "Anal", "MILF"])
+		Girl = FemaleChar(Type = GirlType.Good, NotList = ["Sex", "Lesbian","BDSM", "Anal", "MILF"], iNumMaxCBits = 3)
 		sTweet += "\"" + WordList(["S@*#!", "Oh No!", "Uh Oh!", "Whoops!", "WTF?!?", "Oh F*@%!"]).GetWord() + " " 
 		sTweet += "My\n" + Girl.Desc + "\nIs " + WordList(["A Porn Star", "A Lesbian", "A Call-Girl", "A Stripper", "A Whore", "A Dominatrix", "An Anal Whore", "An Anal Porn Star", "An Erotic Model", "A Fetish Model"]).GetWord() + "!\""
 		
@@ -783,7 +783,7 @@ def LastNameBuilder(NotList = None):
 	
 	return sLName
 		
-def AuthorBuilder():
+def AuthorBuilder(Gender = Gender.Neuter):
 	sAName = ""
 	
 	Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -797,36 +797,38 @@ def AuthorBuilder():
 		sName += Alphabet[randint(0, len(Alphabet) - 1)] + "."
 	FirstNames.append(sName)
 	
-	for _ in range(3):
-		FirstNames.append(MaleNames.FirstName())
-		
-	sName1 = ""
-	sName2 = ""
-	for _ in range(2):
-		sName1 = MaleNames.FirstName()
-		sName2 = MaleNames.FirstName()
-		while sName2 in sName1:
+	if Gender == Gender.Male or Gender == Gender.Neuter:
+		for _ in range(3):
+			FirstNames.append(MaleNames.FirstName())
+			
+		sName1 = ""
+		sName2 = ""
+		for _ in range(2):
+			sName1 = MaleNames.FirstName()
 			sName2 = MaleNames.FirstName()
-		FirstNames.append(sName1 + " " + sName2)
+			while sName2 in sName1:
+				sName2 = MaleNames.FirstName()
+			FirstNames.append(sName1 + " " + sName2)
+			
+		for _ in range(3):
+			FirstNames.append(MaleNames.FirstName() + " " + Alphabet[randint(0, len(Alphabet) - 1)] + ".")
 		
-	for _ in range(3):
-		FirstNames.append(MaleNames.FirstName() + " " + Alphabet[randint(0, len(Alphabet) - 1)] + ".")
-		
-	for _ in range(4):
-		FirstNames.append(FemNames.FirstName())
-		
-	sName1 = ""
-	sName2 = ""
-	for _ in range(2):
-		sName1 = FemNames.FirstName()
-		sName2 = FemNames.FirstName()
-		while sName2 in sName1:
+	if Gender == Gender.Female or Gender == Gender.Neuter:
+		for _ in range(4):
+			FirstNames.append(FemNames.FirstName())
+			
+		sName1 = ""
+		sName2 = ""
+		for _ in range(2):
+			sName1 = FemNames.FirstName()
 			sName2 = FemNames.FirstName()
-		FirstNames.append(sName1 + " " + sName2)
+			while sName2 in sName1:
+				sName2 = FemNames.FirstName()
+			FirstNames.append(sName1 + " " + sName2)
+			
+		for _ in range(2):
+			FirstNames.append(FemNames.FirstName() + " " + Alphabet[randint(0, len(Alphabet) - 1)] + ".")
 		
-	for _ in range(2):
-		FirstNames.append(FemNames.FirstName() + " " + Alphabet[randint(0, len(Alphabet) - 1)] + ".")
-	
 	sAName = FirstNames[randint(0, len(FirstNames) - 1)]
 	
 	sAName += " " + LastNameBuilder(NotList = [sAName])
@@ -878,9 +880,15 @@ def GetImgTweetText(gen):
 		TweetText.append(sText)
 	#=============================
 	
-	sText = AuthorBuilder() + "'s "
-	sText += WordList(["Patreon supporters", "supporters on Patreon"]).GetWord() + " get " + WordList(["instant access", "free access", "access"]).GetWord() + " to all their " + SexyAdj.GetWord() + " " + WordList(["reads", "books", "stories"]).GetWord() + "!"
-	for _ in range(2):
+	sText = AuthorBuilder(Gender = Gender.Male) + "'s "
+	sText += WordList(["Patreon supporters", "supporters on Patreon"]).GetWord() + " get " + WordList(["instant access", "free access", "access"]).GetWord() + " to all his " + SexyAdj.GetWord() + " " + WordList(["reads", "books", "stories"]).GetWord() + "!"
+	for _ in range(1):
+		TweetText.append(sText)
+	#=============================
+	
+	sText = AuthorBuilder(Gender = Gender.Female) + "'s "
+	sText += WordList(["Patreon supporters", "supporters on Patreon"]).GetWord() + " get " + WordList(["instant access", "free access", "access"]).GetWord() + " to all her " + SexyAdj.GetWord() + " " + WordList(["reads", "books", "stories"]).GetWord() + "!"
+	for _ in range(1):
 		TweetText.append(sText)
 	#=============================
 	
@@ -895,14 +903,14 @@ def GetImgTweetText(gen):
 	#=============================
 
 	# it seems that adding any kind of hashtag at all to a bot may lead to shadowbans. so for now I'm not using this.
-	# if CoinFlip():
-		# sText = TweetText[randint(0, len(TweetText) - 1)] + " #" + Hashtag.GetWord()
-		# while IsTweetTooLong(sText):
-			# sText = TweetText[randint(0, len(TweetText) - 1)] + " #" + Hashtag.GetWord()
-	# else:
-	sText = TweetText[randint(0, len(TweetText) - 1)] 
-	while IsTweetTooLong(sText):
+	if randint(1,5) == 5:
+		sText = TweetText[randint(0, len(TweetText) - 1)] + " #" + Hashtag.GetWord()
+		while IsTweetTooLong(sText):
+			sText = TweetText[randint(0, len(TweetText) - 1)] + " #" + Hashtag.GetWord()
+	else:
 		sText = TweetText[randint(0, len(TweetText) - 1)] 
+		while IsTweetTooLong(sText):
+			sText = TweetText[randint(0, len(TweetText) - 1)] 
 	
 	return sText 
 				
