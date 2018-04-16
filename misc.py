@@ -264,6 +264,7 @@ class PhysCharFemale(WordList):
 			'Nubile',
 			'Nude',
 			'Petite',
+			'Rubenesque',
 			'Skinny',
 			'Voluptuous',
 			'Young'])
@@ -386,6 +387,7 @@ class TropesGoodFemale(WordList):
 	def __init__(self):
 		super().__init__(['Amish Maiden','Amish Maiden',
 			'BBW','BBW',
+			'Beauty',
 			'Bride',
 			'Farmer\'s Daughter',
 			'Prom Queen','Prom Queen',
@@ -522,10 +524,11 @@ class PhysCharMale(WordList):
 	def __init__(self):
 		super().__init__(['Athletic',
 			'Bald',
-			'Bare-Chested',
+			'Bare-Chested','Bare-Chested',
 			'Bearded','Bearded',
 			'Beefcake',
 			'Beefy',
+			'Big','Big','Big','Big',
 			'Buff',
 			'Chiseled',
 			'Clean-Shaven','Clean-Shaven',
@@ -534,7 +537,7 @@ class PhysCharMale(WordList):
 			'Fit',
 			'Hairy','Hairy',
 			'Handsome','Handsome',
-			'Hung',
+			'Hung','Hung',
 			'Hunky',
 			'Muscled',
 			'Muscular',
@@ -551,7 +554,7 @@ class PhysCharMale(WordList):
 			'Visibly Erect',
 			'Well-Built',
 			'Well-Hung','Well-Hung',
-			'Well-Endowed'])
+			'Well-Endowed','Well-Endowed'])
 		
 class ProfMale(WordList):
 	def __init__(self):
