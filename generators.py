@@ -142,7 +142,7 @@ class GeneratorPromo(Generator):
 class Generator1(Generator):
 	# Blackmailed by the Billionaire Mountain Man 
 	ID = 1
-	Priority = 4
+	Priority = 3
 	
 	def GenerateTweet(self):
 		super().GenerateTweet()
@@ -743,9 +743,43 @@ class Generator30(Generator):
 
 		return sTweet
 		
+class Generator31(Generator):
+	ID = 31
+	Priority = 2
+	
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sTweet = ""
+		
+		ListAdjs = WordList(misc.AttitudeFemale().List + misc.PhysCharFemale().List)
+		sAdj1 = ListAdjs.GetWord()
+		sAdj2 = ListAdjs.GetWord(NotList = [sAdj1])
+		sHerName = NamesFemale().FirstName()
+		
+		sTweet = sAdj1 + " & " + sAdj2 + ":\n"
+		
+		if CoinFlip():
+			Girl = FemaleChar(iNumMinCBits = 2)
+			sTweet += "My " + Girl.Desc
+		else:
+			Girl = FemaleChar()
+			sTweet += sHerName + " the " + Girl.Desc
+
+		return sTweet
+		
+# class Generator57(Generator):
+	# ID = 57
+	# Priority = 2
+	
+	# def GenerateTweet(self):
+		# super().GenerateTweet()
+		# sTweet = ""
+
+		# return sTweet
+		
 # class Generator58(Generator):
 	# ID = 58
-	# Priority = 1
+	# Priority = 2
 	
 	# def GenerateTweet(self):
 		# super().GenerateTweet()
@@ -755,7 +789,37 @@ class Generator30(Generator):
 		
 # class Generator59(Generator):
 	# ID = 59
-	# Priority = 1
+	# Priority = 2
+	
+	# def GenerateTweet(self):
+		# super().GenerateTweet()
+		# sTweet = ""
+
+		# return sTweet
+		
+# class Generator57(Generator):
+	# ID = 57
+	# Priority = 2
+	
+	# def GenerateTweet(self):
+		# super().GenerateTweet()
+		# sTweet = ""
+
+		# return sTweet
+		
+# class Generator58(Generator):
+	# ID = 58
+	# Priority = 2
+	
+	# def GenerateTweet(self):
+		# super().GenerateTweet()
+		# sTweet = ""
+
+		# return sTweet
+		
+# class Generator59(Generator):
+	# ID = 59
+	# Priority = 2
 	
 	# def GenerateTweet(self):
 		# super().GenerateTweet()

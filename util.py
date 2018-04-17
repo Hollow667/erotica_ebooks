@@ -9,6 +9,7 @@ from enum import *
 
 MAX_TWITTER_CHARS = 280
 MAX_GENERATOR_NO = 44
+MAX_SEARCH_LOOPS = 8
 TWIT_USERNAME = 'erotica_ebooks'
 
 Q_SIZE = 10
@@ -207,14 +208,18 @@ class WordList:
 			
 			if SomeHistoryQ is None:
 				if len(NotList) < len(self.List):
-					while self.FoundIn(sWord, NotList):
+					i = 0
+					while self.FoundIn(sWord, NotList) and i < MAX_SEARCH_LOOPS:
 						sWord = self.List[randint(0, len(self.List) - 1)]
+						i += 1
 				else:
 					sWord = self.List[randint(0, len(self.List) - 1)]
 			else:
 				if len(NotList) < len(self.List) and len(SomeHistoryQ.HistoryQ) < len(self.List):
-					while not SomeHistoryQ.PushToHistoryQ(sWord) or self.FoundIn(sWord, NotList):
+					i = 0
+					while (not SomeHistoryQ.PushToHistoryQ(sWord) or self.FoundIn(sWord, NotList)) and i < MAX_SEARCH_LOOPS:
 						sWord = self.List[randint(0, len(self.List) - 1)]
+						i += 1
 				else:
 					sWord = self.List[randint(0, len(self.List) - 1)]
 				
