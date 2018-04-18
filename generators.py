@@ -862,7 +862,7 @@ def AuthorBuilder(Gender = Gender.Neuter):
 	FirstNames.append(sName)
 	
 	if Gender == Gender.Male or Gender == Gender.Neuter:
-		for _ in range(3):
+		for _ in range(5):
 			FirstNames.append(MaleNames.FirstName())
 			
 		sName1 = ""
@@ -874,11 +874,11 @@ def AuthorBuilder(Gender = Gender.Neuter):
 				sName2 = MaleNames.FirstName()
 			FirstNames.append(sName1 + " " + sName2)
 			
-		for _ in range(3):
+		for _ in range(4):
 			FirstNames.append(MaleNames.FirstName() + " " + Alphabet[randint(0, len(Alphabet) - 1)] + ".")
 		
 	if Gender == Gender.Female or Gender == Gender.Neuter:
-		for _ in range(4):
+		for _ in range(5):
 			FirstNames.append(FemNames.FirstName())
 			
 		sName1 = ""
@@ -890,7 +890,7 @@ def AuthorBuilder(Gender = Gender.Neuter):
 				sName2 = FemNames.FirstName()
 			FirstNames.append(sName1 + " " + sName2)
 			
-		for _ in range(2):
+		for _ in range(4):
 			FirstNames.append(FemNames.FirstName() + " " + Alphabet[randint(0, len(Alphabet) - 1)] + ".")
 		
 	sAName = FirstNames[randint(0, len(FirstNames) - 1)]
@@ -956,12 +956,22 @@ def GetImgTweetText(gen):
 		TweetText.append(sText)
 	#=============================
 	
+	sText = WordList(["Available soon", "Coming soon", "On its way soon", "Out soon", "Arriving soon"]).GetWord() + " from " + AuthorBuilder(Gender = Gender.Female) 
+	for _ in range(2):
+		TweetText.append(sText)
+	#=============================
+	
 	sText = "Reply to this tweet and " 
 	if CoinFlip():
 		sText += "I'll tweet a " + WordList(["randomly", "computer", "bot", "algorithmically"]).GetWord () + "-generated " + WordList(["erotica", "smutty", "naughty", "erotic", "adult"]).GetWord() + " ebook title @ you!"
 	else:
 		sText += "get a custom " + WordList(["erotica", "smutty", "naughty", "erotic", "adult"]).GetWord() + " ebook title of your very own in reply! " + GetEmoji()
 	sText += " " + GetEmoji()
+	for _ in range(3):
+		TweetText.append(sText)
+	#=============================
+	
+	sText = WordList(["Check out", "Follow", "Visit", "Take a look at"]).GetWord() + WordList([" my sister bot", " my bot-sibbling", ""]).GetWord() + " @bot_lust " + WordList(["to read what's inside", "to read " + SexyAdjs().GetWord() + " excerpts from", "to see what's inside", "to read " + SexyAdjs().GetWord() + " bot-generated love scenes from"]).GetWord() + " this book (warning: NSFW!) " + GetEmoji()
 	for _ in range(2):
 		TweetText.append(sText)
 	#=============================
