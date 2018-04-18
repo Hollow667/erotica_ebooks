@@ -3,7 +3,7 @@
 
 import logging
 import socket
-import sys, argparse, datetime, threading, traceback
+import sys
 
 lock_socket = None  # we want to keep the socket open until the very end of
                     # our script so we use a global variable to avoid going
@@ -28,16 +28,7 @@ if not is_lock_free():
 
 # then, either include the rest of your script below,
 # or import it, if it's in a separate file:
-import names
-import people
-import misc
 
-from io import BytesIO
-from random import *
-from util import *
-from generators import *
-from twitter_stuff import *
-
-from ee_bot import *
+import ee_bot
 
 InitBot(1800, 300, bTweet = True, bLoop = True)
