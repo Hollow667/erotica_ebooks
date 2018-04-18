@@ -384,7 +384,7 @@ class NationMale(CharBit):
 		
 		self.val = misc.NationMale().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
 		
-		self.part = "adj"
+		self.part = "noun"
 		return self.val
 		
 class PhysCharMale(CharBit):
@@ -407,7 +407,7 @@ class ProfMale(CharBit):
 		
 		self.val = misc.ProfMale().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
 
-		self.part = "noun"
+		self.part = "adj"
 		return self.val
 		
 class RelateMale(CharBit):

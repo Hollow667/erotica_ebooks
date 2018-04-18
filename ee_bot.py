@@ -29,6 +29,7 @@ def ReplyResponder(e, api, iReplyTimer):
 	
 def InitBot(iTweetTimer, iReplyTimer, bTweet = False, iTweets = 1, bLoop = False, iGeneratorNo = -1):
 	print("=*=*=*= EROTICA_EBOOKS BOT IS RUNNING (@erotica_ebooks) =*=*=*=\n\n")
+	print("===InitBot() iTweetTimer=" + str(iTweetTimer) + ", iReplyTimer=" + str(iReplyTimer) + ", bTweet=" + str(bTweet) + ", iTweets=" + str(iTweets) + ",bLoop=" + str(bLoop) + ",iGeneratorNo=" + str(iGeneratorNo) + "\n")
 	
 	sTweet = ""
 	bTest = False 
