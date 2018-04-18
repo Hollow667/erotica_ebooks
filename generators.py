@@ -243,7 +243,7 @@ class Generator6(Generator):
 		super().GenerateTweet()
 		sTweet = ""
 		
-		NotList = ["Pledged", "Public", "Charmed", "Cuckolded", "Hunted", "Harrassed", "Sold", "Gifted", "Pledged"]
+		NotList = ["Pledged", "Public", "Charmed", "Cuckolded", "Hunted", "Harrassed", "Sold", "Gifted", "Pledged", "Bed", "Sex Dungeon"]
 		
 		Master = MaleChar(bAllowGang = False, NotList = NotList, bAddArticle = True)
 		
