@@ -177,18 +177,22 @@ class AttitudeGoodFemale(WordList):
 			'Bashful',
 			'Chaste',
 			'Conservative','Conservative',
+			'Flirty',
 			'Innocent','Innocent','Innocent',
 			'Sassy','Sassy','Sassy',
 			'Sexy',
 			'Shy','Shy',
-			'Virginal'])
+			'Virginal',
+			'Vivacious'])
 		
 # kinky, slutty, etc 
 class AttitudeBadFemale(WordList):
 	def __init__(self):
 		super().__init__(['Desperate',
+			'Dirty-Minded',
 			'Kinky','Kinky',
 			'Loose','Loose',
+			'Horny',
 			'Naughty','Naughty',
 			'Nympho','Nympho',
 			'Promiscuous',
@@ -202,15 +206,19 @@ class AttitudeFemale(WordList):
 		
 class ClothingFemale(WordList):
 	def __init__(self):
-		super().__init__(['High-Heeled','High-Heeled','High-Heeled',
-			'Latex-Clad','Latex-Clad','Latex-Clad',
-			'Leather-Clad','Leather-Clad','Leather-Clad'])
+		super().__init__(['G-String',
+			'High-Heeled',
+			'Latex-Clad',
+			'Leather-Clad',
+			'Scantilyl-Clad',
+			'Topless'])
 
 class GenModFemale(WordList):
 	def __init__(self):
 		super().__init__(['Anal','Anal',
 		'BDSM','BDSM','BDSM',
 		'Erotic',
+		'Fetish',
 		'Horny',
 		'Nudist','Nudist','Nudist',
 		'Sex',
@@ -245,22 +253,38 @@ class NationFemale(WordList):
 # big-titty, etc
 class PhysCharFemale(WordList):
 	def __init__(self):
-		super().__init__(['Attractive',
+		super().__init__(['Apple-Bottomed',
+			'Athletic,
+			'Attractive',
 			'Beautiful',
+			'Big Bottomed',
 			'Big Titty',
 			'Busty',
 			'Buxom',
 			'Curvy',
+			'Curvaceous',
+			'Flexible',
 			'Gorgeous',
 			'Hot',
 			'Leggy',
 			'Naked',
+			'Natural',
 			'Nubile',
 			'Nude',
 			'Petite',
-			'Rubenesque',
+			'Plump',
+			'Rubenesque',\
+			'Shapely',
+			'Shaved',
 			'Skinny',
+			'Slender',
+			'Sporty',
+			'Statuesque',
+			'Supple',
+			'Tanned',
+			'Top-Heavy',
 			'Voluptuous',
+			'Wide-Bottomed',
 			'Young'])
 			
 class PregState(WordList):
@@ -297,6 +321,7 @@ class ProfGoodFemale(WordList):
 			'Maid',
 			'Milk Maid',
 			'Nanny',
+			'Nun',
 			'Nurse',
 			'Pastor\'s Wife',
 			'Secretary','Secretary',
@@ -317,6 +342,7 @@ class ProfBadFemale(WordList):
 			'Dominatrix',
 			'Escort',
 			'Fetish Model',
+			'Nun',
 			'Porn Star',
 			'Slave','Slave','Slave',
 			'Stripper','Stripper',
@@ -355,8 +381,12 @@ class SkinHairColorFemale(WordList):
 			'Ebony','Ebony',
 			'Pale',
 			'Blonde','Blonde',
+			'Blue-Eyed','Blue-Eyed',
 			'Brunette','Brunette',
+			'Dark-Eyed',
 			'Dark-Haired',
+			'Dark-Skinned',
+			'Green-Eyed',
 			'Redhead','Redhead'])
 
 # futa			
