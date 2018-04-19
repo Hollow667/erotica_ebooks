@@ -79,7 +79,7 @@ def UpdateStatusWithImage(api, Tweet, ImgFile, in_reply_to_status_id = 0):
 	return status 
 
 def RespondToReplies(api):
-	my_userid = '973202601545273344'
+	my_userid = '983078341241704448'
 	max_id = None
 	max_tweets = 60
 	
