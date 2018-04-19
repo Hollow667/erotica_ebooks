@@ -126,6 +126,5 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = False, iTweets = 1, bLoop = False
 		e.set()
 		
 		print("***Goodbye***")
-		
-		sys.exit(1)	
+
 

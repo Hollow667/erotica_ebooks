@@ -244,7 +244,7 @@ class NationFemale(WordList):
 			'Czech',
 			'French',
 			'German',
-			'Island Girl',
+			'Irish',
 			'Latina',
 			'Russian',
 			'Small-Town',
@@ -282,6 +282,7 @@ class PhysCharFemale(WordList):
 			'Statuesque',
 			'Supple',
 			'Top-Heavy',
+			'Unshaven',
 			'Voluptuous',
 			'Wide-Bottomed',
 			'Young'])
