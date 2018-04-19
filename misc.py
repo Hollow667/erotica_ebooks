@@ -254,7 +254,7 @@ class NationFemale(WordList):
 class PhysCharFemale(WordList):
 	def __init__(self):
 		super().__init__(['Apple-Bottomed',
-			'Athletic,
+			'Athletic',
 			'Attractive',
 			'Beautiful',
 			'Big Bottomed',
@@ -281,7 +281,6 @@ class PhysCharFemale(WordList):
 			'Sporty',
 			'Statuesque',
 			'Supple',
-			'Tanned',
 			'Top-Heavy',
 			'Voluptuous',
 			'Wide-Bottomed',
@@ -377,17 +376,19 @@ class SexualityFemale(WordList):
 # black, ebony
 class SkinHairColorFemale(WordList):
 	def __init__(self):
-		super().__init__(['Black','Black','Black','Black',
+		super().__init__(['Black','Black','Black',
 			'Ebony','Ebony',
 			'Pale',
 			'Blonde','Blonde',
 			'Blue-Eyed','Blue-Eyed',
+			'Bronzed','Bronzed',
 			'Brunette','Brunette',
 			'Dark-Eyed',
 			'Dark-Haired',
 			'Dark-Skinned',
 			'Green-Eyed',
-			'Redhead','Redhead'])
+			'Redhead','Redhead',
+			'Tanned','Tanned'])
 
 # futa			
 class SpeciesFemale(WordList):

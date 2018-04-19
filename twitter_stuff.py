@@ -55,9 +55,11 @@ def UpdateStatus(api, Tweet, in_reply_to_status_id = ""):
 
 	return status 
 
-def UpdateStatusWithImage(api, Tweet, ImgFile, in_reply_to_status_id = ""):
+def UpdateStatusWithImage(api, Tweet, ImgFile, in_reply_to_status_id = 0):
 	status = None 
 	bTryToTweet = True 
+	
+	print("UpdateStatusWithImage() in_reply_to_status_id = " + str(in_reply_to_status_id))
 	
 	while bTryToTweet:
 		try:
@@ -114,8 +116,8 @@ def RespondToReplies(api):
 						ImgFile = BytesIO() 
 						CreateImg(sTweet).save(ImgFile, format = 'PNG')
 						
-						status = UpdateStatusWithImage(api, sPrefix, ImgFile, reply.id_str)	
-					
+						status = UpdateStatusWithImage(api, sPrefix, ImgFile, reply.id)	
+				
 					with open(REPLIES_FILE_NAME, 'a') as WriteReplyFile:
 						WriteReplyFile.write(str(reply.id_str) + "\n")
 		
