@@ -248,6 +248,7 @@ class NationFemale(WordList):
 			'German',
 			'Irish',
 			'Latina',
+			'Polynesian',
 			'Russian',
 			'Small-Town',
 			'Swedish'])
