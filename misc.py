@@ -126,6 +126,7 @@ class SexyAdjs(WordList):
 		'hot',
 		'kinky',
 		'naughty',
+		'raunchy',
 		'sexy',
 		'sensual',
 		'steamy',
@@ -188,7 +189,8 @@ class AttitudeGoodFemale(WordList):
 # kinky, slutty, etc 
 class AttitudeBadFemale(WordList):
 	def __init__(self):
-		super().__init__(['Desperate',
+		super().__init__(['Brazen',
+			'Desperate',
 			'Dirty-Minded',
 			'Kinky','Kinky',
 			'Loose','Loose',
@@ -267,13 +269,14 @@ class PhysCharFemale(WordList):
 			'Gorgeous',
 			'Hot',
 			'Leggy',
+			'Little','Little','Little',
 			'Naked',
 			'Natural',
 			'Nubile',
 			'Nude',
 			'Petite',
 			'Plump',
-			'Rubenesque',\
+			'Rubenesque',
 			'Shapely',
 			'Shaved',
 			'Skinny',
@@ -488,7 +491,9 @@ class AgeMaleAdj(WordList):
 		
 class AttitudeMale(WordList):
 	def __init__(self):
-		super().__init__(['Brooding',
+		super().__init__(['Brash',
+			'Brazen',
+			'Brooding',
 			'Charming',
 			'Cocky',
 			'Dominant',
