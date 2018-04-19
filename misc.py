@@ -192,6 +192,7 @@ class AttitudeBadFemale(WordList):
 		super().__init__(['Brazen',
 			'Desperate',
 			'Dirty-Minded',
+			'Foxy',
 			'Kinky','Kinky',
 			'Loose','Loose',
 			'Horny',
@@ -498,10 +499,11 @@ class AttitudeMale(WordList):
 			'Charming',
 			'Cocky',
 			'Dominant',
-			'Horny',
-			'Highly Eligible',
-			'Gentle',
 			'Famous',
+			'Foxy',
+			'Gentle',
+			'Highly Eligible',
+			'Horny',
 			'Kinky',
 			'Playboy',
 			'Powerful',
@@ -660,13 +662,16 @@ class ProfMale(WordList):
 			'Stockbroker',
 			'Stuntman',
 			'Surfer',
+			'Tattoo Artist',
 			'Tri-Athlete',
 			'Undercover Cop',
 			'Violinist'])
 		
 class RelateMale(WordList):
 	def __init__(self):
-		super().__init__([
+		super().__init__(['Best Friend\s Boyfriend',
+			'Best Friend\'s Brother',
+			'Best Friend\'s Dad',
 			'Brother','Brother',
 			'Boyfriend','Boyfriend',
 			'Dad','Dad',
