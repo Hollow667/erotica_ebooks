@@ -213,7 +213,7 @@ class ClothingFemale(WordList):
 			'High-Heeled',
 			'Latex-Clad',
 			'Leather-Clad',
-			'Scantilyl-Clad',
+			'Scantily-Clad',
 			'Topless'])
 
 class GenModFemale(WordList):
@@ -625,7 +625,7 @@ class ProfMale(WordList):
 			'Guitar Player',
 			'Guitarist',
 			'Gunslinger',
-			'Elite Hacker',
+			'Hacker',
 			'Heart Surgeon',
 			'Hitman',
 			'Investment Banker',
