@@ -14,6 +14,7 @@ class CharBit():
 	def __init__(self):
 		self.val = ""
 		self.part = ""
+		self.IsRelate = False 
 
 class Character():
 	def __init__(self):
@@ -138,6 +139,7 @@ class RelateFemale(CharBit):
 		self.val = misc.RelateFemale().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
 		
 		self.part = "noun"
+		self.IsRelate = True
 		return self.val
 
 class SexualityFemale(CharBit):
@@ -216,7 +218,7 @@ class LesFemaleNoun(CharBit):
 		return self.val
 		
 class FemaleChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, Type = GirlType.Neutral, NotList = None):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, Type = GirlType.Neutral, NotList = None, bAddArticle = False, sPosArticle = "My"):
 		super().__init__()
 		
 		if NotList is None:
@@ -253,6 +255,7 @@ class FemaleChar(Character):
 			
 		BitGetList = []
 		bFoundNoun = False 
+		bIsRelate = False
 		iNumCBits = 1
 		
 		irand1 = randint(iNumMinCBits, iNumMaxCBits)
@@ -264,20 +267,30 @@ class FemaleChar(Character):
 			sBit = CharBitList[x].Get(NotList = NotList)
 			if CharBitList[x].part == "noun":
 				bFoundNoun = True 
+			if CharBitList[x].IsRelate:
+				bIsRelate = True
 			NotList.append(sBit)
 			BitGetList.append(sBit)
 			
 		if not bFoundNoun:
 			BitGetList.append(WordList(["Girl","Woman"]).GetWord(NotList = NotList))
 		
-		self.Desc = ""
+		sDesc = ""
 		for x in range(0, len(BitGetList)):
 			if x > 0:
-				self.Desc += " "
-			self.Desc += BitGetList[x]
+				sDesc += " "
+			sDesc += BitGetList[x]
+			
+		if bAddArticle:				
+			if bIsRelate:
+				sDesc = sPosArticle + " " + sDesc
+			else:
+				sDesc = "The " + sDesc
+				
+		self.Desc = sDesc
 			
 class LesbianChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, Type = GirlType.Neutral, NotList = None):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, Type = GirlType.Neutral, NotList = None, bAddArticle = False, sPosArticle = "My"):
 		super().__init__()
 		
 		if NotList is None:
@@ -311,6 +324,7 @@ class LesbianChar(Character):
 		
 		BitGetList = []
 		bFoundNoun = False 
+		bIsRelate = False
 		iNumCBits = 1
 		
 		irand1 = randint(iNumMinCBits, iNumMaxCBits)
@@ -322,17 +336,27 @@ class LesbianChar(Character):
 			sBit = CharBitList[x].Get(NotList = NotList)
 			if CharBitList[x].part == "noun":
 				bFoundNoun = True 
+			if CharBitList[x].IsRelate:
+				bIsRelate = True
 			NotList.append(sBit)
 			BitGetList.append(sBit)
 			
 		if not bFoundNoun:
 			BitGetList.append(LesFemaleNoun().Get(NotList = NotList))
 		
-		self.Desc = ""
+		sDesc = ""
 		for x in range(0, len(BitGetList)):
 			if x > 0:
-				self.Desc += " "
-			self.Desc += BitGetList[x]
+				sDesc += " "
+			sDesc += BitGetList[x]
+			
+		if bAddArticle:				
+			if bIsRelate:
+				sDesc = sPosArticle + " " + sDesc
+			else:
+				sDesc = "The " + sDesc
+				
+		self.Desc = sDesc
 			
 class AgeMale(CharBit):
 	def Get(self, NotList = None):
@@ -418,6 +442,7 @@ class RelateMale(CharBit):
 		self.val = misc.RelateMale().GetWord(NotList = NotList, SomeHistoryQ = MaleCBitHistoryQ)
 		
 		self.part = "noun"
+		self.IsRelate = True
 		return self.val
 		
 class SkinHairColorMale(CharBit):
@@ -504,7 +529,7 @@ class GayMaleNoun(CharBit):
 		return self.val
 		
 class MaleChar():
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAllowGang = True, bAddArticle = False):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAllowGang = True, bAddArticle = False, sPosArticle = "My"):
 		if NotList is None:
 			NotList = []
 		
@@ -512,14 +537,14 @@ class MaleChar():
 		
 		iRand = randint(1, 5)
 		if iRand == 5 and bAllowGang == True:
-			self.Char = MaleGangChar(iNumMinCBits = iNumMinCBits, iNumMaxCBits = iNumMaxCBits, NotList = NotList, bAddArticle = bAddArticle)
+			self.Char = MaleGangChar(iNumMinCBits = iNumMinCBits, iNumMaxCBits = iNumMaxCBits, NotList = NotList, bAddArticle = bAddArticle, sPosArticle = sPosArticle)
 		else:
-			self.Char = MaleRegChar(iNumMinCBits = iNumMinCBits, iNumMaxCBits = iNumMaxCBits, NotList = NotList, bAddArticle = bAddArticle)
+			self.Char = MaleRegChar(iNumMinCBits = iNumMinCBits, iNumMaxCBits = iNumMaxCBits, NotList = NotList, bAddArticle = bAddArticle, sPosArticle = sPosArticle)
 			
 		self.Desc = self.Char.Desc
 		
 class MaleRegChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False, sPosArticle = "My"):
 		super().__init__()
 		sDesc = ""
 		
@@ -549,6 +574,7 @@ class MaleRegChar(Character):
 			
 		BitGetList = []
 		bFoundNoun = False 
+		bIsRelate = False 
 		iNumCBits = 1
 		
 		irand1 = randint(iNumMinCBits, iNumMaxCBits)
@@ -560,6 +586,8 @@ class MaleRegChar(Character):
 			sBit = CharBitList[x].Get(NotList = NotList)
 			if CharBitList[x].part == "noun":
 				bFoundNoun = True 
+			if CharBitList[x].IsRelate:
+				bIsRelate = True
 			NotList.append(sBit)
 			BitGetList.append(sBit)
 			
@@ -572,23 +600,16 @@ class MaleRegChar(Character):
 				sDesc += " "
 			sDesc += BitGetList[x]
 			
-		if bAddArticle:
-			Relations = ["dad","brother","husband","boyfriend", "father", "fiancé", "boss", "lover"]
-			bFoundIn = False
-			for x in range(0, len(Relations)):
-				if Relations[x] in sDesc.lower():
-					bFoundIn = True
-					break 
-					
-			if bFoundIn:
-				sDesc = "My " + sDesc
+		if bAddArticle:				
+			if bIsRelate:
+				sDesc = sPosArticle + " " + sDesc
 			else:
 				sDesc = "The " + sDesc
 			
 		self.Desc = sDesc
 			
 class MaleGangChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False, sPosArticle = "My"):
 		super().__init__()
 		
 		sDesc = ""
@@ -614,6 +635,7 @@ class MaleGangChar(Character):
 			
 		BitGetList = []
 		bFoundNoun = False 
+		bIsRelate = False 
 		iNumCBits = 1
 		
 		irand1 = randint(iNumMinCBits, iNumMaxCBits)
@@ -626,6 +648,8 @@ class MaleGangChar(Character):
 
 			NotList.append(sBit)
 			BitGetList.append(sBit)
+			if CharBitList[x].IsRelate:
+				bIsRelate = True
 		
 		for x in range(0, len(BitGetList)):
 			if x > 0:
@@ -636,13 +660,16 @@ class MaleGangChar(Character):
 			sDesc += " "
 		sDesc += GangMale().Get(NotList = NotList)
 		
-		if bAddArticle:
-			sDesc = "The " + sDesc
+		if bAddArticle:				
+			if bIsRelate:
+				sDesc = sPosArticle + " " + sDesc
+			else:
+				sDesc = "The " + sDesc
 		
 		self.Desc = sDesc
 		
 class GayChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False, sPosArticle = "My"):
 		super().__init__()
 		sDesc = ""
 		
@@ -671,6 +698,7 @@ class GayChar(Character):
 		
 		BitGetList = []
 		bFoundNoun = False 
+		bIsRelate = True
 		iNumCBits = 1
 		
 		irand1 = randint(iNumMinCBits, iNumMaxCBits)
@@ -682,6 +710,8 @@ class GayChar(Character):
 			sBit = CharBitList[x].Get(NotList = NotList)
 			if CharBitList[x].part == "noun":
 				bFoundNoun = True 
+			if CharBitList[x].IsRelate:
+				bIsRelate = True
 			NotList.append(sBit)
 			BitGetList.append(sBit)
 			
@@ -704,6 +734,12 @@ class GayChar(Character):
 					
 			if bFoundIn:
 				sDesc = "My " + sDesc
+			else:
+				sDesc = "The " + sDesc
+				
+		if bAddArticle:				
+			if bIsRelate:
+				sDesc = sPosArticle + " " + sDesc
 			else:
 				sDesc = "The " + sDesc
 			

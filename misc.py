@@ -536,8 +536,7 @@ class GenModMale(WordList):
 		
 class MaritalStatusMale(WordList):
 	def __init__(self):
-		super().__init__(['Bachelor','Bachelor','Bachelor','Bachelor',
-			'Divorced',
+		super().__init__(['Divorced',
 			'Married','Married','Married','Married',
 			'Single','Single','Single',
 			'Widowed','Widowed'])
@@ -661,6 +660,7 @@ class ProfMale(WordList):
 			'Spy',
 			'Stockbroker',
 			'Stuntman',
+			'Sumo Wrestler',
 			'Surfer',
 			'Tattoo Artist',
 			'Tri-Athlete',
@@ -669,9 +669,7 @@ class ProfMale(WordList):
 		
 class RelateMale(WordList):
 	def __init__(self):
-		super().__init__(['Best Friend\s Boyfriend',
-			'Best Friend\'s Brother',
-			'Best Friend\'s Dad',
+		super().__init__(['Adopted Brother',
 			'Brother','Brother',
 			'Boyfriend','Boyfriend',
 			'Dad','Dad',
@@ -734,6 +732,7 @@ class TropesMale(WordList):
 	def __init__(self):
 		super().__init__(['Alpha',
 			'Alpha Male',
+			'Bachelor',
 			'Bad Boy',
 			'Barbarian',
 			'BBC',
@@ -902,6 +901,7 @@ class BookVerbsBy(WordList):
 			'Imprisoned in the Sex Dungeon',
 			'Knocked Up','Knocked Up',
 			'Leashed',
+			'Massaged',
 			'Mastered',
 			'Mind-Controlled',
 			'Owned',

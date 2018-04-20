@@ -207,21 +207,17 @@ class WordList:
 			sWord = self.List[randint(0, len(self.List) - 1)]
 			
 			if SomeHistoryQ is None:
-				if len(NotList) < len(self.List):
-					i = 0
-					while self.FoundIn(sWord, NotList) and i < MAX_SEARCH_LOOPS:
-						sWord = self.List[randint(0, len(self.List) - 1)]
-						i += 1
-				else:
+				i = 0
+				while self.FoundIn(sWord, NotList) and i < MAX_SEARCH_LOOPS:
+					#print("Collision! '" + sWord + "' in NotList, trying again.")
 					sWord = self.List[randint(0, len(self.List) - 1)]
+					i += 1
 			else:
-				if len(NotList) < len(self.List) and len(SomeHistoryQ.HistoryQ) < len(self.List):
-					i = 0
-					while (not SomeHistoryQ.PushToHistoryQ(sWord) or self.FoundIn(sWord, NotList)) and i < MAX_SEARCH_LOOPS:
-						sWord = self.List[randint(0, len(self.List) - 1)]
-						i += 1
-				else:
+				i = 0
+				while (not SomeHistoryQ.PushToHistoryQ(sWord) or self.FoundIn(sWord, NotList)) and i < MAX_SEARCH_LOOPS:
+					#print("Collision! '" + sWord + "' in NotList, trying again.")
 					sWord = self.List[randint(0, len(self.List) - 1)]
+					i += 1
 				
 		return sWord
 		
