@@ -282,7 +282,8 @@ class NamesFemale(Names):
 			'Viola',
 			'Violet',
 			'Virginia',
-			'Vivienne']
+			'Vivienne',
+			'Zenobia']
 			
 class LastNames(WordList):
 	def __init__(self):
@@ -323,6 +324,7 @@ class LastNames(WordList):
 			"Devlyn",
 			"Devonshire",
 			"Dick",
+			"Dix",
 			"Douglass",
 			"Faust",
 			"Finch",
@@ -340,7 +342,9 @@ class LastNames(WordList):
 			"Harlowe",
 			"Harper",
 			"Hawke",
+			"Head",
 			"Hill",
+			"Hung",
 			"Hunter",
 			"Jakov",
 			"James",
@@ -351,10 +355,12 @@ class LastNames(WordList):
 			"Kayne",
 			"King",
 			"Knight",
-			"Knokkers",
+			"Knockers",
 			"Knott",
+			"Knox",
 			"Knuttz",
 			"Koch",
+			"Kootch",
 			"Kuntz",
 			"Lace",
 			"Lambert",
@@ -383,6 +389,7 @@ class LastNames(WordList):
 			"Onyx",
 			"Osias",
 			"Peaches",
+			"Pearl",
 			"Peters",
 			"Philmore",
 			"Pohl",
