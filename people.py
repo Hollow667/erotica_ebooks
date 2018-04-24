@@ -733,12 +733,6 @@ class GayChar(Character):
 					break 
 					
 			if bFoundIn:
-				sDesc = "My " + sDesc
-			else:
-				sDesc = "The " + sDesc
-				
-		if bAddArticle:				
-			if bIsRelate:
 				sDesc = sPosArticle + " " + sDesc
 			else:
 				sDesc = "The " + sDesc
