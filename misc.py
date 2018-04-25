@@ -863,7 +863,7 @@ class BookVerbsBy(WordList):
 	
 	def __init__(self):
 		super().__init__(['Anally Deflowered',
-			'Annally Deflowered in Public',
+			'Anally Deflowered in Public',
 			'Bared',
 			'Beaten',
 			'Beaten with a Belt',
