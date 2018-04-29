@@ -878,7 +878,7 @@ def LastNameBuilder(NotList = None):
 def AuthorBuilder(Gender = Gender.Neuter):
 	sAName = ""
 	
-	Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	Alphabet = "AAAABBBCCDDDEEEEFFFGGGGHHHIIJJJJKKLLLMNOOPPPQRRRRSSSSTTTTUVVWWWXYZ"
 	
 	FirstNames = []
 	MaleNames = NamesMale()
