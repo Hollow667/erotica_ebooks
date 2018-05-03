@@ -70,7 +70,7 @@ class Hashtags(WordList):
 			'bot',
 			'botALLY','botALLY',
 			'botlife',
-			'dirtyreads'
+			'dirtyreads',
 			'eartg','eartg',
 			'erotica','erotica',
 			'fiftyshades',
