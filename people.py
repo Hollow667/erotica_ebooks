@@ -218,7 +218,10 @@ class LesFemaleNoun(CharBit):
 		return self.val
 		
 class FemaleChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, Type = GirlType.Neutral, NotList = None, bAddArticle = False, sPosArticle = "My"):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, Type = GirlType.Neutral, NotList = None, bAddArticle = False, sPosArticle = "My", 
+		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowClothing = True, bAllowAge = True, 
+		bAllowPregState = True, bAllowMaritalStatus = True,	bAllowNation = True, bAllowProf = True, bAllowSpecies = True, 
+		bAllowSexuality = True, bAllowTrope = True, bAllowRelate = True, bAllowTitle = True):
 		super().__init__()
 		
 		if NotList is None:
@@ -230,28 +233,42 @@ class FemaleChar(Character):
 		
 		CharBitList = []
 		
-		CharBitList.append(AttitudeFemale(Type = Type))
-		CharBitList.append(AttitudeFemale(Type = Type))
-		CharBitList.append(PhysCharFemale())
-		CharBitList.append(PhysCharFemale())
-		CharBitList.append(SkinHairColorFemale())
-		if Type != GirlType.Good:
+		if bAllowAttitude:
+			CharBitList.append(AttitudeFemale(Type = Type))
+			CharBitList.append(AttitudeFemale(Type = Type))
+		if bAllowPhysChar:
+			CharBitList.append(PhysCharFemale())
+			CharBitList.append(PhysCharFemale())
+		if bAllowSkinHairColor:
+			CharBitList.append(SkinHairColorFemale())
+		if Type != GirlType.Good and bAllowGenMod:
 			CharBitList.append(GenModFemale())
-		CharBitList.append(ClothingFemale())
-		CharBitList.append(PregState())
-		CharBitList.append(MaritalStatusFemale())
-		CharBitList.append(NationFemale())
-		CharBitList.append(AgeFemale())
-		CharBitList.append(SexualityFemale())
-		CharBitList.append(ProfFemale(Type = Type))
-		CharBitList.append(ProfFemale(Type = Type))
-		CharBitList.append(ProfFemale(Type = Type))
-		CharBitList.append(SpeciesFemale())
-		CharBitList.append(TropeFemale(Type = Type))
-		CharBitList.append(TropeFemale(Type = Type))
-		CharBitList.append(TropeFemale(Type = Type))
-		CharBitList.append(RelateFemale())
-		CharBitList.append(TitleFemale())
+		if bAllowClothing:
+			CharBitList.append(ClothingFemale())
+		if bAllowPregState:
+			CharBitList.append(PregState())
+		if bAllowMaritalStatus:
+			CharBitList.append(MaritalStatusFemale())
+		if bAllowNation:
+			CharBitList.append(NationFemale())
+		if bAllowAge:
+			CharBitList.append(AgeFemale())
+		if bAllowSexuality:
+			CharBitList.append(SexualityFemale())
+		if bAllowProf: 
+			CharBitList.append(ProfFemale(Type = Type))
+			CharBitList.append(ProfFemale(Type = Type))
+			CharBitList.append(ProfFemale(Type = Type))
+		if bAllowSpecies:
+			CharBitList.append(SpeciesFemale())
+		if bAllowTrope:
+			CharBitList.append(TropeFemale(Type = Type))
+			CharBitList.append(TropeFemale(Type = Type))
+			CharBitList.append(TropeFemale(Type = Type))
+		if bAllowRelate:
+			CharBitList.append(RelateFemale())
+		if bAllowTitle:
+			CharBitList.append(TitleFemale())
 			
 		BitGetList = []
 		bFoundNoun = False 
@@ -290,7 +307,10 @@ class FemaleChar(Character):
 		self.Desc = sDesc
 			
 class LesbianChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, Type = GirlType.Neutral, NotList = None, bAddArticle = False, sPosArticle = "My"):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, Type = GirlType.Neutral, NotList = None, bAddArticle = False, sPosArticle = "My", 
+		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowClothing = True, bAllowAge = True, 
+		bAllowPregState = True, bAllowMaritalStatus = True,	bAllowNation = True, bAllowProf = True, bAllowSpecies = True, 
+		bAllowTrope = True, bAllowRelate = True, bAllowTitle = True):
 		super().__init__()
 		
 		if NotList is None:
@@ -302,25 +322,38 @@ class LesbianChar(Character):
 		
 		CharBitList = []
 		
-		CharBitList.append(AttitudeFemale(Type = Type))
-		CharBitList.append(AttitudeMale())
-		CharBitList.append(PhysCharFemale())
-		CharBitList.append(PhysCharFemale())
-		CharBitList.append(SkinHairColorFemale())
+		if bAllowAttitude:
+			CharBitList.append(AttitudeFemale(Type = Type))
+			CharBitList.append(AttitudeMale())
+		if bAllowPhysChar:
+			CharBitList.append(PhysCharFemale())
+			CharBitList.append(PhysCharFemale())
+		if bAllowSkinHairColor:
+			CharBitList.append(SkinHairColorFemale())
 		CharBitList.append(LesFemaleAdj())
-		CharBitList.append(ClothingFemale())
-		CharBitList.append(PregState())
-		CharBitList.append(MaritalStatusFemale())
-		CharBitList.append(NationFemale())
-		CharBitList.append(AgeFemale())
-		CharBitList.append(ProfFemale(Type = Type))
-		CharBitList.append(ProfMale())
-		CharBitList.append(SpeciesFemale())
-		CharBitList.append(TropeFemale(Type = Type))
-		CharBitList.append(TropeFemale(Type = Type))
-		CharBitList.append(RelateFemale())
+		if bAllowClothing:
+			CharBitList.append(ClothingFemale())
+		if bAllowPregState:
+			CharBitList.append(PregState())
+		if bAllowMaritalStatus:
+			CharBitList.append(MaritalStatusFemale())
+		if bAllowNation:
+			CharBitList.append(NationFemale())
+		if bAllowAge:
+			CharBitList.append(AgeFemale())
+		if bAllowProf:
+			CharBitList.append(ProfFemale(Type = Type))
+			CharBitList.append(ProfMale())
+		if bAllowSpecies:
+			CharBitList.append(SpeciesFemale())
+		if bAllowTrope:
+			CharBitList.append(TropeFemale(Type = Type))
+			CharBitList.append(TropeFemale(Type = Type))
+		if bAllowRelate:
+			CharBitList.append(RelateFemale())
 		CharBitList.append(LesFemaleNoun())
-		CharBitList.append(TitleFemale())
+		if bAllowTitle:
+			CharBitList.append(TitleFemale())
 		
 		BitGetList = []
 		bFoundNoun = False 
@@ -529,7 +562,10 @@ class GayMaleNoun(CharBit):
 		return self.val
 		
 class MaleChar():
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAllowGang = True, bAddArticle = False, sPosArticle = "My"):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAllowGang = True, bAddArticle = False, sPosArticle = "My",
+		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowAge = True, bAllowMaritalStatus = True,
+		bAllowNation = True, bAllowProf = True, bAllowSpecies = True, bAllowTrope = True, bAllowRelate = True,
+		bAllowTitle = True):
 		if NotList is None:
 			NotList = []
 		
@@ -537,14 +573,24 @@ class MaleChar():
 		
 		iRand = randint(1, 5)
 		if iRand == 5 and bAllowGang == True:
-			self.Char = MaleGangChar(iNumMinCBits = iNumMinCBits, iNumMaxCBits = iNumMaxCBits, NotList = NotList, bAddArticle = bAddArticle, sPosArticle = sPosArticle)
+			self.Char = MaleGangChar(iNumMinCBits = iNumMinCBits, iNumMaxCBits = iNumMaxCBits, NotList = NotList, bAddArticle = bAddArticle, sPosArticle = sPosArticle,
+				bAllowAttitude = bAllowAttitude, bAllowSkinHairColor = bAllowSkinHairColor,
+				bAllowGenMod = bAllowGenMod, bAllowAge = bAllowAge,  
+				bAllowNation = bAllowNation, bAllowProf = bAllowProf, bAllowSpecies = bAllowSpecies, bAllowTrope = bAllowTrope)
 		else:
-			self.Char = MaleRegChar(iNumMinCBits = iNumMinCBits, iNumMaxCBits = iNumMaxCBits, NotList = NotList, bAddArticle = bAddArticle, sPosArticle = sPosArticle)
+			self.Char = MaleRegChar(iNumMinCBits = iNumMinCBits, iNumMaxCBits = iNumMaxCBits, NotList = NotList, bAddArticle = bAddArticle, sPosArticle = sPosArticle, 
+				bAllowAttitude = bAllowAttitude, bAllowPhysChar = bAllowPhysChar, bAllowSkinHairColor = bAllowSkinHairColor,
+				bAllowGenMod = bAllowGenMod, bAllowAge = bAllowAge, bAllowMaritalStatus = bAllowMaritalStatus, 
+				bAllowNation = bAllowNation, bAllowProf = bAllowProf, bAllowSpecies = bAllowSpecies, bAllowTrope = bAllowTrope,
+				bAllowRelate = bAllowRelate, bAllowTitle = bAllowTitle)
 			
 		self.Desc = self.Char.Desc
 		
 class MaleRegChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False, sPosArticle = "My"):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False, sPosArticle = "My", 
+		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowAge = True, bAllowMaritalStatus = True,
+		bAllowNation = True, bAllowProf = True, bAllowSpecies = True, bAllowTrope = True, bAllowRelate = True,
+		bAllowTitle = True):
 		super().__init__()
 		sDesc = ""
 		
@@ -555,22 +601,34 @@ class MaleRegChar(Character):
 		
 		CharBitList = []
 		
-		CharBitList.append(AttitudeMale())
-		CharBitList.append(AttitudeMale())
-		CharBitList.append(PhysCharMale())
-		CharBitList.append(PhysCharMale())
-		CharBitList.append(SkinHairColorMale())
-		CharBitList.append(GenModMale())
-		CharBitList.append(AgeMale())
-		CharBitList.append(MaritalStatusMale())
-		CharBitList.append(NationMale())
-		CharBitList.append(ProfMale())
-		CharBitList.append(ProfMale())
-		CharBitList.append(SpeciesMale())
-		CharBitList.append(TropeMale())
-		CharBitList.append(TropeMale())
-		CharBitList.append(RelateMale())
-		CharBitList.append(TitleMale())
+		if bAllowAttitude:
+			CharBitList.append(AttitudeMale())
+			CharBitList.append(AttitudeMale())
+		if bAllowPhysChar:
+			CharBitList.append(PhysCharMale())
+			CharBitList.append(PhysCharMale())
+		if bAllowSkinHairColor:
+			CharBitList.append(SkinHairColorMale())
+		if bAllowGenMod:
+			CharBitList.append(GenModMale())
+		if bAllowAge:
+			CharBitList.append(AgeMale())
+		if bAllowMaritalStatus:
+			CharBitList.append(MaritalStatusMale())
+		if bAllowNation:
+			CharBitList.append(NationMale())
+		if bAllowProf:
+			CharBitList.append(ProfMale())
+			CharBitList.append(ProfMale())
+		if bAllowSpecies:
+			CharBitList.append(SpeciesMale())
+		if bAllowTrope:
+			CharBitList.append(TropeMale())
+			CharBitList.append(TropeMale())
+		if bAllowRelate:
+			CharBitList.append(RelateMale())
+		if bAllowTitle:
+			CharBitList.append(TitleMale())
 			
 		BitGetList = []
 		bFoundNoun = False 
@@ -609,7 +667,9 @@ class MaleRegChar(Character):
 		self.Desc = sDesc
 			
 class MaleGangChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False, sPosArticle = "My"):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False, sPosArticle = "My", 
+		bAllowAttitude = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowAge = True, 
+		bAllowNation = True, bAllowProf = True, bAllowSpecies = True, bAllowTrope = True):
 		super().__init__()
 		
 		sDesc = ""
@@ -621,17 +681,25 @@ class MaleGangChar(Character):
 		
 		CharBitList = []
 		
-		CharBitList.append(AttitudeMale())
-		CharBitList.append(AttitudeMale())
-		CharBitList.append(SkinHairColorMale())
-		CharBitList.append(GenModMale())
-		CharBitList.append(AgeMale())
-		CharBitList.append(NationMale())
-		CharBitList.append(ProfMale())
-		CharBitList.append(ProfMale())
-		CharBitList.append(TropeMale())
-		CharBitList.append(TropeMale())
-		CharBitList.append(SpeciesMale())
+		if bAllowAttitude:
+			CharBitList.append(AttitudeMale())
+			CharBitList.append(AttitudeMale())
+		if bAllowSkinHairColor:
+			CharBitList.append(SkinHairColorMale())
+		if bAllowGenMod:
+			CharBitList.append(GenModMale())
+		if bAllowAge:
+			CharBitList.append(AgeMale())
+		if bAllowNation:
+			CharBitList.append(NationMale())
+		if bAllowProf:
+			CharBitList.append(ProfMale())
+			CharBitList.append(ProfMale())
+		if bAllowTrope:
+			CharBitList.append(TropeMale())
+			CharBitList.append(TropeMale())
+		if bAllowSpecies:
+			CharBitList.append(SpeciesMale())
 			
 		BitGetList = []
 		bFoundNoun = False 
@@ -669,7 +737,10 @@ class MaleGangChar(Character):
 		self.Desc = sDesc
 		
 class GayChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False, sPosArticle = "My"):
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False, sPosArticle = "My", 
+		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowAge = True, bAllowMaritalStatus = True,
+		bAllowNation = True, bAllowProf = True, bAllowSpecies = True, bAllowTrope = True, bAllowRelate = True,
+		bAllowTitle = True):
 		super().__init__()
 		sDesc = ""
 		
@@ -680,21 +751,33 @@ class GayChar(Character):
 		
 		CharBitList = []
 		
-		CharBitList.append(AttitudeMale())
-		CharBitList.append(PhysCharMale())
-		CharBitList.append(SkinHairColorMale())
-		CharBitList.append(GenModMale())
+		if bAllowAttitude:
+			CharBitList.append(AttitudeMale())
+		if bAllowPhysChar:
+			CharBitList.append(PhysCharMale())
+		if bAllowSkinHairColor:
+			CharBitList.append(SkinHairColorMale())
+		if bAllowGenMod:
+			CharBitList.append(GenModMale())
 		CharBitList.append(GayMaleAdj())
-		CharBitList.append(AgeMale())
-		CharBitList.append(MaritalStatusMale())
-		CharBitList.append(NationMale())
-		CharBitList.append(ProfMale())
-		CharBitList.append(ProfMale())
-		CharBitList.append(SpeciesMale())
-		CharBitList.append(TropeMale())
-		CharBitList.append(RelateMale())
+		if bAllowAge:
+			CharBitList.append(AgeMale())
+		if bAllowMaritalStatus:
+			CharBitList.append(MaritalStatusMale())
+		if bAllowNation:
+			CharBitList.append(NationMale())
+		if bAllowProf:
+			CharBitList.append(ProfMale())
+			CharBitList.append(ProfMale())
+		if bAllowSpecies:
+			CharBitList.append(SpeciesMale())
+		if bAllowTrope:
+			CharBitList.append(TropeMale())
+		if bAllowRelate:
+			CharBitList.append(RelateMale())
 		CharBitList.append(GayMaleNoun())
-		CharBitList.append(TitleMale())
+		if bAllowTitle:
+			CharBitList.append(TitleMale())
 		
 		BitGetList = []
 		bFoundNoun = False 

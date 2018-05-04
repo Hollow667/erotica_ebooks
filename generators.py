@@ -761,44 +761,43 @@ class Generator31(Generator):
 		
 class Generator32(Generator):
 	ID = 32
-	Priority = 2
+	Priority = 4
 	
 	def GenerateTweet(self):
 		super().GenerateTweet()
 		sTweet = ""
 		#print(misc.RelateMale().List + misc.MaritalStatusMale().List)
 		if CoinFlip():
-			Master = MaleChar(iNumMaxCBits = 3, bAllowGang = False, NotList = misc.RelateMale().List + misc.MaritalStatusMale().List)
+			Master = MaleChar(iNumMaxCBits = 3, bAllowGang = False, NotList = ['Aingle', 'Man', 'Dad', 'Father', 'Brother', 'Son'], bAllowMaritalStatus = False, bAllowRelate = False)
 			if Master.Desc[-3:] == "Man":
 				sMaster = Master.Desc[0:-4]
 			else:
 				sMaster = Master.Desc
-			sTweet = WordList(["Sleeping With", "Hooking Up With", "Tempting", "Seducing", "Bedding", "Stripping For", "Secretly Watching", "Showering With", "Spying On", "Sharing", "Touching", "Claimed By", "Taken By", "Deflowered By", "Dominated By", "Blackmailed By", "Stripped By", "Tied to the Bed By", "Pleasured By", "Spanked By", "Ravished By", "Taken Hard By", "Massaged By"]).GetWord() + "\n"
+			sTweet = WordList(["Sleeping With", "Hooking Up With", "Tempting", "Seducing", "Bedding", "Stripping For", "Secretly Watching", "Showering With", "Spying On", "Sharing", "Playing With", "Claimed By", "Taken By", "Deflowered By", "Dominated By", "Blackmailed By", "Stripped By", "Tied to the Bed By", "Pleasured By", "Spanked By", "Ravished By", "Taken Hard By", "Massaged By", "Going Down On", "Impregnated By"]).GetWord() + "\n"
 			if CoinFlip():
 				sTweet += "My " + WordList(["Best Friend", "Daughter", "Sister", "Step-Sister", "Step-Daughter"]).GetWord() + "'s\n"
-				sTweet += sMaster + " " + WordList(["Boyfriend", "Son", "Fiancé", "Husband", "Hubby"]).GetWord()
+				sTweet += sMaster + " " + WordList(["Boyfriend", "Fiancé", "Husband", "Hubby"]).GetWord()
 			elif CoinFlip():
 				sTweet += "My " + WordList(["Best Friend", "Step-Mom", "Mom", "Mother"]).GetWord() + "'s\n"
-				sTweet += sMaster + " " + WordList(["Brother", "Boyfriend", "Fiancé", "Husband", "Hubby"]).GetWord()
+				sTweet += sMaster + " " + WordList(["Brother", "Boyfriend", "Boyfriend", "Step-Brother"]).GetWord()
 			else:	
 				sTweet += "My Best Friend's\n"
 				sTweet += sMaster + " " + WordList(["Son", "Brother", "Boyfriend", "Fiancé", "Husband", "Dad", "Father", "Hubby", "Step-Dad"]).GetWord()
 		else:
-			Girl = FemaleChar(iNumMaxCBits = 3, NotList = misc.RelateFemale().List + misc.MaritalStatusFemale().List)
+			Girl = FemaleChar(iNumMaxCBits = 3, NotList = ['Single','Virgin', 'Girl', 'Woman', 'Mom', 'Sister', 'Mother', 'Daughter', 'Lesbian', 'Maiden', 'Wife'], bAllowMaritalStatus = False, bAllowRelate = False, bAllowTitle = False)
 			if Girl.Desc[-4:] == "Girl":
 				sGirl = Girl.Desc[0:-5]
 			elif Girl.Desc[-5:] == "Woman":
 				sGirl = Girl.Desc[0:-6]
 			else:
 				sGirl = Girl.Desc
-				
-			sTweet = WordList(["Sleeping With", "Seducing", "Massaging", "Bedding", "Undressing", "Secretly Watching", "Spying On", "Sharing", "Showering With", "Stripping", "Touching", "Claiming", "Spanking", "Punishing", "Deflowering"]).GetWord() + "\n"
+			sTweet = WordList(["Sleeping With", "Seducing", "Massaging", "Bedding", "Undressing", "Secretly Watching", "Spying On", "Sharing", "Showering With", "Stripping", "Playing With", "Claiming", "Spanking", "Punishing", "Deflowering", "Going Down On", "Blackmailing", "Pleasuring", "Impregnating"]).GetWord() + "\n"
 			if CoinFlip():
 				sTweet += "My " + WordList(["Best Friend", "Brother", "Step-Brother", "Step-Son", "Son"]).GetWord() + "'s\n"
-				sTweet += sGirl + " " + WordList(["Girlfriend", "Daughter", "Step-Daughter", "Fiancé", "Wife"]).GetWord()
+				sTweet += sGirl + " " + WordList(["Girlfriend", "Fiancé", "Wife"]).GetWord()
 			elif CoinFlip():
 				sTweet += "My " + WordList(["Best Friend", "Father", "Dad", "Step-Dad"]).GetWord() + "'s\n"
-				sTweet += sGirl + " " + WordList(["Sister", "Girlfriend", "Step-Sister", "Fiancé", "Wife"]).GetWord()
+				sTweet += sGirl + " " + WordList(["Sister", "Girlfriend", "Girlfriend", "Step-Sister"]).GetWord()
 			else:
 				sTweet += "My Best Friend's\n"
 				sTweet += sGirl + " " + WordList(["Sister", "Girlfriend", "Step-Sister", "Daughter", "Step-Daughter", "Fiancé", "Wife", "Step-Mom", "Mom", "Mother"]).GetWord()

@@ -376,8 +376,8 @@ class RelateFemale(WordList):
 
 class SexualityFemale(WordList):
 	def __init__(self):
-		super().__init__(['Bi-Curious','Bi-Curious','Bi-Curious','Bi-Curious','Bi-Curious',
-			'Lesbian','Lesbian','Lesbian','Lesbian','Lesbian','Lesbian'])
+		super().__init__(['Bi-Curious',
+			'Lesbian'])
 	
 # black, ebony
 class SkinHairColorFemale(WordList):
