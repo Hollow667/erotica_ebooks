@@ -403,7 +403,8 @@ class SpeciesFemale(WordList):
 			'Fairy','Fairy',
 			'Futa','Futa','Futa',
 			'Mermaid','Mermaid',
-			'Vampire','Vampire'])
+			'Succubus','Succubus','Succubus',
+			'Vampire Queen','Vampire Queen'])
 	
 # princess	
 class TitlesFemale(WordList):
@@ -519,6 +520,7 @@ class AttitudeMale(WordList):
 class GenModMale(WordList):
 	def __init__(self):
 		super().__init__(['Barbarian',
+			'Bareback',
 			'BDSM',
 			'Gang-Bang',
 			'Heart-Throb',
@@ -606,6 +608,7 @@ class ProfMale(WordList):
 			'Brain Surgeon',
 			'Breeding Stud',
 			'Bull Rider',
+			'Business Man', 'Business Man',
 			'CIA Agent',
 			'Cop',
 			'Cowboy',
@@ -699,6 +702,7 @@ class SpeciesMale(WordList):
 			'Alpha Wolf',
 			'Centaur','Centaur',
 			'Cyborg',
+			'Demon',
 			'Dinosaur',
 			'Futanari',
 			'Goat Man',
@@ -709,8 +713,8 @@ class SpeciesMale(WordList):
 			'Mer-man',
 			'Tentacle Monster',
 			'Uniporn',
-			'Vampire',
-			'Werewolf'])
+			'Vampire','Vampire',
+			'Werewolf','Werewolf'])
 		
 class TitlesMale(WordList):
 	def __init__(self):
