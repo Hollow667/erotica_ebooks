@@ -562,7 +562,7 @@ class AttitudeMale(WordList):
 			'Savage',
 			'Shameless',
 			'Slick',
-			'Smooth','Smooth',
+			'Smooth-Talking',
 			'Wicked'])
 		
 class GenModMale(WordList):
@@ -851,6 +851,7 @@ class GangsMale(WordList):
 			'Construction Workers',
 			'Cops',
 			'Cowboys',
+			'DILFs',
 			'Dwarves',
 			'Firemen',
 			'Football Team',

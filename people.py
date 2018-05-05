@@ -231,7 +231,7 @@ class ProfLesbian(CharBit):
 		return self.val
 		
 class FemaleChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, Type = GirlType.Neutral, NotList = None, bAddArticle = False, sPosArticle = "My", 
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, Type = GirlType.Neutral, NotList = None, bAddArticle = False, sPosArticle = "My", 
 		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowClothing = True, bAllowAge = True, 
 		bAllowPregState = True, bAllowMaritalStatus = True,	bAllowNation = True, bAllowProf = True, bAllowSpecies = True, 
 		bAllowSexuality = True, bAllowTrope = True, bAllowRelate = True, bAllowTitle = True):
@@ -320,7 +320,7 @@ class FemaleChar(Character):
 		self.Desc = sDesc
 			
 class LesbianChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, Type = GirlType.Neutral, NotList = None, bAddArticle = False, sPosArticle = "My", 
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, Type = GirlType.Neutral, NotList = None, bAddArticle = False, sPosArticle = "My", 
 		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowClothing = True, bAllowAge = True, 
 		bAllowPregState = True, bAllowMaritalStatus = True,	bAllowNation = True, bAllowProf = True, bAllowSpecies = True, 
 		bAllowTrope = True, bAllowRelate = True, bAllowTitle = True):
@@ -572,7 +572,7 @@ class GayMaleNoun(CharBit):
 		return self.val
 		
 class MaleChar():
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAllowGang = True, bAddArticle = False, sPosArticle = "My",
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, NotList = None, bAllowGang = True, bAddArticle = False, sPosArticle = "My",
 		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowAge = True, bAllowMaritalStatus = True,
 		bAllowNation = True, bAllowProf = True, bAllowSpecies = True, bAllowTrope = True, bAllowRelate = True,
 		bAllowTitle = True):
@@ -597,7 +597,7 @@ class MaleChar():
 		self.Desc = self.Char.Desc
 		
 class MaleRegChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False, sPosArticle = "My", 
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, NotList = None, bAddArticle = False, sPosArticle = "My", 
 		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowAge = True, bAllowMaritalStatus = True,
 		bAllowNation = True, bAllowProf = True, bAllowSpecies = True, bAllowTrope = True, bAllowRelate = True,
 		bAllowTitle = True):
@@ -677,7 +677,7 @@ class MaleRegChar(Character):
 		self.Desc = sDesc
 			
 class MaleGangChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False, sPosArticle = "My", 
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, NotList = None, bAddArticle = False, sPosArticle = "My", 
 		bAllowAttitude = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowAge = True, 
 		bAllowNation = True, bAllowProf = True, bAllowSpecies = True, bAllowTrope = True):
 		super().__init__()
@@ -747,7 +747,7 @@ class MaleGangChar(Character):
 		self.Desc = sDesc
 		
 class GayChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, NotList = None, bAddArticle = False, sPosArticle = "My", 
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, NotList = None, bAddArticle = False, sPosArticle = "My", 
 		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowAge = True, bAllowMaritalStatus = True,
 		bAllowNation = True, bAllowProf = True, bAllowSpecies = True, bAllowTrope = True, bAllowRelate = True,
 		bAllowTitle = True):
