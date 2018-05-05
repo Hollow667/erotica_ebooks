@@ -890,7 +890,7 @@ class Generator36(Generator):
 		sTweet = ""
 		
 		if CoinFlip():
-			Girl = FemaleChar(iNumMaxCBits = 3, Type = GirlType.Good)
+			Girl = FemaleChar(iNumMaxCBits = 3, Type = GirlType.Good, bAllowSexuality = False)
 			
 			if CoinFlip():
 				Lesbian = LesbianChar(bAddArticle = True, NotList = ['wife','girlfriend', 'married'])

@@ -221,8 +221,6 @@ class ProfLesbian(CharBit):
 	def __init__(self):
 		super().__init__()
 		
-		self.Type = Type
-		
 	def Get(self, NotList = None):
 		if NotList is None:
 			NotList = []
@@ -356,7 +354,7 @@ class LesbianChar(Character):
 		if bAllowAge:
 			CharBitList.append(AgeFemale())
 		if bAllowProf:
-			CharBitList.append(ProfLesbian)
+			CharBitList.append(ProfLesbian())
 		if bAllowSpecies:
 			CharBitList.append(SpeciesFemale())
 		if bAllowTrope:
