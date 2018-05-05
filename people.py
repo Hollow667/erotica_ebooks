@@ -217,6 +217,21 @@ class LesFemaleNoun(CharBit):
 		self.part = "noun"
 		return self.val
 		
+class ProfLesbian(CharBit):
+	def __init__(self):
+		super().__init__()
+		
+		self.Type = Type
+		
+	def Get(self, NotList = None):
+		if NotList is None:
+			NotList = []
+		
+		self.val = misc.ProfLesbian().GetWord(NotList = NotList, SomeHistoryQ = FemCBitHistoryQ)
+			
+		self.part = "noun"
+		return self.val
+		
 class FemaleChar(Character):
 	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 4, Type = GirlType.Neutral, NotList = None, bAddArticle = False, sPosArticle = "My", 
 		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowClothing = True, bAllowAge = True, 
@@ -327,7 +342,6 @@ class LesbianChar(Character):
 			CharBitList.append(AttitudeMale())
 		if bAllowPhysChar:
 			CharBitList.append(PhysCharFemale())
-			CharBitList.append(PhysCharFemale())
 		if bAllowSkinHairColor:
 			CharBitList.append(SkinHairColorFemale())
 		CharBitList.append(LesFemaleAdj())
@@ -342,12 +356,10 @@ class LesbianChar(Character):
 		if bAllowAge:
 			CharBitList.append(AgeFemale())
 		if bAllowProf:
-			CharBitList.append(ProfFemale(Type = Type))
-			CharBitList.append(ProfMale())
+			CharBitList.append(ProfLesbian)
 		if bAllowSpecies:
 			CharBitList.append(SpeciesFemale())
 		if bAllowTrope:
-			CharBitList.append(TropeFemale(Type = Type))
 			CharBitList.append(TropeFemale(Type = Type))
 		if bAllowRelate:
 			CharBitList.append(RelateFemale())
