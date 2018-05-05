@@ -236,6 +236,7 @@ class NamesFemale(Names):
 			'Indigo',
 			'Inya',
 			'Isabelle',
+			'Issa','Issa',
 			'Ivana','Ivana','Ivana','Ivana',
 			'Jacinda',
 			'Jackie',
