@@ -546,7 +546,7 @@ class AttitudeMale(WordList):
 			'Brazen',
 			'Brooding',
 			'Charming',
-			'Cocky',
+			'Cocky','Cocky','Cocky','Cocky','Cocky',
 			'Dominant',
 			'Famous',
 			'Foxy',
@@ -1092,6 +1092,7 @@ class BookGerunds(WordList):
 			'Teaching',
 			'Training',
 			'Undressing',
+			'Using',
 			'Videoing',
 			'Whipping'])
 			
