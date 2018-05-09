@@ -231,10 +231,10 @@ class ProfLesbian(CharBit):
 		return self.val
 		
 class FemaleChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, Type = GirlType.Neutral, NotList = None, bAddArticle = False, sPosArticle = "My", 
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, Type = GirlType.Neutral, NotList = None, bAddArticle = False, sPosArticle = "My", bAddEndNoun = True,
 		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowClothing = True, bAllowAge = True, 
 		bAllowPregState = True, bAllowMaritalStatus = True,	bAllowNation = True, bAllowProf = True, bAllowSpecies = True, 
-		bAllowSexuality = True, bAllowTrope = True, bAllowRelate = True, bAllowTitle = True):
+		bAllowSexuality = True, bAllowTrope = True, bAllowRelate = False, bAllowTitle = True):
 		super().__init__()
 		
 		if NotList is None:
@@ -302,8 +302,9 @@ class FemaleChar(Character):
 			NotList.append(sBit)
 			BitGetList.append(sBit)
 			
-		if not bFoundNoun:
-			BitGetList.append(WordList(["Girl","Woman"]).GetWord(NotList = NotList))
+		if bAddEndNoun:
+			if not bFoundNoun:
+				BitGetList.append(WordList(["Girl","Woman"]).GetWord(NotList = NotList))
 		
 		sDesc = ""
 		for x in range(0, len(BitGetList)):
@@ -320,10 +321,10 @@ class FemaleChar(Character):
 		self.Desc = sDesc
 			
 class LesbianChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, Type = GirlType.Neutral, NotList = None, bAddArticle = False, sPosArticle = "My", 
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, Type = GirlType.Neutral, NotList = None, bAddArticle = False, sPosArticle = "My", bAddEndNoun = True,
 		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowClothing = True, bAllowAge = True, 
 		bAllowPregState = True, bAllowMaritalStatus = True,	bAllowNation = True, bAllowProf = True, bAllowSpecies = True, 
-		bAllowTrope = True, bAllowRelate = True, bAllowTitle = True):
+		bAllowTrope = True, bAllowRelate = False, bAllowTitle = True):
 		super().__init__()
 		
 		if NotList is None:
@@ -384,8 +385,9 @@ class LesbianChar(Character):
 			NotList.append(sBit)
 			BitGetList.append(sBit)
 			
-		if not bFoundNoun:
-			BitGetList.append(LesFemaleNoun().Get(NotList = NotList))
+		if bAddEndNoun:
+			if not bFoundNoun:
+				BitGetList.append(LesFemaleNoun().Get(NotList = NotList))
 		
 		sDesc = ""
 		for x in range(0, len(BitGetList)):
@@ -572,9 +574,9 @@ class GayMaleNoun(CharBit):
 		return self.val
 		
 class MaleChar():
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, NotList = None, bAllowGang = True, bAddArticle = False, sPosArticle = "My",
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, NotList = None, bAllowGang = True, bAddArticle = False, sPosArticle = "My", bAddEndNoun = True,
 		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowAge = True, bAllowMaritalStatus = True,
-		bAllowNation = True, bAllowProf = True, bAllowSpecies = True, bAllowTrope = True, bAllowRelate = True,
+		bAllowNation = True, bAllowProf = True, bAllowSpecies = True, bAllowTrope = True, bAllowRelate = False,
 		bAllowTitle = True):
 		if NotList is None:
 			NotList = []
@@ -583,12 +585,12 @@ class MaleChar():
 		
 		iRand = randint(1, 5)
 		if iRand == 5 and bAllowGang == True:
-			self.Char = MaleGangChar(iNumMinCBits = iNumMinCBits, iNumMaxCBits = iNumMaxCBits, NotList = NotList, bAddArticle = bAddArticle, sPosArticle = sPosArticle,
+			self.Char = MaleGangChar(iNumMinCBits = iNumMinCBits, iNumMaxCBits = iNumMaxCBits, NotList = NotList, bAddArticle = bAddArticle, sPosArticle = sPosArticle, bAddEndNoun = bAddEndNoun,
 				bAllowAttitude = bAllowAttitude, bAllowSkinHairColor = bAllowSkinHairColor,
 				bAllowGenMod = bAllowGenMod, bAllowAge = bAllowAge,  
 				bAllowNation = bAllowNation, bAllowProf = bAllowProf, bAllowSpecies = bAllowSpecies, bAllowTrope = bAllowTrope)
 		else:
-			self.Char = MaleRegChar(iNumMinCBits = iNumMinCBits, iNumMaxCBits = iNumMaxCBits, NotList = NotList, bAddArticle = bAddArticle, sPosArticle = sPosArticle, 
+			self.Char = MaleRegChar(iNumMinCBits = iNumMinCBits, iNumMaxCBits = iNumMaxCBits, NotList = NotList, bAddArticle = bAddArticle, sPosArticle = sPosArticle, bAddEndNoun = bAddEndNoun,
 				bAllowAttitude = bAllowAttitude, bAllowPhysChar = bAllowPhysChar, bAllowSkinHairColor = bAllowSkinHairColor,
 				bAllowGenMod = bAllowGenMod, bAllowAge = bAllowAge, bAllowMaritalStatus = bAllowMaritalStatus, 
 				bAllowNation = bAllowNation, bAllowProf = bAllowProf, bAllowSpecies = bAllowSpecies, bAllowTrope = bAllowTrope,
@@ -597,9 +599,9 @@ class MaleChar():
 		self.Desc = self.Char.Desc
 		
 class MaleRegChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, NotList = None, bAddArticle = False, sPosArticle = "My", 
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, NotList = None, bAddArticle = False, sPosArticle = "My", bAddEndNoun = True, 
 		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowAge = True, bAllowMaritalStatus = True,
-		bAllowNation = True, bAllowProf = True, bAllowSpecies = True, bAllowTrope = True, bAllowRelate = True,
+		bAllowNation = True, bAllowProf = True, bAllowSpecies = True, bAllowTrope = True, bAllowRelate = False,
 		bAllowTitle = True):
 		super().__init__()
 		sDesc = ""
@@ -659,8 +661,9 @@ class MaleRegChar(Character):
 			NotList.append(sBit)
 			BitGetList.append(sBit)
 			
-		if not bFoundNoun:
-			BitGetList.append("Man")
+		if bAddEndNoun:
+			if not bFoundNoun:
+				BitGetList.append("Man")
 		
 		sDesc = ""
 		for x in range(0, len(BitGetList)):
@@ -677,7 +680,7 @@ class MaleRegChar(Character):
 		self.Desc = sDesc
 			
 class MaleGangChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, NotList = None, bAddArticle = False, sPosArticle = "My", 
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, NotList = None, bAddArticle = False, sPosArticle = "My", bAddEndNoun = True, 
 		bAllowAttitude = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowAge = True, 
 		bAllowNation = True, bAllowProf = True, bAllowSpecies = True, bAllowTrope = True):
 		super().__init__()
@@ -734,9 +737,10 @@ class MaleGangChar(Character):
 				sDesc += " "
 			sDesc += BitGetList[x]
 		
-		if sDesc != "":
-			sDesc += " "
-		sDesc += GangMale().Get(NotList = NotList)
+		if bAddEndNoun:
+			if sDesc != "":
+				sDesc += " "
+			sDesc += GangMale().Get(NotList = NotList)
 		
 		if bAddArticle:				
 			if bIsRelate:
@@ -747,7 +751,7 @@ class MaleGangChar(Character):
 		self.Desc = sDesc
 		
 class GayChar(Character):
-	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, NotList = None, bAddArticle = False, sPosArticle = "My", 
+	def __init__(self, iNumMinCBits = 1, iNumMaxCBits = 3, NotList = None, bAddArticle = False, sPosArticle = "My", bAddEndNoun = True, 
 		bAllowAttitude = True, bAllowPhysChar = True, bAllowSkinHairColor = True, bAllowGenMod = True, bAllowAge = True, bAllowMaritalStatus = True,
 		bAllowNation = True, bAllowProf = True, bAllowSpecies = True, bAllowTrope = True, bAllowRelate = True,
 		bAllowTitle = True):
@@ -807,9 +811,10 @@ class GayChar(Character):
 				bIsRelate = True
 			NotList.append(sBit)
 			BitGetList.append(sBit)
-			
-		if not bFoundNoun:
-			BitGetList.append(GayMaleNoun().Get(NotList = NotList))
+		
+		if bAddEndNoun:		
+			if not bFoundNoun:
+				BitGetList.append(GayMaleNoun().Get(NotList = NotList))
 		
 		sDesc = ""
 		for x in range(0, len(BitGetList)):
