@@ -12,7 +12,7 @@ MAX_GENERATOR_NO = 44
 MAX_SEARCH_LOOPS = 8
 TWIT_USERNAME = 'erotica_ebooks'
 
-Q_SIZE = 10
+Q_SIZE = 12
 HISTORYQ_FILENAME = 'history_q.txt'
 
 TAG_PEN = "sex act with penetration scene"
