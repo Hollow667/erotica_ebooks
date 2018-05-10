@@ -936,6 +936,7 @@ class Generator37(Generator):
 		return sTweet
 		
 class Generator38(Generator):
+	# My New Step-Dad Is A Visibly-Erect Centaur
 	ID = 38
 	Priority = 3
 	
@@ -984,15 +985,24 @@ class Generator39(Generator):
 		
 		return sTweet
 
-# class Generator57(Generator):
-	# ID = 57
-	# Priority = 2
+class Generator40(Generator):
+	# I Was Ridden Bareback By A Burly Lumberjack Businessman, And He's Not My Husband!
+	ID = 40
+	Priority = 2
 	
-	# def GenerateTweet(self):
-		# super().GenerateTweet()
-		# sTweet = ""
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sTweet = ""
+		
+		NotVerbs = ['Tempted', 'Beaten', 'Broken', 'Captured', 'Caught', 'Charmed', 'Cuddled', 'Hotwifed', 'Ruled', 'Seduced', 'Tamed', 'Trained']
+		
+		Master = MaleChar(iNumMaxCBits = 4, bAllowGang = False, bAllowAge = False, bAllowMaritalStatus = False, bAllowSpecies = False)
+		if CoinFlip():
+			sTweet = self.HerName + " Gets " + self.VerbsBy.GetWord(NotList = NotVerbs) + " By A\n" + Master.Desc + "\nAnd He's Not Her Husband!"
+		else:
+			sTweet = "I Was " + self.VerbsBy.GetWord(NotList = NotVerbs) + " By A\n" + Master.Desc + "\nWho Was Not My Husband!"
 
-		# return sTweet
+		return sTweet
 		
 # class Generator58(Generator):
 	# ID = 58

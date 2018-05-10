@@ -616,6 +616,7 @@ class PhysCharMale(WordList):
 			'Beefy',
 			'Big','Big',
 			'Buff',
+			'Burly',
 			'Chiseled',
 			'Clean-Shaven','Clean-Shaven',
 			'Dad-Bod',
