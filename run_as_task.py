@@ -31,4 +31,4 @@ if not is_lock_free():
 
 import ee_bot
 
-ee_bot.InitBot(3600, 300, bTweet = True, bLoop = True)
+ee_bot.InitBot(5400, 300, bTweet = True, bLoop = True)
