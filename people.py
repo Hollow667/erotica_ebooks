@@ -304,7 +304,10 @@ class FemaleChar(Character):
 			
 		if bAddEndNoun:
 			if not bFoundNoun:
-				BitGetList.append(WordList(["Girl","Woman"]).GetWord(NotList = NotList))
+				if bAllowTrope:
+					BitGetList.append(TropeFemale(Type = Type).Get(NotList = NotList))
+				else:
+					BitGetList.append(WordList(["Girl","Woman"]).GetWord(NotList = NotList))
 		
 		sDesc = ""
 		for x in range(0, len(BitGetList)):
@@ -663,7 +666,11 @@ class MaleRegChar(Character):
 			
 		if bAddEndNoun:
 			if not bFoundNoun:
-				BitGetList.append("Man")
+				if bAddEndNoun:
+					if bAllowTrope:
+						BitGetList.append(TropeMale().Get(NotList = NotList))
+					else:
+						BitGetList.append("Man")
 		
 		sDesc = ""
 		for x in range(0, len(BitGetList)):

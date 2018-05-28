@@ -471,11 +471,13 @@ class SkinHairColorFemale(WordList):
 # futa			
 class SpeciesFemale(WordList):
 	def __init__(self):
-		super().__init__(['Green-Skinned Alien','Green-Skinned Alien',
-			'Fairy','Fairy',
-			'Futa','Futa','Futa',
-			'Mermaid','Mermaid',
-			'Succubus','Succubus','Succubus',
+		super().__init__(['Cat-Girl', 
+			'Green-Skinned Alien',
+			'Fairy',
+			'Futa','Futa',
+			'Mermaid','Mermaid','Mermaid'
+			'Nymph',
+			'Succubus','Succubus',
 			'Vampire Queen','Vampire Queen'])
 	
 # princess	

@@ -1061,6 +1061,7 @@ class Generator43(Generator):
 		return sTweet
 		
 class Generator44(Generator):
+	# The Amish French Maid Goes Dogging 
 	ID = 44
 	Priority = 2
 	
@@ -1091,35 +1092,64 @@ class Generator45(Generator):
 		sTweet = NudeActions.GetWord() + " " + Places.GetWord() + ":\nA " + Girl.Desc + " Adventure"
 		return sTweet
 
-# class Generator57(Generator):
-	# ID = 57
-	# Priority = 2
+class Generator46(Generator):
+	ID = 46
+	Priority = 2
 	
-	# def GenerateTweet(self):
-		# super().GenerateTweet()
-		# sTweet = ""
-
-		# return sTweet
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sTweet = ""
 		
-# class Generator58(Generator):
-	# ID = 58
-	# Priority = 2
-	
-	# def GenerateTweet(self):
-		# super().GenerateTweet()
-		# sTweet = ""
-
-		# return sTweet
+		if CoinFlip():
+			Master = MaleChar(iNumMaxCBits = 3, bAddEndNoun = False, NotList = ["boyfriend"], bAllowRelate = False, bAllowMaritalStatus = False, bAllowSpecies = False, bAllowAge = False, bAllowTitle = False)
+			Relations = misc.RelateMale()
+			Prefix = WordList(["Secretly In Love With"])
+			sTweet = Prefix.GetWord() + "\nMy " + Master.Desc + " " + Relations.GetWord(NotList = ["Boyfriend", "Husband", "Hubbie", "Widower", "Fiancé"])
+		else:
+			Girl = FemaleChar(iNumMaxCBits = 3, bAddEndNoun = False, NotList = ["girlfriend"], bAllowRelate = False, bAllowMaritalStatus = False, bAllowSpecies = False, bAllowAge = False, bAllowTitle = False)
+			Relations = misc.RelateFemale()
+			Prefix = WordList(["Secretly In Love With"])
+			sTweet = Prefix.GetWord() + "\nMy " + Girl.Desc + " " + Relations.GetWord(NotList = ["Girlfriend", "Mistress", "Wife"])
+		return sTweet
 		
-# class Generator59(Generator):
-	# ID = 59
-	# Priority = 2
+class Generator47(Generator):
+	# My Step-Dad Transforms Into A Cocky Gentleman Mer-Man!
+	ID = 47
+	Priority = 2
 	
-	# def GenerateTweet(self):
-		# super().GenerateTweet()
-		# sTweet = ""
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sTweet = ""
+		
+		Relate = misc.RelateMale()
+		Species = misc.SpeciesMale()
+		VerbTrans = WordList(["Transforms", "Transforms", "Changes", "Shifts", "Morphs", "Metamorphs"])
+		
+		Master = MaleChar(bAddEndNoun = False, bAllowAge = False, bAllowMaritalStatus = False, bAllowNation = False, bAllowRelate = False, bAllowSpecies = False, bAllowTitle = False)
+		
+		sTweet = "My " + Relate.GetWord() + " " + VerbTrans.GetWord() + "\ninto a\n" + Master.Desc + " " + Species.GetWord() + "!"
 
-		# return sTweet		
+		return sTweet
+		
+class Generator48(Generator):
+	# Lusting For the Wicked Blonde Fetish Model
+	ID = 48
+	Priority = 2
+	
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sTweet = ""
+		
+		HairTropes = WordList(["Fiery Redhead", "Wholesome Blonde", "Clueless Blonde", "Nerdy Asian", 
+			"Asian Schoolgirl", "Spicy Latina", "Haughty Redhead", "Hot-Blooded Italian", "Submissive Asian",
+			"Brainy Brunette", "Sassy Black", "Bootylicious Black", "Wicked Blonde", "Shy Brunette",
+			"Muscular Blonde", "Snooty French", "Hot-Blooded Gypsy", "Sensual Russian", "Mysterious Geisha",
+			"Athletic Brunette"])
+		Girl = FemaleChar(iNumMaxCBits = 2, bAllowAge = False, bAllowAttitude = False, bAllowMaritalStatus = False, bAllowPhysChar = False, bAllowRelate = False, bAllowNation = False, bAllowSkinHairColor = False, bAllowSpecies = False)
+		
+		sTweet = self.Gerunds.GetWord() + " the " + HairTropes.GetWord() + " " + Girl.Desc 
+
+		return sTweet		
 		
 # class Generator58(Generator):
 	# ID = 58
