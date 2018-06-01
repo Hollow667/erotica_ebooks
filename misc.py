@@ -867,6 +867,7 @@ class SpeciesMale(WordList):
 			'Tentacle Monster',
 			'Uniporn',
 			'Vampire','Vampire',
+			'Were-Horse',
 			'Were-Shark',
 			'Werewolf','Werewolf',
 			'Zombie'])
