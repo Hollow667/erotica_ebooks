@@ -673,7 +673,7 @@ class Generator28(Generator):
 		if CoinFlip():
 			sTweet = "Cuckolded By My\n" + Girl.Desc + " " + WordList(['Wife', 'Wife', 'Hotwife', 'Fiancé', 'Girlfriend', 'Mistress']).GetWord()
 		else:
-			sTweet = "My " + WordList(['Wife', 'Wife', 'Hotwife']).GetWord() + " And The\n" + MaleChar(bAllowMaritalStatus = False).Desc + ":\nA Cuckcold " + self.SubtitleCoda.GetWord()
+			sTweet = "My " + WordList(['Wife', 'Wife', 'Hotwife']).GetWord() + " And The\n" + MaleChar(bAllowMaritalStatus = False).Desc + ":\nA Cuckold " + self.SubtitleCoda.GetWord()
 		
 		return sTweet
 		
@@ -1151,15 +1151,68 @@ class Generator48(Generator):
 
 		return sTweet		
 		
-# class Generator58(Generator):
-	# ID = 58
-	# Priority = 2
+class Generator49(Generator):
+	ID = 49
+	Priority = 4
 	
-	# def GenerateTweet(self):
-		# super().GenerateTweet()
-		# sTweet = ""
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sTweet = ""
+		
+		PublicPlaces = WordList(["at the Bowling Alley", 
+			"in the Produce Section", 
+			"in the Baked Goods Section",
+			"in the Bakery",
+			"at the Wine Tasting",
+			"on the Coffee Table", 
+			"in the Restroom at Chiopotle", 
+			"Behind the Chic-fil-a", 
+			"in the Ball Pit", 
+			"in the Whole Foods Parking Lot",
+			"in the Men's Restroom",
+			"in the Women's Restroom",
+			"in the Park",
+			"at the Beach",
+			"on the Eliptical Machine at the Gym",
+			"at the Seafood Restaurant",
+			"at the Museum",
+			"at the Library",
+			"at the Farmer's Market",
+			"next to the Duck Pond",
+			"in the Window of a Shoe Store",
+			"in the Hunting Section at a Wal-Mart",
+			"in the Church Graveyard",
+			"in the Old Castle Ruins",
+			"at the Old Manor House",
+			"in the Abandoned Mansion",
+			"at the Construction Site",
+			"Next to the Assembly Line",
+			"on a Hotel Balcony"
+			])
+		
+		Verbs = WordList(["Claimed", "Claimed",
+			"Mounted",
+			"Pleasured",
+			"Ravished",
+			"Taken","Taken","Taken"])
+			
+		Adverbs = WordList(["Hard","Hard","Hard",
+			"Forcefully",
+			"Passionately",
+			"Roughly",
+			"Ruthlessly",
+			"Vigorously"])
+			
+		Master = MaleChar(bAddArticle = True)
+		
+		if CoinFlip():
+			sTweet = Verbs.GetWord()
+		else:
+			sTweet = Verbs.GetWord() + " " + Adverbs.GetWord() 
 
-		# return sTweet
+		sTweet += "\n" + PublicPlaces.GetWord() + " by\n" + Master.Desc
+
+		return sTweet
 		
 # class Generator59(Generator):
 	# ID = 59
