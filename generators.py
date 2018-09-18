@@ -1214,15 +1214,164 @@ class Generator49(Generator):
 
 		return sTweet
 		
-# class Generator59(Generator):
-	# ID = 59
-	# Priority = 2
+class Generator50(Generator):
+	ID = 50
+	Priority = 3
 	
-	# def GenerateTweet(self):
-		# super().GenerateTweet()
-		# sTweet = ""
-
-		# return sTweet
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		
+		Adjective = WordList(["Light ","Light ",
+			"Friendly ",
+			"Gentle ",
+			"Mild ",
+			"","","","","","",""])
+		
+		NaughtinessStraight = WordList(["Anal", 
+			"Anal Sex",
+			"Ass-Eating",
+			"BDSM",
+			"Blowjob",
+			"Bondage",
+			"Bukkake",
+			"Butt Sex",
+			"Butt Stuff",
+			"Creampie",
+			"Cunnilingus",
+			"Deep Throat",
+			"Dry-Humping",
+			"Dogging",
+			"Edging",
+			"Fellatio",
+			"Fingering",
+			"Footjob",
+			"Foreplay",
+			"Fucking",
+			"Hand-Job",
+			"Jerking Off",
+			"Masturbation",
+			"Mutual Masturbation",
+			"Nipple Play",
+			"Pegging",
+			"Rape Play",
+			"Rimming",
+			"Sex",
+			"Spanking",
+			"Spooning Naked",
+			"Striptease",
+			"Tantric Sex",
+			"Tea-bagging",
+			"Titty Fuck",
+			"69ing",
+			"Water Sports",
+			"Wife-Swapping"])
+			
+		NaughtinessGay = WordList(["Anal", 
+			"Anal Sex",
+			"Ass-Eating",
+			"Butt Sex",
+			"Butt Stuff",
+			"Deep Throat",
+			"Edging",
+			"Fellatio","Fellatio",
+			"Gay Sex", "Gay Sex", "Gay Sex",
+			"Hand-Job",
+			"Jerking Off",
+			"Masturbation",
+			"Mutual Masturbation",
+			"Nipple Play",
+			"Rimming",
+			"Spanking",
+			"Spooning Naked",
+			"Striptease",
+			"Tea-bagging",
+			"69ing",
+			"Water Sports"])
+			
+		NaughtinessLez = WordList(["Ass-Eating",
+			"BDSM",
+			"Bondage",
+			"Butt Stuff",
+			"Cunnilingus",
+			"Dry-Humping",
+			"Finger Bang",
+			"Fingering",
+			"Fisting",
+			"Masturbation",
+			"Mutual Masturbation",
+			"Tit Play",
+			"Pegging",
+			"Rimming",
+			"Rug Munching",
+			"Spanking",
+			"69ing",
+			"Water Sports"])
+			
+		FriendsGen = WordList(["Brother and Sister",
+			"Colleagues",
+			"Cousins","Cousins",
+			"Co-workers","Co-workers",
+			"Good Friends",
+			"Friends",
+			"Platonic Friends",
+			"Roommates",
+			"Siblings",
+			"Step-Siblings",
+			"Study Buddies",
+			"Teacher and Student",
+			"Teammates"])
+			
+		FriendsGay = WordList(["Boys",
+			"Bros",
+			"Brothers",
+			"Buddies",
+			"Cellmates",
+			"Cowboys",
+			"Dads",
+			"Dudes",
+			"Good Friends",
+			"Fraternity Brothers",
+			"Friends",
+			"Lumberjacks",
+			"Married Men",
+			"Monks",
+			"Priests",
+			"Roommates",
+			"Sailors",
+			"Step-Brothers",
+			"Straight Friends",
+			"Twin Brothers"])
+		
+		FriendsLez = WordList(["Cellmates",
+			"Cheerleaders",
+			"Cousins","Cousins",
+			"Coworkers",
+			"Girls",
+			"Girlfriends",
+			"Married Women",
+			"Moms",
+			"Nuns",
+			"Nurses",
+			"Sisters",
+			"Sorority Sisters",
+			"Step-Sisters",
+			"Twin Sisters"])
+		
+		sTweet = "What's a Little " + Adjective.GetWord()
+		
+		if CoinFlip():
+			#straight
+			sTweet += NaughtinessStraight.GetWord() + " Between " + FriendsGen.GetWord()
+		else:
+			if CoinFlip():
+				#gay
+				sTweet += NaughtinessGay.GetWord() + " Between " + FriendsGay.GetWord()
+			else:
+				#lesbian
+				sTweet += NaughtinessLez.GetWord() + " Between " + FriendsLez.GetWord()
+				
+		sTweet += "?"
+		return sTweet
 
 # class Generator57(Generator):
 	# ID = 57

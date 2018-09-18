@@ -478,7 +478,7 @@ class SpeciesFemale(WordList):
 			'Green-Skinned Alien',
 			'Fairy',
 			'Futa','Futa',
-			'Mermaid','Mermaid','Mermaid'
+			'Mermaid','Mermaid','Mermaid',
 			'Nymph',
 			'Succubus','Succubus',
 			'Vampire Queen','Vampire Queen'])
@@ -861,8 +861,8 @@ class SpeciesMale(WordList):
 			'Gorilla','Gorilla',
 			'Incubus',
 			'Man-o-taur',
-			'Man-telope',
-			'Man-ticore',
+			'MANtelope',
+			'MANticore',
 			'Mer-man',
 			'Silver-Backed Gorilla',
 			'Swamp Creature',
