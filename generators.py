@@ -1532,10 +1532,15 @@ def GetImgTweetText(gen):
 		TweetText.append(sText)
 	#=============================
 	
-	sText = WordList(["Available soon", "Coming soon", "On its way soon", "Out soon", "Arriving soon"]).GetWord() + " from " + AuthorBuilder(Gender = Gender.Female) 
+	sText = WordList(["At last!","At last!","At last!", "Finally!","Finally!", "Get excited!", "It's here!"]).GetWord() + " The wait is over for " + AuthorBuilder() + "'s " + WordList(["newest", "latest"]).GetWord() + " " + SexyAdj.GetWord() + " " + WordList(["book","book","book","release","novel","ebook"]).GetWord() + "!"
 	for _ in range(2):
 		TweetText.append(sText)
 	#=============================
+	
+	sText = WordList(["Available soon", "Coming soon", "On its way soon", "Out soon", "Arriving soon"]).GetWord() + " from " + AuthorBuilder(Gender = Gender.Female) 
+	for _ in range(2):
+		TweetText.append(sText)
+	#==============================
 	
 	sText = "Reply to this tweet and " 
 	if CoinFlip():
@@ -1548,7 +1553,7 @@ def GetImgTweetText(gen):
 	#=============================
 	
 	sText = WordList(["Check out", "Follow", "Visit", "Take a look at"]).GetWord() + WordList([" my sister bot", " my bot-sibbling", ""]).GetWord() + " @bot_lust " + WordList(["to read what's inside", "to read " + SexyAdjs().GetWord() + " excerpts from", "to see what's inside", "to read " + SexyAdjs().GetWord() + " bot-generated love scenes from"]).GetWord() + " this book (warning: NSFW!) " + GetEmoji()
-	for _ in range(2):
+	for _ in range(1):
 		TweetText.append(sText)
 	#=============================
 
