@@ -1542,6 +1542,29 @@ def GetImgTweetText(gen):
 		TweetText.append(sText)
 	#==============================
 	
+	sText = "The " + WordList(["anal", "anal", "orgy", "gangbang", "reverse gangbang", "double gangbang", "triple penetration", "deep throat" "incest", "foursome", "fivesome", "MILF orgy", "lesbian orgy", "gay bathhouse", "bukkake", "forced feminization", "choking", "twincest", "Dirty Sanchez", "pee drinking", "wife swapping"]).GetWord() + " scene is " 
+	sText += WordList(["surprisingly", "surprisingly", "actually very", "really quite", "unexpectedly"]).GetWord() + " " 
+	sText += WordList(["tasteful", "tasteful", "loving", "affectionate", "sweet", "heartfelt", "classy", "subdued", "discrete", "charming", "endearing", "thoughtful", "tactful", "wistful"]).GetWord() + "."
+	for _ in range(3):
+		TweetText.append(sText)
+	#==============================
+	
+	sText = "If you only read one book this " + WordList(["year", "year", "month"]).GetWord() + " about "
+	sText += WordList(["unicorn", "centaur", "werewolf", "mermaid", "merman", "mer-MILF", "dragon", "orc", "goat man", "futanari", "alien", "tentacle monster", "pirate", "lumberjack", "trapeze artist", "clown", "sumo wrestler", "were-horse", "gorilla", "dinosaur", "dinosaur"]).GetWord() + " "
+	sText += WordList(["incest", "threesomes", "foursomes", "fivesomes", "bukkake", "bukkake", "forced feminization", "spanking", "rope play", "water-sports", "wife swapping", "69ing", "choking play", "orgies", "gangbangs", "reverse gangbangs", "harems", "lactation"]).GetWord() + ", " 
+	sText += WordList(["it should be", "make sure it is", "I heartily recommend"]).GetWord() + " this one!" 
+	for _ in range(3):
+		TweetText.append(sText)
+	#==============================
+	
+	# sText = "Who will Emily choose, the unicorn or her step-dad? I was on the edge of my seat! " + WordList(["year", "year", "month"]).GetWord() " about "
+	# sText += WordList(["unicorn", "centaur", "werewolf", "mermaid", "merman", "mer-MILF", "dragon", "orc", "goat man", "futanari", "alien", "tentacle monster", "pirate", "lumberjack", "trapeze artist", "clown", "sumo wrestler", "were-horse", "gorilla", "dinosaur", "dinosaur"]).GetWord()
+	# sText += WordList(["incest", "threesomes", "foursomes", "fivesomes", "bukkake", "bukkake", "forced feminization", "spanking", "rope play", "water-sports", "wife swapping", "69ing", ]).GetWord() + ", " 
+	# sText += WordList(["it should be", "make sure it is", "I heartily recommend"]).GetWord() + " this one!" 
+	# for _ in range(3):
+		# TweetText.append(sText)
+	#==============================
+	
 	sText = "Reply to this tweet and " 
 	if CoinFlip():
 		sText += "I'll tweet a " + WordList(["randomly", "computer", "bot", "algorithmically"]).GetWord () + "-generated " + WordList(["erotica", "smutty", "naughty", "erotic", "adult"]).GetWord() + " ebook title @ you!"
