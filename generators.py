@@ -1545,24 +1545,43 @@ def GetImgTweetText(gen):
 	sText = "The " + WordList(["anal", "anal", "orgy", "gangbang", "reverse gangbang", "double gangbang", "triple penetration", "deep throat" "incest", "foursome", "fivesome", "MILF orgy", "lesbian orgy", "gay bathhouse", "bukkake", "forced feminization", "choking", "twincest", "Dirty Sanchez", "pee drinking", "wife swapping"]).GetWord() + " scene is " 
 	sText += WordList(["surprisingly", "surprisingly", "actually very", "really quite", "unexpectedly"]).GetWord() + " " 
 	sText += WordList(["tasteful", "tasteful", "loving", "affectionate", "sweet", "heartfelt", "classy", "subdued", "discrete", "charming", "endearing", "thoughtful", "tactful", "wistful"]).GetWord() + "."
-	for _ in range(3):
+	for _ in range(4):
 		TweetText.append(sText)
 	#==============================
 	
 	sText = "If you only read one book this " + WordList(["year", "year", "month"]).GetWord() + " about "
 	sText += WordList(["unicorn", "centaur", "werewolf", "mermaid", "merman", "mer-MILF", "dragon", "orc", "goat man", "futanari", "alien", "tentacle monster", "pirate", "lumberjack", "trapeze artist", "clown", "sumo wrestler", "were-horse", "gorilla", "dinosaur", "dinosaur"]).GetWord() + " "
-	sText += WordList(["incest", "threesomes", "foursomes", "fivesomes", "bukkake", "bukkake", "forced feminization", "spanking", "rope play", "water-sports", "wife swapping", "69ing", "choking play", "orgies", "gangbangs", "reverse gangbangs", "harems", "lactation"]).GetWord() + ", " 
+	sText += WordList(["nipple play", "incest", "threesomes", "foursomes", "fivesomes", "bukkake", "bukkake", "forced feminization", "spanking", "rope play", "water-sports", "wife swapping", "69ing", "choking play", "orgies", "gangbangs", "reverse gangbangs", "harems", "lactation"]).GetWord() + ", " 
 	sText += WordList(["it should be", "make sure it is", "I heartily recommend"]).GetWord() + " this one!" 
-	for _ in range(3):
+	for _ in range(4):
 		TweetText.append(sText)
 	#==============================
 	
-	# sText = "Who will Emily choose, the unicorn or her step-dad? I was on the edge of my seat! " + WordList(["year", "year", "month"]).GetWord() " about "
-	# sText += WordList(["unicorn", "centaur", "werewolf", "mermaid", "merman", "mer-MILF", "dragon", "orc", "goat man", "futanari", "alien", "tentacle monster", "pirate", "lumberjack", "trapeze artist", "clown", "sumo wrestler", "were-horse", "gorilla", "dinosaur", "dinosaur"]).GetWord()
-	# sText += WordList(["incest", "threesomes", "foursomes", "fivesomes", "bukkake", "bukkake", "forced feminization", "spanking", "rope play", "water-sports", "wife swapping", "69ing", ]).GetWord() + ", " 
-	# sText += WordList(["it should be", "make sure it is", "I heartily recommend"]).GetWord() + " this one!" 
-	# for _ in range(3):
-		# TweetText.append(sText)
+	sSuitor1 = Master = MaleChar(iNumMaxCBits = 1, bAddArticle = True).Desc.lower()
+	sSuitor2 = Master = MaleChar(iNumMaxCBits = 1, bAddArticle = True).Desc.lower()
+	sText = "Who will " + NamesFemale().FirstName() + " choose, " + sSuitor1 + " or " + sSuitor2 + "? I was on the edge of my seat! " 
+	if CoinFlip():
+		if CoinFlip():
+			sText += "#team" + sSuitor1.replace(" ", "").replace("the", "").replace("her", "").replace("-", "")
+		else:
+			sText += "#team" + sSuitor2.replace(" ", "").replace("the", "").replace("her", "").replace("-", "")
+	for _ in range(4):
+		TweetText.append(sText)
+	#==============================
+	
+	sText = "Include one little "
+	sText += WordList(["unicorn", "centaur", "werewolf", "mermaid", "merman", "mer-MILF", "dragon", "orc", "goat man", "futanari", "alien", "tentacle monster", "pirate", "lumberjack", "trapeze artist", "clown", "sumo wrestler", "were-horse", "gorilla", "dinosaur", "dinosaur"]).GetWord() + " "
+	sText += WordList(["anal", "nipple play", "incest", ""twincest", "threesome", "foursome", "fivesome", "bukkake", "bukkake", "forced feminization", "spanking", "rope play", "water-sports", "wife swapping", "69", "choking", "orgy", "gangbang", "reverse gangbang", "lactation", "double penetration", "triple penetration", "pee-drinking", "Dirty Sanchez"]).GetWord() + " scene, " 
+	sText += " and they ban you from Amazon!" 
+	for _ in range(4):
+		TweetText.append(sText)
+	#==============================
+	
+	sText = AuthorBuilder() + " is truly the " + WordList(["Stephen King", "J.K. Rowling", "Jane Austen", "William Shakespeare", "Shia Lebouf"]).GetWord() + " of "
+	sText += WordList(["gay", "lesbian", "MILF", "unicorn", "centaur", "werewolf", "mermaid", "merman", "mer-MILF", "dragon", "orc", "goat man", "futanari", "alien", "tentacle monster", "pirate", "lumberjack", "trapeze artist", "clown", "sumo wrestler", "were-horse", "gorilla", "dinosaur", "dinosaur"]).GetWord() + " "
+	sText += WordList(["anal", "nipple play", "incest", ""twincest", "threesomes", "foursomes", "fivesomes", "bukkake", "bukkake", "forced feminization", "spanking", "rope play", "water-sports", "wife swapping", "69", "choking", "orgy", "gangbang", "reverse gangbang", "lactation", "double penetration", "triple penetration"]).GetWord() + "!" 
+	for _ in range(4):
+		TweetText.append(sText)
 	#==============================
 	
 	sText = "Reply to this tweet and " 
