@@ -1542,16 +1542,16 @@ def GetImgTweetText(gen):
 		TweetText.append(sText)
 	#==============================
 	
-	sText = "The " + WordList(["anal", "anal", "orgy", "gangbang", "reverse gangbang", "double gangbang", "triple penetration", "deep throat" "incest", "foursome", "fivesome", "MILF orgy", "lesbian orgy", "gay bathhouse", "bukkake", "forced feminization", "choking", "twincest", "Dirty Sanchez", "pee drinking", "wife swapping"]).GetWord() + " scene is " 
+	sText = "The " + WordList(["anal", "anal", "orgy", "gangbang", "fisting", "reverse gangbang", "double gangbang", "triple penetration", "deep throat", "incest", "foursome", "fivesome", "MILF orgy", "lesbian orgy", "gay bathhouse", "bukkake", "forced feminization", "choking", "twincest", "Dirty Sanchez", "pee drinking", "wife swapping"]).GetWord() + " scene is " 
 	sText += WordList(["surprisingly", "surprisingly", "actually very", "really quite", "unexpectedly"]).GetWord() + " " 
 	sText += WordList(["tasteful", "tasteful", "loving", "affectionate", "sweet", "heartfelt", "classy", "subdued", "discrete", "charming", "endearing", "thoughtful", "tactful", "wistful"]).GetWord() + "."
 	for _ in range(4):
 		TweetText.append(sText)
 	#==============================
 	
-	sText = "If you only read one book this " + WordList(["year", "year", "month"]).GetWord() + " about "
-	sText += WordList(["unicorn", "centaur", "werewolf", "mermaid", "merman", "mer-MILF", "dragon", "orc", "goat man", "futanari", "alien", "tentacle monster", "pirate", "lumberjack", "trapeze artist", "clown", "sumo wrestler", "were-horse", "gorilla", "dinosaur", "dinosaur"]).GetWord() + " "
-	sText += WordList(["nipple play", "incest", "threesomes", "foursomes", "fivesomes", "bukkake", "bukkake", "forced feminization", "spanking", "rope play", "water-sports", "wife swapping", "69ing", "choking play", "orgies", "gangbangs", "reverse gangbangs", "harems", "lactation"]).GetWord() + ", " 
+	sText = "If you only read one book this " + WordList(["year", "year", "year", "month", "month", "decade", "week", "week", "century"]).GetWord() + " about "
+	sText += WordList(["unicorn", "centaur", "werewolf", "mermaid", "merman", "mer-MILF", "dragon", "orc", "goat man", "dwarf", "futanari", "alien", "tentacle monster", "pirate", "lumberjack", "trapeze artist", "clown", "sumo wrestler", "were-horse", "gorilla", "dinosaur", "dinosaur"]).GetWord() + " "
+	sText += WordList(["nipple play", "incest", "threesomes", "fisting", "foursomes", "fivesomes", "bukkake", "bukkake", "forced feminization", "spanking", "rope play", "water-sports", "wife swapping", "69ing", "choking play", "orgies", "gangbangs", "reverse gangbangs", "harems", "lactation"]).GetWord() + ", " 
 	sText += WordList(["it should be", "make sure it is", "I heartily recommend"]).GetWord() + " this one!" 
 	for _ in range(4):
 		TweetText.append(sText)
@@ -1570,16 +1570,64 @@ def GetImgTweetText(gen):
 	#==============================
 	
 	sText = "Include one little "
-	sText += WordList(["unicorn", "centaur", "werewolf", "mermaid", "merman", "mer-MILF", "dragon", "orc", "goat man", "futanari", "alien", "tentacle monster", "pirate", "lumberjack", "trapeze artist", "clown", "sumo wrestler", "were-horse", "gorilla", "dinosaur", "dinosaur"]).GetWord() + " "
-	sText += WordList(["anal", "nipple play", "incest", ""twincest", "threesome", "foursome", "fivesome", "bukkake", "bukkake", "forced feminization", "spanking", "rope play", "water-sports", "wife swapping", "69", "choking", "orgy", "gangbang", "reverse gangbang", "lactation", "double penetration", "triple penetration", "pee-drinking", "Dirty Sanchez"]).GetWord() + " scene, " 
-	sText += " and they ban you from Amazon!" 
+	sText += WordList(["unicorn", "centaur", "werewolf", "mermaid", "merman", "mer-MILF", "dragon", "orc", "goat-man", "dwarf", "futanari", "alien", "tentacle monster", "pirate", "lumberjack", "trapeze artist", "clown", "sumo wrestler", "were-horse", "gorilla", "dinosaur", "dinosaur", "velociraptor", "pro-wrestler"]).GetWord() + " "
+	sText += WordList(["anal", "double anal", "nipple play", "fisting", "incest", "twincest", "threesome", "foursome", "fivesome", "bukkake", "bukkake", "feminization", "paddling", "rope play", "water-sports", "wife swapping", "69", "choking", "orgy", "gangbang", "reverse gangbang", "lactation", "double penetration", "triple penetration", "pee-drinking", "Dirty Sanchez"]).GetWord() + " scene, " 
+	sText += "and they ban you from Amazon!" 
 	for _ in range(4):
 		TweetText.append(sText)
 	#==============================
 	
-	sText = AuthorBuilder() + " is truly the " + WordList(["Stephen King", "J.K. Rowling", "Jane Austen", "William Shakespeare", "Shia Lebouf"]).GetWord() + " of "
-	sText += WordList(["gay", "lesbian", "MILF", "unicorn", "centaur", "werewolf", "mermaid", "merman", "mer-MILF", "dragon", "orc", "goat man", "futanari", "alien", "tentacle monster", "pirate", "lumberjack", "trapeze artist", "clown", "sumo wrestler", "were-horse", "gorilla", "dinosaur", "dinosaur"]).GetWord() + " "
-	sText += WordList(["anal", "nipple play", "incest", ""twincest", "threesomes", "foursomes", "fivesomes", "bukkake", "bukkake", "forced feminization", "spanking", "rope play", "water-sports", "wife swapping", "69", "choking", "orgy", "gangbang", "reverse gangbang", "lactation", "double penetration", "triple penetration"]).GetWord() + "!" 
+	sText = AuthorBuilder() + " is truly the " + WordList(["Stephen King", "J.K. Rowling", "Jane Austen", "William Shakespeare", "Shia Lebouf", "Charles Dickens", "Hemmingway", "Agatha Christie", "Maya Angelou", "Tolstoy", "Melville", "Harper Lee", "John Grisham", "Proust", "Emily Dickinson", "Truman Capote", "James Patterson", "Dean Koontz"]).GetWord() + " of "
+	sText += WordList(["gay", "lesbian", "MILF", "unicorn", "centaur", "werewolf", "mermaid", "merman", "mer-MILF", "dwarf", "dragon", "orc", "goat man", "futanari", "alien", "tentacle monster", "pirate", "lumberjack", "trapeze artist", "clown", "sumo wrestler", "were-horse", "gorilla", "dinosaur", "dinosaur"]).GetWord() + " "
+	sText += WordList(["anal", "nipple play", "incest", "fisting", "twincest", "threesomes", "foursomes", "fivesomes", "bukkake", "bukkake", "forced feminization", "spanking", "rope play", "water-sports", "wife swapping", "69", "choking", "orgy", "gangbang", "reverse gangbang", "lactation", "double penetration", "triple penetration", "porn", "erotica", "edging", "BDSM", "bondage", "cuckolding"]).GetWord() + "!" 
+	for _ in range(4):
+		TweetText.append(sText)
+	#==============================
+	
+	sText = WordList(["You know,", "Honestly,", "To tell the truth", "In my opinion", "They say that"]).GetWord() + " these books " + WordList(["really get going after", "really hit their stride after", "don't really get good until", "really take off after", "don't really take off until", "really get good after"]).GetWord() + " the " + str(randint(4, 20)) + "th book in the series."
+	for _ in range(2):
+		TweetText.append(sText)
+	#==============================
+	
+	sText = WordList(["WARNING", "CONTENT WARNING", "READER WARNING", "ALERT"]).GetWord() + ": book contains " 
+	sText += WordList(["explicit", "explicit", "explicit", "graphic", "graphic", "vivid"]).GetWord() + " " + WordList(["depictions", "descriptions", "scenes"]).GetWord() + " of " 
+	sText += WordList(["dog walking", "ferret grooming", "juices cleanses", "large animal husbandry", "people ordering ham-and-pineapple pizza", "people consuming kale", "veganism", "crossword puzzle solving", "sporks", "fish being reheated in the microwave", "people listening to Nickleback", "tax preparation", "people recording a podcast", "relatives discussing their colonoscopies", "Bitcoin", "Jazzercize", "essential oil", "craft-brewed beer enthusiasts", "hipsters", "bitchy soccer moms", "the music of Ariana Grande"]).GetWord() + "!"
+	for _ in range(4):
+		TweetText.append(sText)
+	#==============================
+	
+	sText = "I honestly had no idea that I was into " + WordList(["sexy", "sexy", "sexy", "kinky", "well-hung", "well-endowed", "naughty", "naughty", "gay", "bisexual", "bearded", "bald", "short", "mustachioed", "constantly-aroused", "repressed", "stay-at-home", "stay-at-home", "blue-collar", "Asian", "cuckolded", "lactating", "submissive", "dominant", "well-dressed", "flannel-wearing", "vegan"]).GetWord() + " "
+	sText += WordList(["unicorns", "centaurs", "werewolves", "mermen", "dwarves", "dragons", "orcs", "popes", "trolls", "goat-men", "futanari", "aliens", "tentacle monsters", "pirates", "lumberjacks", "trapeze artists", "clowns", "sumo wrestlers", "were-horses", "gorillas", "dinosaurs", "dinosaurs", "blacksmiths", "Japanese businessmen", "guys named Steve"]).GetWord() + " "
+	sText += "until I read this book." 
+	for _ in range(4):
+		TweetText.append(sText)
+	#==============================
+	
+	sText = "SPOILER ALERT: " + NamesFemale().FirstName() + " winds up trying " 
+	sText += WordList(["anal", "lesbian anal", "fisting", "toe-sucking", "nipple play", "incest", "twincest", "a threesome", "a foursome", "a fivesome", "bukkake", "rope play", "water-sports", "cuck-queaning", "69", "choking", "an orgy", "a gangbang", "a reverse gangbang", "a double gangbang", "double penetration", "triple penetration", "porn", "BDSM", "bondage", "a Dirty Sanchez", "girls", "hot-wifing", "lesbian sex", "voyeurism", "nudism", "water-sports"]).GetWord() + "!" 
+	for _ in range(3):
+		TweetText.append(sText)
+	#==============================
+	
+	sText = WordList(["Delightful and provcative", "Good book", "I enjoyed this", "This was a good read", "Pretty good read", "Fun book", "A real page-turner"]).GetWord() + ", but was the "
+	sText += WordList(["anal", "lesbian anal", "fisting", "toe-sucking", "nipple play", "incest", "twincest", "a threesome", "a foursome", "a fivesome", "bukkake", "rope play", "water-sports", "cuck-queaning", "69", "choking", "an orgy", "a gangbang", "a reverse gangbang", "a double gangbang", "double penetration", "triple penetration", "porn", "BDSM", "bondage", "a Dirty Sanchez", "girls", "hot-wifing", "lesbian sex", "voyeurism", "nudism", "water-sports"]).GetWord() + " "
+	sText += "scene really necessary?"
+	for _ in range(3):
+		TweetText.append(sText)
+	#==============================
+	
+	sText = "'" + WordList(["Delightful & provactive", "Thoughtful & heart-warming", "Heart-warming & transcendant", "Complex yet satisfying", "A real rollercoaster ride", "An emotional rollercoaster", "An edge-of-your-seat, stand-up-and-cheer page-turner", "Kept me literally glued to my Kindle", "Kept me literally nailed to my seat", "Un-put-downable", "A grand slam", "A home-run", "A modern classic"]).GetWord() + "!' "
+	sText += WordList(["raves", "raves", "enthuses", "gushes", "applauds", "cheers", "celebrates", "salutes", "extols"]).GetWord() + " " 
+	sText += WordList(["Unicorn", "Centaur", "Werewolf", "Merman", "Dwarf", "Dragon", "Orc", "Pope", "Troll", "Goat-man", "Futanari", "Alien", "Tentacle Monster", "Pirate", "Lumberjack", "Clown", "Sumo Wrestler", "Were-horse", "Dinosaur", "Dinosaur"]).GetWord() + " "
+	sText += WordList(["Anal", "Fisting", "Nipple Play", "Incest", "Twincest", "Threesome", "Foursome", "Fivesome", "Bukkake", "Rope Play", "Water-sports", "Cuckolding", "69", "Choking", "Orgy", "Gangbang", "Double Gangbang", "Double Penetration", "Triple Penetration", "BDSM", "Bondage", "Wife-swapping", "Voyeurism", "Water-sports"]).GetWord() + " Magazine" 
+	for _ in range(4):
+		TweetText.append(sText)
+	#==============================
+	
+	sText = "'" + AuthorBuilder() + "'s latest is " + WordList(['a triumph', 'a triumph', 'a massive success', 'a masterpiece', 'an erotic masterpiece', 'a modern classic', 'a sexual classic', 'brilliant', 'a work of genius', 'an unmatched success', 'the next Harry Potter', 'the next 50 Shades of Gray', 'the next Hunger Games', 'un-put-downable', 'heart-warming and satisfying', 'very readable']).GetWord() + "!' "
+	sText += WordList(["raves", "raves", "enthuses", "gushes", "applauds", "cheers", "celebrates", "salutes", "extols"]).GetWord() + " " 
+	sText += WordList(["Unicorn", "Centaur", "Werewolf", "Merman", "Dwarf", "Dragon", "Orc", "Pope", "Troll", "Goat-man", "Futanari", "Alien", "Tentacle Monster", "Pirate", "Lumberjack", "Clown", "Sumo Wrestler", "Were-horse", "Dinosaur", "Dinosaur"]).GetWord() + " "
+	sText += WordList(["Anal", "Fisting", "Nipple Play", "Incest", "Twincest", "Threesome", "Foursome", "Fivesome", "Bukkake", "Rope Play", "Water-sports", "Cuckolding", "69", "Choking", "Orgy", "Gangbang", "Double Gangbang", "Double Penetration", "Triple Penetration", "BDSM", "Bondage", "Wife-swapping", "Voyeurism", "Water-sports"]).GetWord() + " Magazine" 
 	for _ in range(4):
 		TweetText.append(sText)
 	#==============================
