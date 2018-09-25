@@ -122,9 +122,7 @@ class TweetTxtGen1(TweetTxtGen):
 		super().GenerateTweet()
 		sText = ""
 		
-		sBookSeller = self.BookSeller.GetWord()
-		
-		sText = "The " + SexyAdj.GetWord() + " " + WordList(["read", "book", "ebook"]).GetWord() + " that was " + WordList(["BANNED on", "TOO HOT for", "TOO FILTHY for", "too much for"]).GetWord() + " Amazon! Now available on " + BookSeller.GetWord(NotList = ["Amazon", "Kindle Unlimited"]) 
+		sText = "The " + self.SexyAdj.GetWord() + " " + WordList(["read", "book", "ebook"]).GetWord() + " that was " + WordList(["BANNED on", "TOO HOT for", "TOO FILTHY for", "too much for"]).GetWord() + " Amazon! Now available on " + self.BookSeller.GetWord(NotList = ["Amazon", "Kindle Unlimited"]) 
 		if CoinFlip():
 			sText += " (from " + AuthorBuilder() + ")"
 		#=============================
@@ -251,7 +249,7 @@ class TweetTxtGen8(TweetTxtGen):
 		
 		sText = "The " + WordList(["anal", "anal", "orgy", "gangbang", "fisting", "reverse gangbang", "double gangbang", "triple penetration", "deep throat", "incest", "foursome", "fivesome", "MILF orgy", "lesbian orgy", "gay bathhouse", "bukkake", "forced feminization", "choking", "twincest", "Dirty Sanchez", "pee drinking", "wife swapping"]).GetWord() + " scene is " 
 		sText += WordList(["surprisingly", "actually surprisingly", "really surprisingly", "actually very", "really quite", "actually unexpectedly", "unexpectedly"]).GetWord() + " " 
-		sText += WordList(["tasteful", "tasteful", "loving", "affectionate", "sweet", "heartfelt", "classy", "subdued", "discrete", "charming", "endearing", "thoughtful", "tactful", "wistful"]).GetWord() + "!"
+		sText += WordList(["tasteful", "tasteful", "loving", "affectionate", "sweet", "heartfelt", "classy", "subdued", "discrete", "charming", "endearing", "thoughtful", "tactful", "wistful"]).GetWord() 
 		
 		return sText
 		
@@ -335,7 +333,7 @@ class TweetTxtGen13(TweetTxtGen):
 		super().GenerateTweet()
 		sText = ""
 		
-		sText = WordList(["You know,", "Honestly,", "To tell the truth", "In my opinion", "They say that"]).GetWord() + " these books " + WordList(["really get going after", "really hit their stride after", "don't really get good until", "really take off after", "don't really take off until", "really get good after"]).GetWord() + " the " + str(randint(4, 20)) + "th book in the series."
+		sText = WordList(["You know,", "Honestly,", "To tell the truth", "In my opinion", "They say that"]).GetWord() + " these books " + WordList(["really get going after", "really hit their stride after", "don't really get good until", "really take off after", "don't really take off until", "really get good after"]).GetWord() + " the " + str(randint(4, 20)) + "th book in the series"
 		
 		return sText
 		
@@ -522,9 +520,70 @@ class TweetTxtGen24(TweetTxtGen):
 			sText += "Was " + sName + " the blonde " + Dude + " with the " + str(iLength) + "\" " + sPenisName + " or the brunette " + Dude + " with the " + str(iLength + 1) + "\" " + sPenisName + "?"
 		return sText
 		
-# class TweetTxtGen25(TweetTxtGen):
+class TweetTxtGen25(TweetTxtGen):
+	# Why don't I ever meet any horny, well-hung lumberjacks in real life?
+	ID = 25
+	Priority = 50
+	
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sText = ""
+		
+		sText = "Why don't I ever meet any " + WordList(["horny", "desperate", "lonely", "steamy", "single", "sensual", "bereft", "tragically widowed", "lustful", "sexually repressed", "loner", "bachelor", "naked"]).GetWord() + ", "
+		sText += WordList(["sexy", "hot", "hunky", "handsome", "shirtless", "brawny", "virile", "clean-cut", "stylish", "suave", "alluring", "gruff", "chiseled", "strapping", "attractive", "erotic", "stunning", "well-hung", "well-endowed", "girthy", "hugely erect"]).GetWord() + " "
+		sText += WordList(["lumberjacks", "firemen", "cops", "lifeguards", "stunt men", "bull riders", "park rangers", "pilots", "Chippendales dancers", "astronauts", "attorneys", "Navy SEALs", "Green Berets", "heart surgeons", "cowboys", "guitar players", "olympic gold medalists", "private eyes", "professional surfers", "private eyes"]).GetWord() + " in real life?"
+		return sText
+		
+class TweetTxtGen26(TweetTxtGen):
+	# Experts recommend wearing a condom while you read this book
+	ID = 26
+	Priority = 2
+	
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sText = ""
+		
+		sText = WordList(["Experts", "Doctors", "Medical professionals", "Scientists", "Studies"]).GetWord() + " recommend " 
+		sText += WordList(["wearing a condom", "using birth control", "using protection", "avoiding pregnancy", "that women remain on the pill", "not operating heavy machinery", "that men discontinue the use of Viagra or Cialis"]).GetWord() + " "
+		sText += "while reading this book"
+		
+		return sText
+		
+class TweetTxtGen27(TweetTxtGen):
+	# I mean, who among us hasn't had a secret affair with our curvaceous cheerleader step-daughter?
+	ID = 27
+	Priority = 3
+	
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sText = ""
+		
+		sText = WordList(["Really", "I mean", "Honestly", "Let's get real", "Seriously", "For real though"]).GetWord() + ", "
+		sText += "who among us hasn't " + WordList(["had a secret affair with", "secretly impregnated", "started a secret family with", "had a secret baby with", "accidentally showered with", "mistaken our girlfriend for", "gotten drunk and gotten a handjob from", "gotten drunk and eaten the ass of", "masturbated in the dressing room with", "played doctor with", "helped fertilize the eggs of", "spooned naked with", "watched a porno with"]).GetWord() + " "
+		sText += "our " + misc.PhysCharFemale().GetWord().lower() + " " + misc.ProfGoodFemale().GetWord().lower() + " "
+		sText += WordList(["step-daughter", "step-mom", "step-sister", "cousin", "sister-in-law", "daughter-in-law", "aunt", "niece", "neighbor", "MILF", "teacher"]).GetWord() + "?"
+		
+		return sText
+
+class TweetTxtGen28(TweetTxtGen):
+	# Of course in real life you should never attempt centaur bukkake without strict medical supervision.
+	ID = 28
+	Priority = 4
+	
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sText = ""
+		
+		sText = "Of course in real life you should never attempt " 
+		sText += WordList(["tentacle", "unicorn", "centaur", "man-o-taur", "gargoyle", "werewolf", "merman", "dwarf", "dragon", "orc", "troll", "goat-man", "futanari", "alien", "tentacle monster", "clown", "sumo qrestler", "were-horse", "t-rex", "velociraptor", "dinosaur", "reverse merman", "cyborg", "were-shark"]).GetWord() + " "
+		sText += WordList(["anal", "double anal", "fisting", "nipple play", "incest", "twincest", "cum-swapping", "bukkake", "rope play", "pee-drinking", "cuckolding", "69", "choking", "double gangbang", "double penetration", "triple penetration", "BDSM", "bondage", "water-sports", "public humiliation", "lactation", "age play", "edging", "forced orgasm", "domination", "submission"]).GetWord() + " "
+		sText += "without " + WordList(["strict medical supervision", "a note from your doctor", "waiting at least two hours after eating", "guidance from a trained professional", "help from a licensed dominatrix", "the buddy system", "regular checkups", "notifying the police", "an ambulance standing by", "a certified SCUBA instructor", "a friend that you can trust", "telling someone where you are", "paramedics on hand", "medical training", "power of attorney"]).GetWord()
+		
+		return sText
+
+# class TweetTxtGen29(TweetTxtGen):
 	# The sexy read that was BANNED on Amazon! Now available on Smashwords
-	# ID = 25
+	# ID = 29
 	# Priority = 2
 	
 	# def GenerateTweet(self):
@@ -532,10 +591,10 @@ class TweetTxtGen24(TweetTxtGen):
 		# sText = ""
 		
 		# return sText
-		
-# class TweetTxtGen26(TweetTxtGen):
+
+# class TweetTxtGen30(TweetTxtGen):
 	# The sexy read that was BANNED on Amazon! Now available on Smashwords
-	# ID = 26
+	# ID = 30
 	# Priority = 2
 	
 	# def GenerateTweet(self):
@@ -543,10 +602,10 @@ class TweetTxtGen24(TweetTxtGen):
 		# sText = ""
 		
 		# return sText
-		
-# class TweetTxtGen27(TweetTxtGen):
+
+# class TweetTxtGen31(TweetTxtGen):
 	# The sexy read that was BANNED on Amazon! Now available on Smashwords
-	# ID = 27
+	# ID = 31
 	# Priority = 2
 	
 	# def GenerateTweet(self):
@@ -554,7 +613,61 @@ class TweetTxtGen24(TweetTxtGen):
 		# sText = ""
 		
 		# return sText
+
+# class TweetTxtGen32(TweetTxtGen):
+	# The sexy read that was BANNED on Amazon! Now available on Smashwords
+	# ID = 32
+	# Priority = 2
+	
+	# def GenerateTweet(self):
+		# super().GenerateTweet()
+		# sText = ""
 		
+		# return sText
+
+# class TweetTxtGen33(TweetTxtGen):
+	# The sexy read that was BANNED on Amazon! Now available on Smashwords
+	# ID = 33
+	# Priority = 2
+	
+	# def GenerateTweet(self):
+		# super().GenerateTweet()
+		# sText = ""
+		
+		# return sText
+
+# class TweetTxtGen34(TweetTxtGen):
+	# The sexy read that was BANNED on Amazon! Now available on Smashwords
+	# ID = 34
+	# Priority = 2
+	
+	# def GenerateTweet(self):
+		# super().GenerateTweet()
+		# sText = ""
+		
+		# return sText
+
+# class TweetTxtGen35(TweetTxtGen):
+	# The sexy read that was BANNED on Amazon! Now available on Smashwords
+	# ID = 35
+	# Priority = 2
+	
+	# def GenerateTweet(self):
+		# super().GenerateTweet()
+		# sText = ""
+		
+		# return sText
+
+# class TweetTxtGen36(TweetTxtGen):
+	# The sexy read that was BANNED on Amazon! Now available on Smashwords
+	# ID = 36
+	# Priority = 2
+	
+	# def GenerateTweet(self):
+		# super().GenerateTweet()
+		# sText = ""
+		
+		# return sText		
 
 class TweetTxtGenSelector():
 	GeneratorList = []

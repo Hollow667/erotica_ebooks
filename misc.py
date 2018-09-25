@@ -65,6 +65,7 @@ class Hashtags(WordList):
 	def __init__(self):
 		super().__init__(['50shades',
 			'amwriting',
+			'bookboost',
 			#'bitcoin',
 			#'blockchain',
 			'bot',
@@ -74,7 +75,9 @@ class Hashtags(WordList):
 			'eartg','eartg',
 			'erotic',
 			'erotica','erotica',
+			'eroticromance',
 			'fiftyshades',
+			'kink',
 			#'litecoin',
 			'lovestory',
 			'lprtg','lprtg',
