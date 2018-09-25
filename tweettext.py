@@ -581,16 +581,35 @@ class TweetTxtGen28(TweetTxtGen):
 		
 		return sText
 
-# class TweetTxtGen29(TweetTxtGen):
-	# The sexy read that was BANNED on Amazon! Now available on Smashwords
-	# ID = 29
-	# Priority = 2
+class TweetTxtGen29(TweetTxtGen):
+	# I was hoping that Emily would hook up with Brad, but then SURPRISE! anal threesome with Jack!
+	ID = 29
+	Priority = 300
 	
-	# def GenerateTweet(self):
-		# super().GenerateTweet()
-		# sText = ""
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sText = ""
 		
-		# return sText
+		sHerName = NamesFemale().FirstName()
+		sHisName = NamesMale().FirstName()
+		sTheirName = ""
+		
+		if CoinFlip():
+			sTheirName = NamesFemale().FirstName()
+		else:
+			sTheirName = NamesMale().FirstName()
+			
+		sText = "I was rooting for " + sHerName + " " 
+		sText += WordList(["to hook up with", "to get with", "to get together with", "to wind up with"]).GetWord() + " "
+		sText += sHisName + ", but then " 
+		sText += WordList(["SURPISE!" "nope, boom!", "watch out!", "nuh uh!", "guess what?", "PLOT TWIST!", "what the fuck??", "*SHOCKER!*"]).GetWord()
+		sText += " she " + WordList(["does anal", "does lesbian anal", "gets fisted", "has her toes sucked", "tries nipple play", "has a threesome", "has a foursome", "has a fivesome", "gets bukkaked", "tries rope play", "tries water-sports", "becomes a cuck-quean", "sixty-nines", "gets choked", "rims", "does rimming", "joins an orgy", "gets gangbanged", "has a reverse gangbang", "does a double gangbang", "gets double penetrated", "gets triple penetrated", "films a porno", "does bondage", "gets a Dirty Sanchez", "tries girls", "does hot-wifing", "tries lesbian sex", "lets the guys in the gym watch her", "walks naked through Times Square", "gets her ass eaten"]).GetWord() + " with "
+		if CoinFlip():
+			sText += sTheirName + "!!"
+		else:
+			sText += "a " + WordList(["Unicorn", "Centaur", "Man-o-taur", "Gargoyle", "Werewolf", "Merman", "Dwarf", "Dragon", "Orc", "Pope", "Troll", "Goat-man", "Futanari", "Alien", "Tentacle Monster", "Clown", "Sumo Wrestler", "Were-horse", "T-Rex", "Velociraptor", "Stegosaur", "Plesiosaur", "Pterodactyl", "Reverse Merman", "Cyborg", "Vampire", "Zombie", "Were-shark", "Demon", "Incubus"]).GetWord().lower() + "!!"
+		
+		return sText
 
 # class TweetTxtGen30(TweetTxtGen):
 	# The sexy read that was BANNED on Amazon! Now available on Smashwords
