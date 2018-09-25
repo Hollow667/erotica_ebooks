@@ -602,8 +602,8 @@ class TweetTxtGen29(TweetTxtGen):
 		sText = "I was rooting for " + sHerName + " " 
 		sText += WordList(["to hook up with", "to get with", "to get together with", "to wind up with"]).GetWord() + " "
 		sText += sHisName + ", but then " 
-		sText += WordList(["SURPISE!" "nope, boom!", "watch out!", "nuh uh!", "guess what?", "PLOT TWIST!", "what the fuck??", "*SHOCKER!*"]).GetWord()
-		sText += " she " + WordList(["does anal", "does lesbian anal", "gets fisted", "has her toes sucked", "tries nipple play", "has a threesome", "has a foursome", "has a fivesome", "gets bukkaked", "tries rope play", "tries water-sports", "becomes a cuck-quean", "sixty-nines", "gets choked", "rims", "does rimming", "joins an orgy", "gets gangbanged", "has a reverse gangbang", "does a double gangbang", "gets double penetrated", "gets triple penetrated", "films a porno", "does bondage", "gets a Dirty Sanchez", "tries girls", "does hot-wifing", "tries lesbian sex", "lets the guys in the gym watch her", "walks naked through Times Square", "gets her ass eaten"]).GetWord() + " with "
+		sText += WordList(["SURPISE!" "nope, boom!", "watch out!", "nuh uh!", "guess what?", "*oh snap!!*", "PLOT TWIST!", "what the fuck??", "*SHOCKER!*"]).GetWord()
+		sText += " she " + WordList(["does anal", "does lesbian anal", "anal threesome", "fisting", "toe sucking", "tries nipple play", "it's a threesome", "it's a foursome", "it's a fucking fivesome", "bukkake", "rope play", "she tries water-sports", "she becomes a cuck-quean", "sixty-nines", "gets choked", "does rimming", "joins an orgy", "gangbang", "reverse gangbang", "does a double gangbang", "double penetration", "triple penetration", "she films a porno", "does bondage", "a Dirty Sanchez", "hot-wifing", "lets the guys in the gym watch her", "walks naked through Times Square", "gets her ass eaten", "analingus", "she spreads her legs", "a footjob"]).GetWord() + " with "
 		if CoinFlip():
 			sText += sTheirName + "!!"
 		else:
