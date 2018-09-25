@@ -7,6 +7,7 @@ from io import BytesIO
 from random import *
 from util import *
 from generators import *
+from tweettext import *
 from twitter_stuff import *
 
 def ReplyResponder(e, api, iReplyTimer):
@@ -35,6 +36,7 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = False, iTweets = 1, bLoop = False
 	bTest = False 
 	
 	TweetHistoryQ = HistoryQWithLog(HISTORYQ_FILENAME)
+	TweetTxtHistoryQ = HistoryQWithLog(TWEETTXT_HISTORYQ_FILENAME, iQSize = 4)
 	
 	try:
 		api = InitTweepy()
@@ -67,7 +69,7 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = False, iTweets = 1, bLoop = False
 			sTweet = Gen.GenerateTweet()
 			if len(sTweet) > 0:
 				if Gen.Type != GeneratorType.Promo:
-					sText = GetImgTweetText(Gen)
+					sText = GetImgTweetText(bTest = False, TweetTxtHistoryQ = TweetTxtHistoryQ)
 				
 				print("\n===Here is your " + str(len(sTweet)) + " char tweet (" + str(i + 1) + " of " + str(iTweets) + ")===")
 				print("[" + sTweet + "]")
@@ -104,6 +106,7 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = False, iTweets = 1, bLoop = False
 							status = UpdateStatusWithImage(api, sText, ImgFile, status.id)	
 					
 					TweetHistoryQ.LogHistoryQ()
+					TweetTxtHistoryQ.LogHistoryQ()
 					
 					#make timer slightly variable +-33%
 					if iTweetTimer > 180:

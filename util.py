@@ -14,6 +14,7 @@ TWIT_USERNAME = 'erotica_ebooks'
 
 Q_SIZE = 12
 HISTORYQ_FILENAME = 'history_q.txt'
+TWEETTXT_HISTORYQ_FILENAME = 'tweettxt_history_q.txt'
 
 TAG_PEN = "sex act with penetration scene"
 TAG_NON_PEN = "non-penetrative sex act scene"
