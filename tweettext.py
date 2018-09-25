@@ -584,7 +584,7 @@ class TweetTxtGen28(TweetTxtGen):
 class TweetTxtGen29(TweetTxtGen):
 	# I was hoping that Emily would hook up with Brad, but then SURPRISE! anal threesome with Jack!
 	ID = 29
-	Priority = 300
+	Priority = 3
 	
 	def GenerateTweet(self):
 		super().GenerateTweet()
