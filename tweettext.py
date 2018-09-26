@@ -368,16 +368,17 @@ class TweetTxtGen15(TweetTxtGen):
 		return sText
 		
 class TweetTxtGen16(TweetTxtGen):
-	# SPOILER ALERT: Amber winds up trying twincest. 
+	# SPOILER ALERT: Amber winds up deep-throating a biker
 	ID = 16
-	Priority = 3
+	Priority = 300
 	
 	def GenerateTweet(self):
 		super().GenerateTweet()
 		sText = ""
 		
 		sText = "SPOILER ALERT: at the end, " + NamesFemale().FirstName() + " " 
-		sText += WordList(["does anal", "does lesbian anal", "gets fisted", "has her toes sucked", "tries nipple play", "has a threesome", "has a foursome", "has a fivesome", "gets bukkaked", "tries rope play", "tries water-sports", "becomes a cuck-quean", "tries 69", "gets choked", "tries rimming", "joins an orgy", "gets gangbanged", "tries a reverse gangbang", "tries a double gangbang", "gets double penetrated", "gets triple penetrated", "films a porno", "tries BDSM", "gets tied up", "gets a Dirty Sanchez", "tries girls", "does hot-wifing", "tries lesbian sex", "lets the guys in the gym watch", "walks naked through Times Square", "gets her ass eaten"]).GetWord() 
+		sText += WordList(["has anal sex with", "gets fisted by", "has her toes sucked by", "tries nipple play with", "has a threesome", "has a foursome with", "has a fivesome with", "gets bukkaked by", "tries rope play with", "tries water-sports with", "becomes a cuck-quean for", "sixty-nines", "gets choked by", "rims", "joins an orgy with", "gets gangbanged by", "tries a reverse gangbang with", "tries a double gangbang with", "gets double penetrated by", "gets triple penetrated by", "films a porno with", "tries BDSM with", "gets tied upby", "gets dominated by", "gets a Dirty Sanchez from", "gets hot-wifed to", "lets the guys in the gym watch her with", "walks naked through Times Square", "gets her ass eaten by", "spreads her legs for", "spreads her cheeks for", "bends over for", "deep-throats", "gets tea-bagged by"]).GetWord() + " "
+		sText += WordList(["a lumberjack", "a fireman", "a policeman", "a lifeguard", "a stunt man", "a bull rider", "a park ranger", "a fighter pilot", "a Chippendales dancer", "an astronaut", "a Navy SEAL", "a Green Beret", "a cowboy", "a guitar player", "an olympic gold medalist", "a pro surfer", "a private eye", "a paramedic", "a mechanic", "a biker", "a life drawing model", "a pirate captain", "a highwayman", "a troubador", "a Viking warrior"]).GetWord() 
 		
 		return sText
 		
@@ -391,7 +392,8 @@ class TweetTxtGen17(TweetTxtGen):
 		sText = ""
 		
 		sText = WordList(["Delightful and provcative", "Good book", "I enjoyed this", "This was a good read", "Pretty good read", "Fun book", "A real page-turner"]).GetWord() + ", but was the "
-		sText += WordList(["anal", "lesbian anal", "fisting", "toe-sucking", "nipple play", "incest", "twincest", "threesome", "foursome", "fivesome", "bukkake", "rope play", "water-sports", "cuck-queaning", "69", "choking", "an orgy", "a gangbang", "a reverse gangbang", "a double gangbang", "double penetration", "triple penetration", "porn", "BDSM", "bondage", "Dirty Sanchez", "hot-wifing", "water-sports"]).GetWord() + " "
+		sText += WordList(["tentacle", "unicorn", "centaur", "man-o-taur", "gargoyle", "werewolf", "merman", "dwarf", "dragon", "orc", "troll", "goat-man", "futa", "alien", "tentacle monster", "clown", "sumo wrestler", "were-horse", "t-rex", "velociraptor", "dinosaur", "reverse merman", "cyborg", "were-shark", "gay", "lesbian", "dinosaur", "gargoyle", "lumberjack", "SWAT team", "construction worker", "male stripper", "cowboy", "MMA fighter"]).GetWord() + " "
+		sText += WordList(["anal", "fisting", "toe-sucking", "nipple play", "incest", "twincest", "threesome", "foursome", "fivesome", "bukkake", "rope play", "water-sports", "cuck-queaning", "69", "choking", "orgy", "gangbang", "reverse gangbang", "double gangbang", "double penetration", "triple penetration", "porn", "BDSM", "bondage", "Dirty Sanchez", "hot-wifing", "water-sports", "enema", "rimming", "analingus", "glory hole", "fellatio", "deep throat", "cuckolding"]).GetWord() + " "
 		sText += "scene really necessary?"
 		
 		return sText
@@ -432,7 +434,7 @@ class TweetTxtGen19(TweetTxtGen):
 class TweetTxtGen20(TweetTxtGen):
 	# Reply to this tweet and I'll tweet a randomly-generated naughty ebook title @ you!
 	ID = 20
-	Priority = 3
+	Priority = 2
 	
 	def GenerateTweet(self):
 		super().GenerateTweet()
@@ -575,7 +577,7 @@ class TweetTxtGen28(TweetTxtGen):
 		sText = ""
 		
 		sText = "Of course in real life you should never attempt " 
-		sText += WordList(["tentacle", "unicorn", "centaur", "man-o-taur", "gargoyle", "werewolf", "merman", "dwarf", "dragon", "orc", "troll", "goat-man", "futanari", "alien", "tentacle monster", "clown", "sumo qrestler", "were-horse", "t-rex", "velociraptor", "dinosaur", "reverse merman", "cyborg", "were-shark"]).GetWord() + " "
+		sText += WordList(["tentacle", "unicorn", "centaur", "man-o-taur", "gargoyle", "werewolf", "merman", "dwarf", "dragon", "orc", "troll", "goat-man", "futanari", "alien", "tentacle monster", "clown", "sumo wrestler", "were-horse", "t-rex", "velociraptor", "dinosaur", "reverse merman", "cyborg", "were-shark"]).GetWord() + " "
 		sText += WordList(["anal", "double anal", "fisting", "nipple play", "incest", "twincest", "cum-swapping", "bukkake", "rope play", "pee-drinking", "cuckolding", "69", "choking", "double gangbang", "double penetration", "triple penetration", "BDSM", "bondage", "water-sports", "public humiliation", "lactation", "age play", "edging", "forced orgasm", "domination", "submission"]).GetWord() + " "
 		sText += "without " + WordList(["strict medical supervision", "a note from your doctor", "waiting at least two hours after eating", "guidance from a trained professional", "help from a licensed dominatrix", "the buddy system", "regular checkups", "notifying the police", "an ambulance standing by", "a certified SCUBA instructor", "a friend that you can trust", "telling someone where you are", "paramedics on hand", "medical training", "power of attorney"]).GetWord()
 		
@@ -602,8 +604,8 @@ class TweetTxtGen29(TweetTxtGen):
 		sText = "I was rooting for " + sHerName + " " 
 		sText += WordList(["to hook up with", "to get with", "to get together with", "to wind up with"]).GetWord() + " "
 		sText += sHisName + ", but then " 
-		sText += WordList(["SURPISE!" "nope, boom!", "watch out!", "nuh uh!", "guess what?", "*oh snap!!*", "PLOT TWIST!", "what the fuck??", "*SHOCKER!*"]).GetWord()
-		sText += " she " + WordList(["does anal", "does lesbian anal", "anal threesome", "fisting", "toe sucking", "tries nipple play", "it's a threesome", "it's a foursome", "it's a fucking fivesome", "bukkake", "rope play", "she tries water-sports", "she becomes a cuck-quean", "sixty-nines", "gets choked", "does rimming", "joins an orgy", "gangbang", "reverse gangbang", "does a double gangbang", "double penetration", "triple penetration", "she films a porno", "does bondage", "a Dirty Sanchez", "hot-wifing", "lets the guys in the gym watch her", "walks naked through Times Square", "gets her ass eaten", "analingus", "she spreads her legs", "a footjob"]).GetWord() + " with "
+		sText += WordList(["SURPISE!", "nope, boom!", "watch out!", "*WOW!*", "nuh uh!", "guess what?", "*oh snap!!*", "PLOT TWIST!", "what the fuck??", "*SHOCKER!*"]).GetWord() + " "
+		sText += WordList(["she does anal", "she does lesbian anal", "anal threesome", "fisting", "toe sucking", "she tries nipple play", "it's a threesome", "it's a foursome", "it's a fucking fivesome", "bukkake", "rope play", "she tries water-sports", "she becomes a cuck-quean", "she sixty-nines", "she gets choked", "she does rimming", "she joins an orgy", "gangbang", "reverse gangbang", "she does a double gangbang", "double penetration", "triple penetration", "she films a porno", "she does bondage", "a Dirty Sanchez", "hot-wifing", "she lets the guys in the gym watch her", "she walks naked through Times Square", "she gets her ass eaten", "analingus", "she spreads her legs", "a footjob"]).GetWord() + " with "
 		if CoinFlip():
 			sText += sTheirName + "!!"
 		else:
@@ -611,16 +613,23 @@ class TweetTxtGen29(TweetTxtGen):
 		
 		return sText
 
-# class TweetTxtGen30(TweetTxtGen):
-	# The sexy read that was BANNED on Amazon! Now available on Smashwords
-	# ID = 30
-	# Priority = 2
+class TweetTxtGen30(TweetTxtGen):
+	# I was stunned when it was revealed that Jack the handsome Cowboy was actually a gazillionaire!
+	ID = 30
+	Priority = 3
 	
-	# def GenerateTweet(self):
-		# super().GenerateTweet()
-		# sText = ""
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sText = ""
 		
-		# return sText
+		sHisName = NamesMale().FirstName()
+		
+		sText = "I was " + WordList(["stunned", "shocked", "flabbergasted", "floored", "blown away", "so surprised"]).GetWord() + " when it was revealed that "
+		sText += sHisName + " the " + WordList(["sexy", "hot", "hunky", "handsome", "shirtless", "brawny", "virile", "clean-cut", "stylish", "suave", "smooth-talking", "gruff", "chiseled", "strapping", "attractive", "erotic", "stunning", "well-hung", "well-endowed", "girthy", "gentlemanly", "charming", "blonde", "brunette", "redheaded", "taciturn", "rakish", "heart-throb", "beefcake", "tattooed", "bearded"]).GetWord() + " " 
+		sText += WordList(["lumberjack", "fireman", "policeman", "lifeguard", "stunt man", "bull rider", "park ranger", "pilot", "Chippendales dancer", "astronaut", "Navy SEAL", "Green Beret", "cowboy", "guitar player", "olympic gold medalist", "pro surfer", "private eye", "paramedic", "mechanic", "biker", "life drawing model", "pirate captain", "highwayman", "troubador", "Viking warrior", "family man"]).GetWord() + " "
+		sText += "was " + WordList(["really", "actually", "in fact"]).GetWord() + " a " + WordList(["millionaire", "multi-millionaire", "billionaire", "trillionaire", "gazillionaire", "king", "prince", "duke", "marquis", "manor lord", "sheikh", "pope", "crown prince", "CEO"]).GetWord() + "!"
+		
+		return sText
 
 # class TweetTxtGen31(TweetTxtGen):
 	# The sexy read that was BANNED on Amazon! Now available on Smashwords
