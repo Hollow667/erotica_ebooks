@@ -674,7 +674,7 @@ class TweetTxtGen31(TweetTxtGen):
 class TweetTxtGen32(TweetTxtGen):
 	# Ben Dover is definitely the best erotica author working in Tuscaloosa!
 	ID = 32
-	Priority = 200
+	Priority = 4
 	
 	def GenerateTweet(self):
 		super().GenerateTweet()
