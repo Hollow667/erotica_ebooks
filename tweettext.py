@@ -631,27 +631,79 @@ class TweetTxtGen30(TweetTxtGen):
 		
 		return sText
 
-# class TweetTxtGen31(TweetTxtGen):
-	# The sexy read that was BANNED on Amazon! Now available on Smashwords
-	# ID = 31
-	# Priority = 2
+class TweetTxtGen31(TweetTxtGen):
+	# ME YELLING AT THE MAIN CHARACTER: No Emily! You can't sleep with Jack! He's your long-lost twin brother!
+	ID = 31
+	Priority = 5
 	
-	# def GenerateTweet(self):
-		# super().GenerateTweet()
-		# sText = ""
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sText = ""
 		
-		# return sText
+		sHerName = NamesFemale().FirstName()
+		sHisName = NamesMale().FirstName()
+		
+		sHerName2 = NamesFemale().FirstName()
+		sHisName2 = NamesMale().FirstName()
+		
+		sText = "ME, " + WordList(["YELLING", "YELLING", "SCREAMING"]).GetWord() + " AT THE " + WordList(["BOOK", "BOOK", "PAGE", "MAIN CHARACTER"]).GetWord() + ": No " + sHerName + "! You can't " + WordList(["sleep with", "sleep with", "have sex with", "hook up with"]).GetWord () + " " + sHisName + "! "
+		sText += "He " + WordList(["is your long lost twin brother", 
+									"is secretly married to " + sHerName2, 
+									"used to be a woman named " + sHerName2, 
+									"is the serial killer that's been terrorizing " + WordList(["Tulsa", "Tuscaloosa", "Scranton", "Hull", "Livepool", "Huddersfield", "Jacksonville", "Plano", "Fort Wayne", "Calgary"]).GetWord(),
+									"just wants you for your " + WordList(["millions", "billions", "bitcoin", "successful fondue restaurant", "enormous titties"]).GetWord(), 
+									"is the brother your parents hid from you", 
+									"has a secret family with " + sHerName2, 
+									"is the mysterious man in black that shot your father",
+									"is an imposter named " + sHisName2 + " and he's really from " + WordList(["Alabama", "Hull", "Essex", "Sussex", "Florida", "Arkansas", "Scranton", "Northampton", "Jacksonville", "Liverpool", "Plano", "Cardiff", "New Jersey"]).GetWord(),
+									"is your brother whom you forgot about due to your amnesia",
+									"is secretly a " + WordList(["werewolf", "were-horse", "were-shark", "were-gorilla", "were-dinosaur"]).GetWord(),
+									"is being mind-controlled by Majestic 12",
+									"is an evil clone",
+									"is the father you've never met",
+									"is a hitman for the " + WordList(["Italian", "Irish", "Russian", "French", "Canadian", "French-Canadian", "Sicilian", "Japanese", "Hawaiian", "Belgian"]).GetWord() + " mafia",
+									"has a secret prosthetic " + WordList(["nose", "nose", "ear", "nipple", "ass", "penis", "dick", "cock"]).GetWord(),
+									"is secretly from " + WordList(["Alabama", "Canada", "Essex", "Sussex", "Florida", "Arkansas", "Scranton", "Northampton", "Cardiff", "New Jersey"]).GetWord(),
+									"is in love with " + sHerName2,
+									"is in love with " + sHisName2,
+									"is blackmailing your " + WordList(["brother", "dad", "mom", "step-brother", "sister", "sister-in-law", "step-dad"]).GetWord(),
+									"has no sense of smell"]).GetWord() + "!"
+		
+		return sText
 
-# class TweetTxtGen32(TweetTxtGen):
-	# The sexy read that was BANNED on Amazon! Now available on Smashwords
-	# ID = 32
-	# Priority = 2
+class TweetTxtGen32(TweetTxtGen):
+	# Ben Dover is definitely the best erotica author working in Tuscaloosa!
+	ID = 32
+	Priority = 200
 	
-	# def GenerateTweet(self):
-		# super().GenerateTweet()
-		# sText = ""
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sText = ""
 		
-		# return sText
+		sAuthor = AuthorBuilder()
+		sSuper = WordList(["best", "premier", "finest", "#1"]).GetWord()
+		sType = WordList(["erotica", "erotica", "smut", "erotic romance", "naughty romance", "adult romance", "adult erotic romance", "fetish-friendly romance", "kink-friendly erotica", "erotic space opera", "erotic detective fiction", "kink-friendly LitRPG", "lesbian cozy mystery", "fetish cozy mystery", "erotic cookbook"]).GetWord()
+		
+		sPlace = ""
+		if CoinFlip():
+			sPlace += "in " 
+			if CoinFlip():
+				sPlace += WordList(["north", "south", "east", "west"]).GetWord() + " "
+			sPlace += WordList(["Tulsa", "Tuscaloosa", "Scranton", "Hull", "Huddersfield", "Jacksonville", "Plano", "Fort Wayne", "Calgary", "Liverpool", "Northampton", "Sussex", "Essex", "Cardiff"]).GetWord()
+		else:
+			sPlace += "from " 
+			if CoinFlip():
+				sPlace += WordList(["north", "south", "east", "west"]).GetWord() + " "
+			sPlace += WordList(["Alabama", "Arkansas", "Canada", "Liverpool", "Northampton", "Sussex", "Essex", "New Jersey", "Florida", "West Virginia"]).GetWord()
+			
+		sText = WordList(["There's no question that " + sAuthor + " is the ",
+						  sAuthor + " is absolutely the ",
+						  "There's no doubt in my mind that " + sAuthor + " is the ",
+						  "There can be no debate that " + sAuthor + " is the ",
+						  "No one can deny that " + sAuthor + " is the "]).GetWord()
+		sText += sSuper + " " + sType + " writer " + sPlace
+		
+		return sText
 
 # class TweetTxtGen33(TweetTxtGen):
 	# The sexy read that was BANNED on Amazon! Now available on Smashwords
