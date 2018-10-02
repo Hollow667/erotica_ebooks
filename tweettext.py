@@ -715,7 +715,7 @@ class TweetTxtGen33(TweetTxtGen):
 		sText = ""
 		
 		Adjs = WordList(["thrilling", "wild", "erotic", "horny", "delightful", "sinful", "arousing", "naughty", "depraved", "lustful", "wicked", "outrageous", "delicious", "stimulating", "sexy", "provocative"])
-		Celebs = WordList(["Abraham Lincoln", "Winston Churchill", "Barak Obama", "Mother Theresa", "Martin Luther King, Jr.", "Nelson Mandela", "Salman Rushdie", "Albert Einstein", "Hillary Clinton", "Maya Angelou", "Isaac Asimov", "Jonathan Franzen", "Cormac McCarthy", "Kofi Annan", "Boutros Boutros-Ghali", "Bob Dylan"])
+		Celebs = WordList(["Abraham Lincoln", "Winston Churchill", "Barak Obama", "Mother Theresa", "Martin Luther King, Jr.", "Nelson Mandela", "Salman Rushdie", "Albert Einstein", "Hillary Clinton", "Maya Angelou", "Isaac Asimov", "Jonathan Franzen", "Cormac McCarthy", "Ghandi", "Boutros Boutros-Ghali", "Bob Dylan", "The Dalai Lama"])
 		
 		if CoinFlip():
 			sAdj1 = Adjs.GetWord()
