@@ -705,16 +705,38 @@ class TweetTxtGen32(TweetTxtGen):
 		
 		return sText
 
-# class TweetTxtGen33(TweetTxtGen):
-	# The sexy read that was BANNED on Amazon! Now available on Smashwords
-	# ID = 33
-	# Priority = 2
+class TweetTxtGen33(TweetTxtGen):
+	# "A wild fuckfest!" -Abraham Lincoln
+	ID = 33
+	Priority = 2
 	
-	# def GenerateTweet(self):
-		# super().GenerateTweet()
-		# sText = ""
+	def GenerateTweet(self):
+		super().GenerateTweet()
+		sText = ""
 		
-		# return sText
+		Adjs = WordList(["thrilling", "wild", "erotic", "horny", "delightful", "sinful", "arousing", "naughty", "depraved", "lustful", "wicked", "outrageous", "delicious", "stimulating", "sexy", "provocative"])
+		Celebs = WordList(["Abraham Lincoln", "Winston Churchill", "Barak Obama", "Mother Theresa", "Martin Luther King, Jr.", "Nelson Mandela", "Salman Rushdie", "Albert Einstein", "Hillary Clinton", "Maya Angelou", "Isaac Asimov", "Jonathan Franzen", "Cormac McCarthy", "Kofi Annan", "Boutros Boutros-Ghali", "Bob Dylan"])
+		
+		if CoinFlip():
+			sAdj1 = Adjs.GetWord()
+			sAdj2 = Adjs.GetWord(NotList = [sAdj1])
+			sText = "\"" + sAdj1.title() + " and " + sAdj2 + "!\"\n"
+		elif CoinFlip():
+			sAdj = Adjs.GetWord()
+			if sAdj[0] in ('a','e','i','o','u'):
+				sText = "\"An " + sAdj + " fuckfest!\"\n"
+			else: 
+				sText = "\"A " + sAdj + " fuckfest!\"\n"
+		elif CoinFlip():
+			sText = "\"I'm so horny for this!\"\n" 
+		elif CoinFlip():
+			sText = "\"I got off on this!\"\n" 
+		else:
+			sText = "\"What the fuck did I just read??\"\n" 
+			
+		sText += " ~" + Celebs.GetWord()
+		
+		return sText
 
 # class TweetTxtGen34(TweetTxtGen):
 	# The sexy read that was BANNED on Amazon! Now available on Smashwords
@@ -787,6 +809,8 @@ class TweetTxtGenSelector():
 					Generator = gen[1]
 					break
 					
+		return Generator 
+					
 
 		
 def GetImgTweetText(bTest, iGeneratorNo = 0, bAllowPromo = True, Type = None, TweetTxtHistoryQ = None):
@@ -801,18 +825,15 @@ def GetImgTweetText(bTest, iGeneratorNo = 0, bAllowPromo = True, Type = None, Tw
 		GenType = Type 
 	else:
 		GenType = None 
-	#print("GetTweet() Generator Type is " + str(GenType))
+	# print("GetImgTweetText() Generator Type is " + str(GenType))
+	# print("GetImgTweetText() Generator # is " + str(iGeneratorNo))
 	
 	if not TweetTxtHistoryQ is None:
 		HistoryQ = TweetTxtHistoryQ
 	
-	iSwitch = 999
-	
 	GenSel = TweetTxtGenSelector()
 	if bTest:
 		gen = GenSel.GetGenerator(iGeneratorNo)
-		if not gen == None:
-			Generator = gen
 	else:
 		gen = GenSel.RandomGenerator(bAllowPromo = bAllowPromo, Type = GenType)
 		while not HistoryQ.PushToHistoryQ(gen.ID):
@@ -821,6 +842,7 @@ def GetImgTweetText(bTest, iGeneratorNo = 0, bAllowPromo = True, Type = None, Tw
 	if not gen is None:
 		sText = gen.GenerateTweet()
 	else:
+		print("Generator not found.")
 		sText = ""
 
 	# bots using hashtags can lead to shadowbans. so we have to use sparingly.

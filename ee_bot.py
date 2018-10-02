@@ -28,7 +28,7 @@ def ReplyResponder(e, api, iReplyTimer):
 				break
 	print("Exiting ReplyResponder()")
 	
-def InitBot(iTweetTimer, iReplyTimer, bTweet = False, iTweets = 1, bLoop = False, iGeneratorNo = -1):
+def InitBot(iTweetTimer, iReplyTimer, bTweet = False, iTweets = 1, bLoop = False, iGeneratorNo = -1, iTweetTxtNo = -1):
 	print("=*=*=*= EROTICA_EBOOKS BOT IS RUNNING (@erotica_ebooks) =*=*=*=\n\n")
 	print("===InitBot() iTweetTimer=" + str(iTweetTimer) + ", iReplyTimer=" + str(iReplyTimer) + ", bTweet=" + str(bTweet) + ", iTweets=" + str(iTweets) + ",bLoop=" + str(bLoop) + ",iGeneratorNo=" + str(iGeneratorNo) + "\n")
 	
@@ -69,7 +69,10 @@ def InitBot(iTweetTimer, iReplyTimer, bTweet = False, iTweets = 1, bLoop = False
 			sTweet = Gen.GenerateTweet()
 			if len(sTweet) > 0:
 				if Gen.Type != GeneratorType.Promo:
-					sText = GetImgTweetText(bTest = False, TweetTxtHistoryQ = TweetTxtHistoryQ)
+					if iTweetTxtNo > 0:
+						sText = GetImgTweetText(bTest = True, TweetTxtHistoryQ = TweetTxtHistoryQ, iGeneratorNo = iTweetTxtNo)
+					else:
+						sText = GetImgTweetText(bTest = False, TweetTxtHistoryQ = TweetTxtHistoryQ)
 				
 				print("\n===Here is your " + str(len(sTweet)) + " char tweet (" + str(i + 1) + " of " + str(iTweets) + ")===")
 				print("[" + sTweet + "]")
