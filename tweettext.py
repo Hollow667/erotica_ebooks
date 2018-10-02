@@ -708,13 +708,13 @@ class TweetTxtGen32(TweetTxtGen):
 class TweetTxtGen33(TweetTxtGen):
 	# "A wild fuckfest!" -Abraham Lincoln
 	ID = 33
-	Priority = 2
+	Priority = 4
 	
 	def GenerateTweet(self):
 		super().GenerateTweet()
 		sText = ""
 		
-		Adjs = WordList(["thrilling", "wild", "erotic", "horny", "delightful", "sinful", "arousing", "naughty", "depraved", "lustful", "wicked", "outrageous", "delicious", "stimulating", "sexy", "provocative"])
+		Adjs = WordList(["thrilling", "wild", "sensual", "perverted", "raunchy", "tasteless", "lascivious", "erotic", "horny", "delightful", "sinful", "arousing", "naughty", "depraved", "lustful", "wicked", "outrageous", "delicious", "stimulating", "sexy", "provocative"])
 		Celebs = WordList(["Abraham Lincoln", "Winston Churchill", "Barak Obama", "Mother Theresa", "Martin Luther King, Jr.", "Nelson Mandela", "Salman Rushdie", "Albert Einstein", "Hillary Clinton", "Maya Angelou", "Isaac Asimov", "Jonathan Franzen", "Cormac McCarthy", "Ghandi", "Boutros Boutros-Ghali", "Bob Dylan", "The Dalai Lama"])
 		
 		if CoinFlip():
@@ -727,6 +727,9 @@ class TweetTxtGen33(TweetTxtGen):
 				sText = "\"An " + sAdj + " fuckfest!\"\n"
 			else: 
 				sText = "\"A " + sAdj + " fuckfest!\"\n"
+		elif CoinFlip():
+			sAdj = Adjs.GetWord()
+			sText = "\"" + sAdj.title() + " AF!\"\n"
 		elif CoinFlip():
 			sText = "\"I'm so horny for this!\"\n" 
 		elif CoinFlip():
